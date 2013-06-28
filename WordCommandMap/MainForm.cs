@@ -10,20 +10,20 @@ using System.Windows.Forms;
 using Word = Microsoft.Office.Interop.Word;
 
 namespace WordCommandMap {
-    public partial class MainForm : Form {
-        public MainForm() {
-            InitializeComponent();
+	public partial class MainForm : Form {
+		private string m_WordFilename = null;
 
-            //RibbonPanel rp = new RibbonPanel("TEST");
-            //Controls.Add(rp);
-        }
+		public MainForm() {
+			InitializeComponent();
+		}
 
-        private void button1_Click(object sender, EventArgs e) {
-            ribbon1.Hide();
-            /*Word.Application app = new Word.Application();
-            app.Visible = true;
-            app.Documents.Open(@"chiParallelInterfaces-1-js.docx");
-            app.ActiveDocument.CommandBars.FindControl(Id: 109).Execute();*/
-        }
-    }
+		private void bStart_Click(object sender, EventArgs e) {
+			// Spawn Word.
+			WordInstance word = new WordInstance(m_WordFilename);
+
+			// Spawn the CommandMap form, and attach it to the Word window.
+			CommandMapForm cm = new CommandMapForm(word);
+			cm.Show();
+		}
+	}
 }
