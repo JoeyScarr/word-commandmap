@@ -14,18 +14,6 @@ namespace WordCommandMap {
 		[DllImport("user32.dll")]
 		public static extern IntPtr GetActiveWindow();
 
-		private struct WINDOWPLACEMENT {
-			public int length;
-			public int flags;
-			public int showCmd;
-			public Point ptMinPosition;
-			public Point ptMaxPosition;
-			public Rectangle rcNormalPosition;
-		}
-
-		[DllImport("user32.dll")]
-		private static extern bool GetWindowPlacement(IntPtr hWnd, ref WINDOWPLACEMENT lpwndpl);
-
 
 		[StructLayout(LayoutKind.Sequential)]
 		struct RECT {
