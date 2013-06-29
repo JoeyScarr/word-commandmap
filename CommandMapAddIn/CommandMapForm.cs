@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Word = Microsoft.Office.Interop.Word;
 
-namespace WordCommandMap {
+namespace CommandMapAddIn {
 	public partial class CommandMapForm : Form {
 
 		private WordInstance m_WordInstance;

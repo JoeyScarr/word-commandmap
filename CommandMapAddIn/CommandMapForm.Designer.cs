@@ -1,4 +1,4 @@
-﻿namespace WordCommandMap {
+﻿namespace CommandMapAddIn {
     partial class CommandMapForm {
         /// <summary>
         /// Required designer variable.
