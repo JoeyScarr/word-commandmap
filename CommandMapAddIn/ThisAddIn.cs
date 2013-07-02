@@ -6,20 +6,49 @@ using System.Xml.Linq;
 using Word = Microsoft.Office.Interop.Word;
 using Office = Microsoft.Office.Core;
 using Microsoft.Office.Tools.Word;
+using System.Windows.Forms;
+using Gma.UserActivityMonitor;
 
 namespace CommandMapAddIn {
 	public partial class ThisAddIn {
 
+		WordInstance m_Word;
+		CommandMapForm m_CommandMap;
+
 		private void ThisAddIn_Startup(object sender, System.EventArgs e) {
 			// Create a WordInstance
-			WordInstance word = new WordInstance(Application);
+			m_Word = new WordInstance(Application);
 
 			// Spawn the CommandMap form, and attach it to the Word window.
-			CommandMapForm cm = new CommandMapForm(word);
-			cm.Show();
+			m_CommandMap = new CommandMapForm(m_Word);
+
+			// Add a global hook.
+			HookManager.KeyDown += HookManager_KeyDown;
+			HookManager.KeyUp += HookManager_KeyUp;
+		}
+
+		void HookManager_KeyDown(object sender, KeyEventArgs e) {
+			var key = e.KeyCode;
+			if (key == Keys.ControlKey || key == Keys.LControlKey || key == Keys.RControlKey || key == Keys.Control) {
+				if (WindowsApi.GetForegroundWindow() == m_Word.WindowHandle && !m_CommandMap.Visible) {
+					m_CommandMap.Show();
+					Application.Activate();
+				}
+			} else {
+				m_CommandMap.Hide();
+			}
+		}
+
+		void HookManager_KeyUp(object sender, KeyEventArgs e) {
+			var key = e.KeyCode;
+			if (key == Keys.ControlKey || key == Keys.LControlKey || key == Keys.RControlKey || key == Keys.Control) {
+				m_CommandMap.Hide();
+			}
 		}
 
 		private void ThisAddIn_Shutdown(object sender, System.EventArgs e) {
+			// Remove hooks.
+			HookManager.ForceUnsubscribeFromGlobalKeyboardEvents();
 		}
 
 		protected override Microsoft.Office.Core.IRibbonExtensibility CreateRibbonExtensibilityObject() {

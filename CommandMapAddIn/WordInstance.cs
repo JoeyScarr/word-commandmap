@@ -46,8 +46,10 @@ namespace CommandMapAddIn {
 			return WindowsApi.GetWindowPosition(m_WindowHandle);
 		}
 
-		public void ColorPick() {
-			m_App.CommandBars.ExecuteMso("FontColorPicker");
+		public void SendCommand(string p) {
+			if (m_App.CommandBars.GetEnabledMso(p)) {
+				m_App.CommandBars.ExecuteMso(p);
+			}
 		}
 	}
 }
