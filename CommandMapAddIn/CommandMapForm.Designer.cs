@@ -32,7 +32,7 @@
 			this.editingPanel = new System.Windows.Forms.RibbonPanel();
 			this.ribbon2 = new System.Windows.Forms.Ribbon();
 			this.insertTab = new System.Windows.Forms.RibbonTab();
-			this.ribbonPanel3 = new System.Windows.Forms.RibbonPanel();
+			this.panelPages = new System.Windows.Forms.RibbonPanel();
 			this.ribbonComboBox1 = new System.Windows.Forms.RibbonComboBox();
 			this.ribbonPanel1 = new System.Windows.Forms.RibbonPanel();
 			this.ribbon3 = new System.Windows.Forms.Ribbon();
@@ -42,10 +42,16 @@
 			this.ribbon5 = new System.Windows.Forms.Ribbon();
 			this.mailingsTab = new System.Windows.Forms.RibbonTab();
 			this.ribbon6 = new System.Windows.Forms.Ribbon();
+			this.tabReview = new System.Windows.Forms.RibbonTab();
 			this.ribbon7 = new System.Windows.Forms.Ribbon();
 			this.viewTab = new System.Windows.Forms.RibbonTab();
 			this.reviewTab = new System.Windows.Forms.RibbonTab();
-			this.tabReview = new System.Windows.Forms.RibbonTab();
+			this.panelTables = new System.Windows.Forms.RibbonPanel();
+			this.panelIllustrations = new System.Windows.Forms.RibbonPanel();
+			this.panelLinks = new System.Windows.Forms.RibbonPanel();
+			this.panelHeaderFooter = new System.Windows.Forms.RibbonPanel();
+			this.panelText = new System.Windows.Forms.RibbonPanel();
+			this.panelSymbols = new System.Windows.Forms.RibbonPanel();
 			this.SuspendLayout();
 			// 
 			// ribbon1
@@ -132,12 +138,18 @@
 			// 
 			// insertTab
 			// 
-			this.insertTab.Panels.Add(this.ribbonPanel3);
+			this.insertTab.Panels.Add(this.panelPages);
+			this.insertTab.Panels.Add(this.panelTables);
+			this.insertTab.Panels.Add(this.panelIllustrations);
+			this.insertTab.Panels.Add(this.panelLinks);
+			this.insertTab.Panels.Add(this.panelHeaderFooter);
+			this.insertTab.Panels.Add(this.panelText);
+			this.insertTab.Panels.Add(this.panelSymbols);
 			this.insertTab.Text = "Insert";
 			// 
-			// ribbonPanel3
+			// panelPages
 			// 
-			this.ribbonPanel3.Text = "ribbonPanel3";
+			this.panelPages.Text = "Pages";
 			// 
 			// ribbonComboBox1
 			// 
@@ -267,6 +279,10 @@
 			this.ribbon6.TabsMargin = new System.Windows.Forms.Padding(12, 2, 20, 0);
 			this.ribbon6.Text = "ribbon6";
 			// 
+			// tabReview
+			// 
+			this.tabReview.Text = "Review";
+			// 
 			// ribbon7
 			// 
 			this.ribbon7.CaptionBarVisible = false;
@@ -301,9 +317,29 @@
 			// 
 			this.reviewTab.Text = "Review";
 			// 
-			// tabReview
+			// panelTables
 			// 
-			this.tabReview.Text = "Review";
+			this.panelTables.Text = "Tables";
+			// 
+			// panelIllustrations
+			// 
+			this.panelIllustrations.Text = "Illustrations";
+			// 
+			// panelLinks
+			// 
+			this.panelLinks.Text = "Links";
+			// 
+			// panelHeaderFooter
+			// 
+			this.panelHeaderFooter.Text = "Header & Footer";
+			// 
+			// panelText
+			// 
+			this.panelText.Text = "Text";
+			// 
+			// panelSymbols
+			// 
+			this.panelSymbols.Text = "Symbols";
 			// 
 			// CommandMapForm
 			// 
@@ -335,7 +371,7 @@
         private System.Windows.Forms.RibbonPanel fontPanel;
         private System.Windows.Forms.Ribbon ribbon2;
         private System.Windows.Forms.RibbonTab insertTab;
-        private System.Windows.Forms.RibbonPanel ribbonPanel3;
+        private System.Windows.Forms.RibbonPanel panelPages;
 				private System.Windows.Forms.RibbonComboBox ribbonComboBox1;
 				private System.Windows.Forms.RibbonPanel paragraphPanel;
 				private System.Windows.Forms.RibbonPanel stylesPanel;
@@ -352,6 +388,12 @@
 				private System.Windows.Forms.Ribbon ribbon7;
 				private System.Windows.Forms.RibbonTab viewTab;
 				private System.Windows.Forms.RibbonTab tabReview;
+				private System.Windows.Forms.RibbonPanel panelTables;
+				private System.Windows.Forms.RibbonPanel panelIllustrations;
+				private System.Windows.Forms.RibbonPanel panelLinks;
+				private System.Windows.Forms.RibbonPanel panelHeaderFooter;
+				private System.Windows.Forms.RibbonPanel panelText;
+				private System.Windows.Forms.RibbonPanel panelSymbols;
     }
 }
 

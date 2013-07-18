@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -53,25 +54,6 @@ namespace CommandMapAddIn {
 			base.Hide();
 		}
 
-		private void AssignAction(RibbonItem item, string msoName) {
-			if (item is RibbonButton) {
-				string smallIconPath = string.Format(@"ribbon-icons\small\{0}.png", msoName);
-				if (File.Exists(smallIconPath)) {
-					((RibbonButton)item).SmallImage = Image.FromFile(smallIconPath);
-				}
-			}
-			string largeIconPath = string.Format(@"ribbon-icons\large\{0}.png",msoName);
-			if (File.Exists(largeIconPath)) {
-				item.Image = Image.FromFile(largeIconPath);
-			}
-			item.Enabled = m_WordInstance.Application.CommandBars.GetEnabledMso(msoName);
-			EventHandler handler = new EventHandler(delegate(object sender, EventArgs ea) {
-				m_WordInstance.SendCommand(msoName);
-			});
-			item.Click += handler;
-			item.DoubleClick += handler;
-		}
-
 		private void FollowWordPosition() {
 			Rectangle windowRect = m_WordInstance.GetWindowPosition();
 			Left = windowRect.Left;
@@ -80,62 +62,97 @@ namespace CommandMapAddIn {
 			Height = windowRect.Height - TITLEBAR_HEIGHT - STATUSBAR_HEIGHT;
 		}
 
+		private void AssignImage(RibbonItem item, string msoName) {
+			// Get the first image
+			Image icon = (Image)Properties.Resources.ResourceManager.GetObject(msoName);
+			if (icon != null) {
+				if (icon.Width == 16) {
+					if (item is RibbonButton) {
+						((RibbonButton)item).SmallImage = icon;
+					}
+				} else {
+					item.Image = icon;
+				}
+			}
+			// Get the second image
+			Image icon1 = (Image)Properties.Resources.ResourceManager.GetObject(msoName + "1");
+			if (icon1 != null) {
+				if (icon1 != null) {
+					if (icon1.Width == 16) {
+						if (item is RibbonButton) {
+							((RibbonButton)item).SmallImage = icon1;
+						}
+					} else {
+						item.Image = icon1;
+					}
+				}
+			}
+		}
+
+		private void AssignAction(RibbonItem item, string msoName) {
+			item.Enabled = m_WordInstance.Application.CommandBars.GetEnabledMso(msoName);
+			EventHandler handler = new EventHandler(delegate(object sender, EventArgs ea) {
+				m_WordInstance.SendCommand(msoName);
+				Hide();
+			});
+			item.Click += handler;
+			item.DoubleClick += handler;
+		}
+
+		private RibbonButton AddButton(RibbonItemCollection collection, RibbonButtonStyle style, string label, string msoImageName,
+			string msoCommandName, RibbonElementSizeMode maxSizeMode = RibbonElementSizeMode.None) {
+
+			RibbonButton button = new RibbonButton();
+			button.Style = style;
+			button.MaxSizeMode = maxSizeMode;
+			button.Text = label;
+			AssignImage(button, msoImageName);
+			AssignAction(button, msoCommandName);
+			collection.Add(button);
+			return button;
+		}
+
 		private void BuildRibbon() {
-			// Paste button
-			RibbonButton paste = new RibbonButton();
-			paste.Style = RibbonButtonStyle.SplitDropDown;
-			paste.Text = "Paste";
-			paste.Image = Image.FromFile(@"ribbon-icons\large\Paste.png");
-			paste.SmallImage = Image.FromFile(@"ribbon-icons\small\Paste.png");
-			AssignAction(paste, "Paste");
-			clipboardPanel.Items.Add(paste);
+			/*********************************************
+			 * HOME TAB
+			 *********************************************/
+			// Clipboard panel
+			RibbonButton paste = AddButton(clipboardPanel.Items, RibbonButtonStyle.SplitDropDown, "Paste", "Paste", "Paste");
+			AddButton(paste.DropDownItems, RibbonButtonStyle.Normal, "Paste", "Paste", "Paste");
+			AddButton(paste.DropDownItems, RibbonButtonStyle.Normal, "Paste Special...", "PasteSpecialDialog", "PasteSpecialDialog");
+			AddButton(paste.DropDownItems, RibbonButtonStyle.Normal, "Paste as Hyperlink", "PasteAsHyperlink", "PasteAsHyperlink");
+			AddButton(clipboardPanel.Items, RibbonButtonStyle.Normal, "Cut", "Cut", "Cut", RibbonElementSizeMode.Medium);
+			AddButton(clipboardPanel.Items, RibbonButtonStyle.Normal, "Copy", "Copy", "Copy", RibbonElementSizeMode.Medium);
+			AddButton(clipboardPanel.Items, RibbonButtonStyle.Normal, "Format Painter", "FormatPainter", "FormatPainter", RibbonElementSizeMode.Medium);
 
-			// Paste menu
-			RibbonButton paste2 = new RibbonButton();
-			paste2.Text = "Paste";
-			paste2.Style = RibbonButtonStyle.Normal;
-			paste2.SmallImage = Image.FromFile(@"ribbon-icons\small\Paste.png");
-			AssignAction(paste2, "Paste");
-			paste.DropDownItems.Add(paste2);
-			RibbonButton pasteSpecial = new RibbonButton();
-			pasteSpecial.Text = "Paste Special...";
-			pasteSpecial.Style = RibbonButtonStyle.Normal;
-			pasteSpecial.SmallImage = Image.FromFile(@"ribbon-icons\small\PasteSpecialDialog.png");
-			AssignAction(pasteSpecial, "PasteSpecialDialog");
-			paste.DropDownItems.Add(pasteSpecial);
-			RibbonButton pasteAsHyperlink = new RibbonButton();
-			pasteAsHyperlink.Text = "Paste as Hyperlink";
-			pasteAsHyperlink.Style = RibbonButtonStyle.Normal;
-			pasteAsHyperlink.SmallImage = Image.FromFile(@"ribbon-icons\small\PasteAsHyperlink.png");
-			AssignAction(pasteAsHyperlink, "PasteAsHyperlink");
-			paste.DropDownItems.Add(pasteAsHyperlink);
 
-			// Cut button
-			RibbonButton cut = new RibbonButton();
-			cut.MaxSizeMode = RibbonElementSizeMode.Medium;
-			cut.Style = RibbonButtonStyle.Normal;
-			cut.Text = "Cut";
-			cut.SmallImage = Image.FromFile(@"ribbon-icons\small\Cut.png");
-			AssignAction(cut, "Cut");
-			clipboardPanel.Items.Add(cut);
+			/*********************************************
+			 * INSERT TAB
+			 *********************************************/
+			// Pages panel
+			AddButton(panelPages.Items, RibbonButtonStyle.DropDown, "Cover Page", "CoverPageInsertGallery", "CoverPageInsertGallery");
+			AddButton(panelPages.Items, RibbonButtonStyle.Normal, "Blank Page", "FileNew", "BlankPageInsert");
+			AddButton(panelPages.Items, RibbonButtonStyle.Normal, "Page Break", "PageBreakInsertOrRemove", "PageBreakInsertWord");
 
-			// Copy button
-			RibbonButton copy = new RibbonButton();
-			copy.MaxSizeMode = RibbonElementSizeMode.Medium;
-			copy.Style = RibbonButtonStyle.Normal;
-			copy.Text = "Copy";
-			copy.SmallImage = Image.FromFile(@"ribbon-icons\small\Copy.png");
-			AssignAction(copy, "Copy");
-			clipboardPanel.Items.Add(copy);
+			// Tables panel
+			AddButton(panelTables.Items, RibbonButtonStyle.DropDown, "Table", "TableInsert", "TableInsertGallery");
 
-			// Paste button
-			RibbonButton formatPainter = new RibbonButton();
-			formatPainter.MaxSizeMode = RibbonElementSizeMode.Medium;
-			formatPainter.Style = RibbonButtonStyle.Normal;
-			formatPainter.Text = "Format Painter";
-			formatPainter.SmallImage = Image.FromFile(@"ribbon-icons\small\FormatPainter.png");
-			AssignAction(formatPainter, "FormatPainter");
-			clipboardPanel.Items.Add(formatPainter);
+			// Illustrations panel
+			AddButton(panelIllustrations.Items, RibbonButtonStyle.Normal, "Picture", "PictureInsertFromFilePowerPoint", "PictureInsertFromFile");
+			AddButton(panelIllustrations.Items, RibbonButtonStyle.Normal, "Clip Art", "ClipArtInsert", "ClipArtInsert"); // Doesn't seem to work
+			AddButton(panelIllustrations.Items, RibbonButtonStyle.DropDown, "Shapes", "ShapesMoreShapes", "GalleryAllShapesAndCanvas");
+			AddButton(panelIllustrations.Items, RibbonButtonStyle.Normal, "SmartArt", "SmartArtInsert", "SmartArtInsert");
+			AddButton(panelIllustrations.Items, RibbonButtonStyle.Normal, "Chart", "ChartInsert", "ChartInsert");
+
+			// Links panel
+			AddButton(panelLinks.Items, RibbonButtonStyle.Normal, "Hyperlink", "HyperlinkInsert", "HyperlinkInsert");
+			AddButton(panelLinks.Items, RibbonButtonStyle.Normal, "Bookmark", "FrontPageToggleBookmark", "BookmarkInsert");
+			AddButton(panelLinks.Items, RibbonButtonStyle.Normal, "Cross-reference", "CrossReferenceInsert", "CrossReferenceInsert");
+
+			// Header & Footer panel
+			AddButton(panelHeaderFooter.Items, RibbonButtonStyle.DropDown, "Header", "HeaderInsertGallery", "HeaderInsertGallery");
+			AddButton(panelHeaderFooter.Items, RibbonButtonStyle.DropDown, "Footer", "FooterInsertGallery", "FooterInsertGallery");
+			AddButton(panelHeaderFooter.Items, RibbonButtonStyle.DropDown, "Page Number", "PageNambersInFooterInsertGallery", "PageNambersInFooterInsertGallery");
 			
 		}
 	}
