@@ -169,8 +169,6 @@
     <Compile Include="WordInstance.cs" />
     <EmbeddedResource Include="CommandMapForm.resx">
       <DependentUpon>CommandMapForm.cs</DependentUpon>
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>CommandMapForm1.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -218,7 +216,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Paste-small.bmp" />
     <None Include="ribbon-icons\large\AcceptInvitation.png" />
     <None Include="ribbon-icons\large\AccessFormDatasheet.png" />
     <None Include="ribbon-icons\large\AccessFormModalDialog.png" />

@@ -33,6 +33,12 @@
 			this.ribbon2 = new System.Windows.Forms.Ribbon();
 			this.insertTab = new System.Windows.Forms.RibbonTab();
 			this.panelPages = new System.Windows.Forms.RibbonPanel();
+			this.panelTables = new System.Windows.Forms.RibbonPanel();
+			this.panelIllustrations = new System.Windows.Forms.RibbonPanel();
+			this.panelLinks = new System.Windows.Forms.RibbonPanel();
+			this.panelHeaderFooter = new System.Windows.Forms.RibbonPanel();
+			this.panelText = new System.Windows.Forms.RibbonPanel();
+			this.panelSymbols = new System.Windows.Forms.RibbonPanel();
 			this.ribbonComboBox1 = new System.Windows.Forms.RibbonComboBox();
 			this.ribbonPanel1 = new System.Windows.Forms.RibbonPanel();
 			this.ribbon3 = new System.Windows.Forms.Ribbon();
@@ -46,12 +52,11 @@
 			this.ribbon7 = new System.Windows.Forms.Ribbon();
 			this.viewTab = new System.Windows.Forms.RibbonTab();
 			this.reviewTab = new System.Windows.Forms.RibbonTab();
-			this.panelTables = new System.Windows.Forms.RibbonPanel();
-			this.panelIllustrations = new System.Windows.Forms.RibbonPanel();
-			this.panelLinks = new System.Windows.Forms.RibbonPanel();
-			this.panelHeaderFooter = new System.Windows.Forms.RibbonPanel();
-			this.panelText = new System.Windows.Forms.RibbonPanel();
-			this.panelSymbols = new System.Windows.Forms.RibbonPanel();
+			this.panelThemes = new System.Windows.Forms.RibbonPanel();
+			this.panelPageSetup = new System.Windows.Forms.RibbonPanel();
+			this.panelPageBackground = new System.Windows.Forms.RibbonPanel();
+			this.panelParagraph = new System.Windows.Forms.RibbonPanel();
+			this.panelArrange = new System.Windows.Forms.RibbonPanel();
 			this.SuspendLayout();
 			// 
 			// ribbon1
@@ -151,6 +156,30 @@
 			// 
 			this.panelPages.Text = "Pages";
 			// 
+			// panelTables
+			// 
+			this.panelTables.Text = "Tables";
+			// 
+			// panelIllustrations
+			// 
+			this.panelIllustrations.Text = "Illustrations";
+			// 
+			// panelLinks
+			// 
+			this.panelLinks.Text = "Links";
+			// 
+			// panelHeaderFooter
+			// 
+			this.panelHeaderFooter.Text = "Header & Footer";
+			// 
+			// panelText
+			// 
+			this.panelText.Text = "Text";
+			// 
+			// panelSymbols
+			// 
+			this.panelSymbols.Text = "Symbols";
+			// 
 			// ribbonComboBox1
 			// 
 			this.ribbonComboBox1.AllowTextEdit = false;
@@ -191,6 +220,11 @@
 			// 
 			// pageLayoutTab
 			// 
+			this.pageLayoutTab.Panels.Add(this.panelThemes);
+			this.pageLayoutTab.Panels.Add(this.panelPageSetup);
+			this.pageLayoutTab.Panels.Add(this.panelPageBackground);
+			this.pageLayoutTab.Panels.Add(this.panelParagraph);
+			this.pageLayoutTab.Panels.Add(this.panelArrange);
 			this.pageLayoutTab.Text = "Page Layout";
 			// 
 			// ribbon4
@@ -317,29 +351,25 @@
 			// 
 			this.reviewTab.Text = "Review";
 			// 
-			// panelTables
+			// panelThemes
 			// 
-			this.panelTables.Text = "Tables";
+			this.panelThemes.Text = "Themes";
 			// 
-			// panelIllustrations
+			// panelPageSetup
 			// 
-			this.panelIllustrations.Text = "Illustrations";
+			this.panelPageSetup.Text = "Page Setup";
 			// 
-			// panelLinks
+			// panelPageBackground
 			// 
-			this.panelLinks.Text = "Links";
+			this.panelPageBackground.Text = "Page Background";
 			// 
-			// panelHeaderFooter
+			// panelParagraph
 			// 
-			this.panelHeaderFooter.Text = "Header & Footer";
+			this.panelParagraph.Text = "Paragraph";
 			// 
-			// panelText
+			// panelArrange
 			// 
-			this.panelText.Text = "Text";
-			// 
-			// panelSymbols
-			// 
-			this.panelSymbols.Text = "Symbols";
+			this.panelArrange.Text = "Arrange";
 			// 
 			// CommandMapForm
 			// 
@@ -394,6 +424,11 @@
 				private System.Windows.Forms.RibbonPanel panelHeaderFooter;
 				private System.Windows.Forms.RibbonPanel panelText;
 				private System.Windows.Forms.RibbonPanel panelSymbols;
+				private System.Windows.Forms.RibbonPanel panelThemes;
+				private System.Windows.Forms.RibbonPanel panelPageSetup;
+				private System.Windows.Forms.RibbonPanel panelPageBackground;
+				private System.Windows.Forms.RibbonPanel panelParagraph;
+				private System.Windows.Forms.RibbonPanel panelArrange;
     }
 }
 
