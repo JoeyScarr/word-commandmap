@@ -43,6 +43,11 @@
 			this.ribbonPanel1 = new System.Windows.Forms.RibbonPanel();
 			this.ribbon3 = new System.Windows.Forms.Ribbon();
 			this.pageLayoutTab = new System.Windows.Forms.RibbonTab();
+			this.panelThemes = new System.Windows.Forms.RibbonPanel();
+			this.panelPageSetup = new System.Windows.Forms.RibbonPanel();
+			this.panelPageBackground = new System.Windows.Forms.RibbonPanel();
+			this.panelParagraph = new System.Windows.Forms.RibbonPanel();
+			this.panelArrange = new System.Windows.Forms.RibbonPanel();
 			this.ribbon4 = new System.Windows.Forms.Ribbon();
 			this.referencesTab = new System.Windows.Forms.RibbonTab();
 			this.ribbon5 = new System.Windows.Forms.Ribbon();
@@ -52,11 +57,6 @@
 			this.ribbon7 = new System.Windows.Forms.Ribbon();
 			this.viewTab = new System.Windows.Forms.RibbonTab();
 			this.reviewTab = new System.Windows.Forms.RibbonTab();
-			this.panelThemes = new System.Windows.Forms.RibbonPanel();
-			this.panelPageSetup = new System.Windows.Forms.RibbonPanel();
-			this.panelPageBackground = new System.Windows.Forms.RibbonPanel();
-			this.panelParagraph = new System.Windows.Forms.RibbonPanel();
-			this.panelArrange = new System.Windows.Forms.RibbonPanel();
 			this.SuspendLayout();
 			// 
 			// ribbon1
@@ -227,6 +227,26 @@
 			this.pageLayoutTab.Panels.Add(this.panelArrange);
 			this.pageLayoutTab.Text = "Page Layout";
 			// 
+			// panelThemes
+			// 
+			this.panelThemes.Text = "Themes";
+			// 
+			// panelPageSetup
+			// 
+			this.panelPageSetup.Text = "Page Setup";
+			// 
+			// panelPageBackground
+			// 
+			this.panelPageBackground.Text = "Page Background";
+			// 
+			// panelParagraph
+			// 
+			this.panelParagraph.Text = "Paragraph";
+			// 
+			// panelArrange
+			// 
+			this.panelArrange.Text = "Arrange";
+			// 
 			// ribbon4
 			// 
 			this.ribbon4.CaptionBarVisible = false;
@@ -351,26 +371,6 @@
 			// 
 			this.reviewTab.Text = "Review";
 			// 
-			// panelThemes
-			// 
-			this.panelThemes.Text = "Themes";
-			// 
-			// panelPageSetup
-			// 
-			this.panelPageSetup.Text = "Page Setup";
-			// 
-			// panelPageBackground
-			// 
-			this.panelPageBackground.Text = "Page Background";
-			// 
-			// panelParagraph
-			// 
-			this.panelParagraph.Text = "Paragraph";
-			// 
-			// panelArrange
-			// 
-			this.panelArrange.Text = "Arrange";
-			// 
 			// CommandMapForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -389,6 +389,7 @@
 			this.ShowInTaskbar = false;
 			this.Text = "Form1";
 			this.TopMost = true;
+			this.Leave += new System.EventHandler(this.CommandMapForm_Leave);
 			this.ResumeLayout(false);
 
         }

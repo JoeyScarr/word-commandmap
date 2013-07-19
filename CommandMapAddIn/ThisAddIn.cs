@@ -15,6 +15,8 @@ namespace CommandMapAddIn {
 		WordInstance m_Word;
 		CommandMapForm m_CommandMap;
 
+		bool m_CtrlPressed = false;
+
 		private void ThisAddIn_Startup(object sender, System.EventArgs e) {
 			// Create a WordInstance
 			m_Word = new WordInstance(Application);
@@ -30,7 +32,8 @@ namespace CommandMapAddIn {
 		void HookManager_KeyDown(object sender, KeyEventArgs e) {
 			var key = e.KeyCode;
 			if (key == Keys.ControlKey || key == Keys.LControlKey || key == Keys.RControlKey || key == Keys.Control) {
-				if (WindowsApi.GetForegroundWindow() == m_Word.WindowHandle && !m_CommandMap.Visible) {
+				if (!m_CommandMap.Visible && !m_CtrlPressed && WindowsApi.GetForegroundWindow() == m_Word.WindowHandle) {
+					m_CtrlPressed = true;
 					m_CommandMap.Show();
 					Application.Activate();
 				}
@@ -42,6 +45,7 @@ namespace CommandMapAddIn {
 		void HookManager_KeyUp(object sender, KeyEventArgs e) {
 			var key = e.KeyCode;
 			if (key == Keys.ControlKey || key == Keys.LControlKey || key == Keys.RControlKey || key == Keys.Control) {
+				m_CtrlPressed = false;
 				m_CommandMap.Hide();
 			}
 		}

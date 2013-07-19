@@ -92,8 +92,9 @@ namespace CommandMapAddIn {
 		private void AssignAction(RibbonItem item, string msoName) {
 			item.Enabled = m_WordInstance.Application.CommandBars.GetEnabledMso(msoName);
 			EventHandler handler = new EventHandler(delegate(object sender, EventArgs ea) {
-				m_WordInstance.SendCommand(msoName);
 				Hide();
+				m_WordInstance.Application.Activate();
+				m_WordInstance.SendCommand(msoName);
 			});
 			item.Click += handler;
 			item.DoubleClick += handler;
@@ -204,6 +205,10 @@ namespace CommandMapAddIn {
 			AddButton(panelArrange.Items, RibbonButtonStyle.DropDown, "Rotate", "ObjectRotateGallery", "ObjectRotateGallery");
 
 
+		}
+
+		private void CommandMapForm_Leave(object sender, EventArgs e) {
+			Hide();
 		}
 	}
 }
