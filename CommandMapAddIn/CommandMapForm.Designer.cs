@@ -62,7 +62,7 @@
 			// ribbon1
 			// 
 			this.ribbon1.CaptionBarVisible = false;
-			this.ribbon1.Font = new System.Drawing.Font("Segoe UI", 9F);
+			this.ribbon1.Font = new System.Drawing.Font("Segoe UI", 8F);
 			this.ribbon1.Location = new System.Drawing.Point(0, 0);
 			this.ribbon1.Minimized = false;
 			this.ribbon1.Name = "ribbon1";
@@ -117,7 +117,7 @@
 			// ribbon2
 			// 
 			this.ribbon2.CaptionBarVisible = false;
-			this.ribbon2.Font = new System.Drawing.Font("Segoe UI", 9F);
+			this.ribbon2.Font = new System.Drawing.Font("Segoe UI", 8F);
 			this.ribbon2.Location = new System.Drawing.Point(0, 118);
 			this.ribbon2.Minimized = false;
 			this.ribbon2.Name = "ribbon2";
@@ -195,7 +195,7 @@
 			// ribbon3
 			// 
 			this.ribbon3.CaptionBarVisible = false;
-			this.ribbon3.Font = new System.Drawing.Font("Segoe UI", 9F);
+			this.ribbon3.Font = new System.Drawing.Font("Segoe UI", 8F);
 			this.ribbon3.Location = new System.Drawing.Point(0, 236);
 			this.ribbon3.Minimized = false;
 			this.ribbon3.Name = "ribbon3";
@@ -250,7 +250,7 @@
 			// ribbon4
 			// 
 			this.ribbon4.CaptionBarVisible = false;
-			this.ribbon4.Font = new System.Drawing.Font("Segoe UI", 9F);
+			this.ribbon4.Font = new System.Drawing.Font("Segoe UI", 8F);
 			this.ribbon4.Location = new System.Drawing.Point(0, 354);
 			this.ribbon4.Minimized = false;
 			this.ribbon4.Name = "ribbon4";
@@ -280,7 +280,7 @@
 			// ribbon5
 			// 
 			this.ribbon5.CaptionBarVisible = false;
-			this.ribbon5.Font = new System.Drawing.Font("Segoe UI", 9F);
+			this.ribbon5.Font = new System.Drawing.Font("Segoe UI", 8F);
 			this.ribbon5.Location = new System.Drawing.Point(0, 472);
 			this.ribbon5.Minimized = false;
 			this.ribbon5.Name = "ribbon5";
@@ -310,7 +310,7 @@
 			// ribbon6
 			// 
 			this.ribbon6.CaptionBarVisible = false;
-			this.ribbon6.Font = new System.Drawing.Font("Segoe UI", 9F);
+			this.ribbon6.Font = new System.Drawing.Font("Segoe UI", 8F);
 			this.ribbon6.Location = new System.Drawing.Point(0, 590);
 			this.ribbon6.Minimized = false;
 			this.ribbon6.Name = "ribbon6";
@@ -340,7 +340,7 @@
 			// ribbon7
 			// 
 			this.ribbon7.CaptionBarVisible = false;
-			this.ribbon7.Font = new System.Drawing.Font("Segoe UI", 9F);
+			this.ribbon7.Font = new System.Drawing.Font("Segoe UI", 8F);
 			this.ribbon7.Location = new System.Drawing.Point(0, 708);
 			this.ribbon7.Minimized = false;
 			this.ribbon7.Name = "ribbon7";
