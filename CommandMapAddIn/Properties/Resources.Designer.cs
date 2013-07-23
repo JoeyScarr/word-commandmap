@@ -83,9 +83,39 @@ namespace CommandMapAddIn.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap CaptionInsert {
+            get {
+                object obj = ResourceManager.GetObject("CaptionInsert", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CaptionInsert1 {
+            get {
+                object obj = ResourceManager.GetObject("CaptionInsert1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ChartInsert {
             get {
                 object obj = ResourceManager.GetObject("ChartInsert", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CitationMark {
+            get {
+                object obj = ResourceManager.GetObject("CitationMark", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -153,6 +183,16 @@ namespace CommandMapAddIn.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap CrossReferenceInsert1 {
+            get {
+                object obj = ResourceManager.GetObject("CrossReferenceInsert1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Cut {
             get {
                 object obj = ResourceManager.GetObject("Cut", resourceCulture);
@@ -193,6 +233,16 @@ namespace CommandMapAddIn.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap EndnoteInsertWord {
+            get {
+                object obj = ResourceManager.GetObject("EndnoteInsertWord", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap FileNew {
             get {
                 object obj = ResourceManager.GetObject("FileNew", resourceCulture);
@@ -206,6 +256,46 @@ namespace CommandMapAddIn.Properties {
         internal static System.Drawing.Bitmap FooterInsertGallery {
             get {
                 object obj = ResourceManager.GetObject("FooterInsertGallery", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap FootnoteInsert {
+            get {
+                object obj = ResourceManager.GetObject("FootnoteInsert", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap FootnoteInsert1 {
+            get {
+                object obj = ResourceManager.GetObject("FootnoteInsert1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap FootnoteNextWord {
+            get {
+                object obj = ResourceManager.GetObject("FootnoteNextWord", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap FootnotesEndnotesShow {
+            get {
+                object obj = ResourceManager.GetObject("FootnotesEndnotesShow", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -256,6 +346,26 @@ namespace CommandMapAddIn.Properties {
         internal static System.Drawing.Bitmap HyphenationOptions {
             get {
                 object obj = ResourceManager.GetObject("HyphenationOptions", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap IndexInsert {
+            get {
+                object obj = ResourceManager.GetObject("IndexInsert", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap IndexMarkEntry {
+            get {
+                object obj = ResourceManager.GetObject("IndexMarkEntry", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -646,6 +756,56 @@ namespace CommandMapAddIn.Properties {
         internal static System.Drawing.Bitmap TableInsert {
             get {
                 object obj = ResourceManager.GetObject("TableInsert", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap TableOfAuthoritiesInsert {
+            get {
+                object obj = ResourceManager.GetObject("TableOfAuthoritiesInsert", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap TableOfContentsGallery {
+            get {
+                object obj = ResourceManager.GetObject("TableOfContentsGallery", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap TableOfContentsGallery1 {
+            get {
+                object obj = ResourceManager.GetObject("TableOfContentsGallery1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap TableOfContentsUpdate {
+            get {
+                object obj = ResourceManager.GetObject("TableOfContentsUpdate", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap TableOfFiguresInsert {
+            get {
+                object obj = ResourceManager.GetObject("TableOfFiguresInsert", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -193,6 +193,36 @@ namespace CommandMapAddIn {
 			AddButton(panelArrange.Items, RibbonButtonStyle.DropDown, "Rotate", "ObjectRotateGallery", "ObjectRotateGallery");
 
 
+			/*********************************************
+			 * REFERENCES TAB
+			 *********************************************/
+			// Table of Contents panel
+			AddButton(panelTableOfContents.Items, RibbonButtonStyle.DropDown, "Table of Contents", "TableOfContentsGallery", "TableOfContentsGallery");
+			AddButton(panelTableOfContents.Items, RibbonButtonStyle.DropDown, "Add Text", "TableOfContentsUpdate", "TableOfContentsAddTextGallery", RibbonElementSizeMode.Medium);// TableOfContentsAddTextGallery
+			AddButton(panelTableOfContents.Items, RibbonButtonStyle.Normal, "Update Table", "TableOfContentsUpdate", "TableOfContentsUpdate", RibbonElementSizeMode.Medium);
+
+			// Footnotes panel
+			AddButton(panelFootnotes.Items, RibbonButtonStyle.Normal, "Insert Footnote", "FootnoteInsert", "FootnoteInsert");
+			AddButton(panelFootnotes.Items, RibbonButtonStyle.Normal, "Insert Endnote", "EndnoteInsertWord", "EndnoteInsertWord", RibbonElementSizeMode.Medium);
+			AddButton(panelFootnotes.Items, RibbonButtonStyle.SplitDropDown, "Next Footnote", "FootnoteNextWord", "FootnoteNextWord", RibbonElementSizeMode.Medium);
+			AddButton(panelFootnotes.Items, RibbonButtonStyle.Normal, "Show Notes", "FootnotesEndnotesShow", "FootnotesEndnotesShow", RibbonElementSizeMode.Medium);
+
+			// Captions panel
+			AddButton(panelCaptions.Items, RibbonButtonStyle.Normal, "Insert Caption", "CaptionInsert", "CaptionInsert");
+			AddButton(panelCaptions.Items, RibbonButtonStyle.Normal, "Insert Table of Figures", "TableOfFiguresInsert", "TableOfFiguresInsert", RibbonElementSizeMode.Medium);// TableOfContentsAddTextGallery
+			AddButton(panelCaptions.Items, RibbonButtonStyle.Normal, "Update Table", "TableOfContentsUpdate", "TableOfFiguresUpdate", RibbonElementSizeMode.Medium);
+			AddButton(panelCaptions.Items, RibbonButtonStyle.Normal, "Cross-reference", "CrossReferenceInsert", "CrossReferenceInsert", RibbonElementSizeMode.Medium);
+
+			// Index panel
+			AddButton(panelIndex.Items, RibbonButtonStyle.Normal, "Mark Entry", "IndexMarkEntry", "IndexMarkEntry");
+			AddButton(panelIndex.Items, RibbonButtonStyle.Normal, "Insert Index", "IndexInsert", "IndexInsert", RibbonElementSizeMode.Medium);
+			AddButton(panelIndex.Items, RibbonButtonStyle.Normal, "Update Index", "TableOfContentsUpdate", "IndexUpdate", RibbonElementSizeMode.Medium);
+
+			// Table of Authorities panel
+			AddButton(panelTableOfAuthorities.Items, RibbonButtonStyle.Normal, "Mark Citation", "CitationMark", "CitationMark");
+			AddButton(panelTableOfAuthorities.Items, RibbonButtonStyle.Normal, "Insert Table of Authorities", "TableOfAuthoritiesInsert", "TableOfAuthoritiesInsert", RibbonElementSizeMode.Medium);
+			AddButton(panelTableOfAuthorities.Items, RibbonButtonStyle.Normal, "Update Table", "TableOfContentsUpdate", "TableOfAuthoritiesUpdate", RibbonElementSizeMode.Medium);
+
 		}
 
 		private void CommandMapForm_Leave(object sender, EventArgs e) {
