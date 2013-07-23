@@ -23,7 +23,6 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-			this.ribbon1 = new System.Windows.Forms.Ribbon();
 			this.homeTab = new System.Windows.Forms.RibbonTab();
 			this.clipboardPanel = new System.Windows.Forms.RibbonPanel();
 			this.fontPanel = new System.Windows.Forms.RibbonPanel();
@@ -59,32 +58,6 @@
 			this.reviewTab = new System.Windows.Forms.RibbonTab();
 			this.SuspendLayout();
 			// 
-			// ribbon1
-			// 
-			this.ribbon1.CaptionBarVisible = false;
-			this.ribbon1.Font = new System.Drawing.Font("Segoe UI", 8F);
-			this.ribbon1.Location = new System.Drawing.Point(0, 0);
-			this.ribbon1.Minimized = false;
-			this.ribbon1.Name = "ribbon1";
-			// 
-			// 
-			// 
-			this.ribbon1.OrbDropDown.BorderRoundness = 8;
-			this.ribbon1.OrbDropDown.Location = new System.Drawing.Point(0, 0);
-			this.ribbon1.OrbDropDown.Name = "";
-			this.ribbon1.OrbDropDown.Size = new System.Drawing.Size(527, 447);
-			this.ribbon1.OrbDropDown.TabIndex = 0;
-			this.ribbon1.OrbImage = null;
-			// 
-			// 
-			// 
-			this.ribbon1.QuickAcessToolbar.Visible = false;
-			this.ribbon1.Size = new System.Drawing.Size(713, 118);
-			this.ribbon1.TabIndex = 1;
-			this.ribbon1.Tabs.Add(this.homeTab);
-			this.ribbon1.TabsMargin = new System.Windows.Forms.Padding(12, 2, 20, 0);
-			this.ribbon1.Text = "ribbon1";
-			// 
 			// homeTab
 			// 
 			this.homeTab.Panels.Add(this.clipboardPanel);
@@ -118,7 +91,7 @@
 			// 
 			this.ribbon2.CaptionBarVisible = false;
 			this.ribbon2.Font = new System.Drawing.Font("Segoe UI", 8F);
-			this.ribbon2.Location = new System.Drawing.Point(0, 118);
+			this.ribbon2.Location = new System.Drawing.Point(0, 0);
 			this.ribbon2.Minimized = false;
 			this.ribbon2.Name = "ribbon2";
 			// 
@@ -196,7 +169,7 @@
 			// 
 			this.ribbon3.CaptionBarVisible = false;
 			this.ribbon3.Font = new System.Drawing.Font("Segoe UI", 8F);
-			this.ribbon3.Location = new System.Drawing.Point(0, 236);
+			this.ribbon3.Location = new System.Drawing.Point(0, 118);
 			this.ribbon3.Minimized = false;
 			this.ribbon3.Name = "ribbon3";
 			// 
@@ -251,7 +224,7 @@
 			// 
 			this.ribbon4.CaptionBarVisible = false;
 			this.ribbon4.Font = new System.Drawing.Font("Segoe UI", 8F);
-			this.ribbon4.Location = new System.Drawing.Point(0, 354);
+			this.ribbon4.Location = new System.Drawing.Point(0, 236);
 			this.ribbon4.Minimized = false;
 			this.ribbon4.Name = "ribbon4";
 			// 
@@ -281,7 +254,7 @@
 			// 
 			this.ribbon5.CaptionBarVisible = false;
 			this.ribbon5.Font = new System.Drawing.Font("Segoe UI", 8F);
-			this.ribbon5.Location = new System.Drawing.Point(0, 472);
+			this.ribbon5.Location = new System.Drawing.Point(0, 354);
 			this.ribbon5.Minimized = false;
 			this.ribbon5.Name = "ribbon5";
 			// 
@@ -311,7 +284,7 @@
 			// 
 			this.ribbon6.CaptionBarVisible = false;
 			this.ribbon6.Font = new System.Drawing.Font("Segoe UI", 8F);
-			this.ribbon6.Location = new System.Drawing.Point(0, 590);
+			this.ribbon6.Location = new System.Drawing.Point(0, 472);
 			this.ribbon6.Minimized = false;
 			this.ribbon6.Name = "ribbon6";
 			// 
@@ -341,7 +314,7 @@
 			// 
 			this.ribbon7.CaptionBarVisible = false;
 			this.ribbon7.Font = new System.Drawing.Font("Segoe UI", 8F);
-			this.ribbon7.Location = new System.Drawing.Point(0, 708);
+			this.ribbon7.Location = new System.Drawing.Point(0, 590);
 			this.ribbon7.Minimized = false;
 			this.ribbon7.Name = "ribbon7";
 			// 
@@ -382,7 +355,6 @@
 			this.Controls.Add(this.ribbon4);
 			this.Controls.Add(this.ribbon3);
 			this.Controls.Add(this.ribbon2);
-			this.Controls.Add(this.ribbon1);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
 			this.Name = "CommandMapForm";
 			this.Opacity = 0.95D;
@@ -396,8 +368,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Ribbon ribbon1;
-        private System.Windows.Forms.RibbonTab homeTab;
+				private System.Windows.Forms.RibbonTab homeTab;
         private System.Windows.Forms.RibbonPanel clipboardPanel;
         private System.Windows.Forms.RibbonPanel fontPanel;
         private System.Windows.Forms.Ribbon ribbon2;

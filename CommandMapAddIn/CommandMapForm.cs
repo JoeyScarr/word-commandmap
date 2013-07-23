@@ -16,6 +16,7 @@ namespace CommandMapAddIn {
 
 		private WordInstance m_WordInstance;
 		private const int TITLEBAR_HEIGHT = 55;
+		private const int RIBBON_HEIGHT = 93;
 		private const int STATUSBAR_HEIGHT = 22;
 
 		public CommandMapForm() {
@@ -57,9 +58,9 @@ namespace CommandMapAddIn {
 		private void FollowWordPosition() {
 			Rectangle windowRect = m_WordInstance.GetWindowPosition();
 			Left = windowRect.Left;
-			Top = windowRect.Top + TITLEBAR_HEIGHT;
+			Top = windowRect.Top + TITLEBAR_HEIGHT + RIBBON_HEIGHT;
 			Width = windowRect.Width;
-			Height = windowRect.Height - TITLEBAR_HEIGHT - STATUSBAR_HEIGHT;
+			Height = windowRect.Height - TITLEBAR_HEIGHT - STATUSBAR_HEIGHT - RIBBON_HEIGHT;
 		}
 
 		private void AssignImage(RibbonItem item, string msoName) {
@@ -114,19 +115,6 @@ namespace CommandMapAddIn {
 		}
 
 		private void BuildRibbon() {
-			/*********************************************
-			 * HOME TAB
-			 *********************************************/
-			// Clipboard panel
-			RibbonButton paste = AddButton(clipboardPanel.Items, RibbonButtonStyle.SplitDropDown, "Paste", "Paste", "Paste");
-			AddButton(paste.DropDownItems, RibbonButtonStyle.Normal, "Paste", "Paste", "Paste");
-			AddButton(paste.DropDownItems, RibbonButtonStyle.Normal, "Paste Special...", "PasteSpecialDialog", "PasteSpecialDialog");
-			AddButton(paste.DropDownItems, RibbonButtonStyle.Normal, "Paste as Hyperlink", "PasteAsHyperlink", "PasteAsHyperlink");
-			AddButton(clipboardPanel.Items, RibbonButtonStyle.Normal, "Cut", "Cut", "Cut", RibbonElementSizeMode.Medium);
-			AddButton(clipboardPanel.Items, RibbonButtonStyle.Normal, "Copy", "Copy", "Copy", RibbonElementSizeMode.Medium);
-			AddButton(clipboardPanel.Items, RibbonButtonStyle.Normal, "Format Painter", "FormatPainter", "FormatPainter", RibbonElementSizeMode.Medium);
-
-
 			/*********************************************
 			 * INSERT TAB
 			 *********************************************/
