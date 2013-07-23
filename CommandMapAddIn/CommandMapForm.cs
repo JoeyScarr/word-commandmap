@@ -114,6 +114,12 @@ namespace CommandMapAddIn {
 			return button;
 		}
 
+		private RibbonSeparator AddSeparator(RibbonItemCollection collection) {
+			RibbonSeparator separator = new RibbonSeparator();
+			collection.Add(separator);
+			return separator;
+		}
+
 		private void BuildRibbon() {
 			/*********************************************
 			 * INSERT TAB
@@ -198,7 +204,7 @@ namespace CommandMapAddIn {
 			 *********************************************/
 			// Table of Contents panel
 			AddButton(panelTableOfContents.Items, RibbonButtonStyle.DropDown, "Table of Contents", "TableOfContentsGallery", "TableOfContentsGallery");
-			AddButton(panelTableOfContents.Items, RibbonButtonStyle.DropDown, "Add Text", "TableOfContentsUpdate", "TableOfContentsAddTextGallery", RibbonElementSizeMode.Medium);// TableOfContentsAddTextGallery
+			AddButton(panelTableOfContents.Items, RibbonButtonStyle.DropDown, "Add Text", "TableOfContentsUpdate", "TableOfContentsAddTextGallery", RibbonElementSizeMode.Medium); // Wrong image, should be TableOfContentsAddTextGallery
 			AddButton(panelTableOfContents.Items, RibbonButtonStyle.Normal, "Update Table", "TableOfContentsUpdate", "TableOfContentsUpdate", RibbonElementSizeMode.Medium);
 
 			// Footnotes panel
@@ -209,7 +215,7 @@ namespace CommandMapAddIn {
 
 			// Captions panel
 			AddButton(panelCaptions.Items, RibbonButtonStyle.Normal, "Insert Caption", "CaptionInsert", "CaptionInsert");
-			AddButton(panelCaptions.Items, RibbonButtonStyle.Normal, "Insert Table of Figures", "TableOfFiguresInsert", "TableOfFiguresInsert", RibbonElementSizeMode.Medium);// TableOfContentsAddTextGallery
+			AddButton(panelCaptions.Items, RibbonButtonStyle.Normal, "Insert Table of Figures", "TableOfFiguresInsert", "TableOfFiguresInsert", RibbonElementSizeMode.Medium);
 			AddButton(panelCaptions.Items, RibbonButtonStyle.Normal, "Update Table", "TableOfContentsUpdate", "TableOfFiguresUpdate", RibbonElementSizeMode.Medium);
 			AddButton(panelCaptions.Items, RibbonButtonStyle.Normal, "Cross-reference", "CrossReferenceInsert", "CrossReferenceInsert", RibbonElementSizeMode.Medium);
 
@@ -222,6 +228,38 @@ namespace CommandMapAddIn {
 			AddButton(panelTableOfAuthorities.Items, RibbonButtonStyle.Normal, "Mark Citation", "CitationMark", "CitationMark");
 			AddButton(panelTableOfAuthorities.Items, RibbonButtonStyle.Normal, "Insert Table of Authorities", "TableOfAuthoritiesInsert", "TableOfAuthoritiesInsert", RibbonElementSizeMode.Medium);
 			AddButton(panelTableOfAuthorities.Items, RibbonButtonStyle.Normal, "Update Table", "TableOfContentsUpdate", "TableOfAuthoritiesUpdate", RibbonElementSizeMode.Medium);
+
+
+			/*********************************************
+			 * MAILINGS TAB
+			 *********************************************/
+			// Create panel
+			AddButton(panelCreate.Items, RibbonButtonStyle.Normal, "Envelopes", "EnvelopesAndLabelsDialog", "EnvelopesAndLabelsDialog");
+			AddButton(panelCreate.Items, RibbonButtonStyle.Normal, "Labels", "LabelsDialog", "LabelsDialog");
+
+			// Start Mail Merge panel
+			AddButton(panelStartMailMerge.Items, RibbonButtonStyle.DropDown, "Start Mail Merge", "MailMergeStartMailMergeMenu", "MailMergeStartMailMergeMenu");
+			AddButton(panelStartMailMerge.Items, RibbonButtonStyle.DropDown, "Select Recipients", "MailMergeSelectRecipients", "MailMergeSelectRecipients");
+			AddButton(panelStartMailMerge.Items, RibbonButtonStyle.Normal, "Edit Recipient List", "MailMergeRecipientsEditList", "MailMergeRecipientsEditList");
+
+			// Write & Insert Fields panel
+			AddButton(panelWriteAndInsertFields.Items, RibbonButtonStyle.Normal, "Highlight Merge Fields", "MailMergeHighlightMergeFields", "MailMergeHighlightMergeFields");
+			AddButton(panelWriteAndInsertFields.Items, RibbonButtonStyle.Normal, "Address Block", "MailMergeAddressBlockInsert", "MailMergeAddressBlockInsert");
+			AddButton(panelWriteAndInsertFields.Items, RibbonButtonStyle.Normal, "Greeting Line", "MailMergeGreetingLineInsert", "MailMergeGreetingLineInsert");
+			AddButton(panelWriteAndInsertFields.Items, RibbonButtonStyle.DropDown, "Insert Merge Field", "MailMergeMergeFieldInsert", "MailMergeMergeFieldInsert");
+			AddButton(panelWriteAndInsertFields.Items, RibbonButtonStyle.DropDown, "Rules", "MailMergeRules", "MailMergeRules", RibbonElementSizeMode.Medium);
+			AddButton(panelWriteAndInsertFields.Items, RibbonButtonStyle.Normal, "Match Fields", "MailMergeMatchFields", "MailMergeMatchFields", RibbonElementSizeMode.Medium);
+			AddButton(panelWriteAndInsertFields.Items, RibbonButtonStyle.Normal, "Update Labels", "Refresh", "MailMergeUpdateLabels", RibbonElementSizeMode.Medium);
+
+			// Preview Results panel
+			AddButton(panelPreviewResults.Items, RibbonButtonStyle.Normal, "Preview Results", "MailMergeResultsPreview", "MailMergeResultsPreview");
+			// TODO: Figure out how to do counter widgets
+			AddSeparator(panelPreviewResults.Items);
+			AddButton(panelPreviewResults.Items, RibbonButtonStyle.Normal, "Find Recipient", "Magnifier", "MailMergeFindRecipient", RibbonElementSizeMode.Medium); // Wrong image, should be MailMergeFindRecipient
+			AddButton(panelPreviewResults.Items, RibbonButtonStyle.Normal, "Auto Check for Errors", "MailMergeAutoCheckForErrors", "MailMergeAutoCheckForErrors", RibbonElementSizeMode.Medium);
+
+			// Finish panel
+			AddButton(panelFinish.Items, RibbonButtonStyle.DropDown, "Finish & Merge", "MailMergeFinishAndMergeMenu", "MailMergeFinishAndMergeMenu");
 
 		}
 
