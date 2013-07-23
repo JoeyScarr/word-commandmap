@@ -430,7 +430,7 @@ namespace Gma.UserActivityMonitor
                     //Returns the error code returned by the last unmanaged function called using platform invoke that has the DllImportAttribute.SetLastError flag set. 
                     int errorCode = Marshal.GetLastWin32Error();
                     //Initializes and throws a new instance of the Win32Exception class with the specified error. 
-                    throw new Win32Exception(errorCode);
+                    Console.WriteLine(new Win32Exception(errorCode));
                 }
             }
         }
