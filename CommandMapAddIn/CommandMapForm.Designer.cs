@@ -56,6 +56,27 @@
 			this.ribbon7 = new System.Windows.Forms.Ribbon();
 			this.viewTab = new System.Windows.Forms.RibbonTab();
 			this.reviewTab = new System.Windows.Forms.RibbonTab();
+			this.panelTableOfContents = new System.Windows.Forms.RibbonPanel();
+			this.panelFootnotes = new System.Windows.Forms.RibbonPanel();
+			this.panelCaptions = new System.Windows.Forms.RibbonPanel();
+			this.panelIndex = new System.Windows.Forms.RibbonPanel();
+			this.panelTableOfAuthorities = new System.Windows.Forms.RibbonPanel();
+			this.panelCreate = new System.Windows.Forms.RibbonPanel();
+			this.panelStartMailMerge = new System.Windows.Forms.RibbonPanel();
+			this.panelWriteAndInsertFields = new System.Windows.Forms.RibbonPanel();
+			this.panelPreviewResults = new System.Windows.Forms.RibbonPanel();
+			this.panelFinish = new System.Windows.Forms.RibbonPanel();
+			this.panelProofing = new System.Windows.Forms.RibbonPanel();
+			this.panelComments = new System.Windows.Forms.RibbonPanel();
+			this.panelTracking = new System.Windows.Forms.RibbonPanel();
+			this.panelChanges = new System.Windows.Forms.RibbonPanel();
+			this.panelCompare = new System.Windows.Forms.RibbonPanel();
+			this.panelProtect = new System.Windows.Forms.RibbonPanel();
+			this.panelDocumentViews = new System.Windows.Forms.RibbonPanel();
+			this.panelShowHide = new System.Windows.Forms.RibbonPanel();
+			this.panelZoom = new System.Windows.Forms.RibbonPanel();
+			this.panelWindow = new System.Windows.Forms.RibbonPanel();
+			this.panelMacros = new System.Windows.Forms.RibbonPanel();
 			this.SuspendLayout();
 			// 
 			// homeTab
@@ -248,6 +269,11 @@
 			// 
 			// referencesTab
 			// 
+			this.referencesTab.Panels.Add(this.panelTableOfContents);
+			this.referencesTab.Panels.Add(this.panelFootnotes);
+			this.referencesTab.Panels.Add(this.panelCaptions);
+			this.referencesTab.Panels.Add(this.panelIndex);
+			this.referencesTab.Panels.Add(this.panelTableOfAuthorities);
 			this.referencesTab.Text = "References";
 			// 
 			// ribbon5
@@ -278,6 +304,11 @@
 			// 
 			// mailingsTab
 			// 
+			this.mailingsTab.Panels.Add(this.panelCreate);
+			this.mailingsTab.Panels.Add(this.panelStartMailMerge);
+			this.mailingsTab.Panels.Add(this.panelWriteAndInsertFields);
+			this.mailingsTab.Panels.Add(this.panelPreviewResults);
+			this.mailingsTab.Panels.Add(this.panelFinish);
 			this.mailingsTab.Text = "Mailings";
 			// 
 			// ribbon6
@@ -308,6 +339,12 @@
 			// 
 			// tabReview
 			// 
+			this.tabReview.Panels.Add(this.panelProofing);
+			this.tabReview.Panels.Add(this.panelComments);
+			this.tabReview.Panels.Add(this.panelTracking);
+			this.tabReview.Panels.Add(this.panelChanges);
+			this.tabReview.Panels.Add(this.panelCompare);
+			this.tabReview.Panels.Add(this.panelProtect);
 			this.tabReview.Text = "Review";
 			// 
 			// ribbon7
@@ -338,11 +375,100 @@
 			// 
 			// viewTab
 			// 
+			this.viewTab.Panels.Add(this.panelDocumentViews);
+			this.viewTab.Panels.Add(this.panelShowHide);
+			this.viewTab.Panels.Add(this.panelZoom);
+			this.viewTab.Panels.Add(this.panelWindow);
+			this.viewTab.Panels.Add(this.panelMacros);
 			this.viewTab.Text = "View";
 			// 
 			// reviewTab
 			// 
 			this.reviewTab.Text = "Review";
+			// 
+			// panelTableOfContents
+			// 
+			this.panelTableOfContents.Text = "Table of Contents";
+			// 
+			// panelFootnotes
+			// 
+			this.panelFootnotes.Text = "Footnotes";
+			// 
+			// panelCaptions
+			// 
+			this.panelCaptions.Text = "Captions";
+			// 
+			// panelIndex
+			// 
+			this.panelIndex.Text = "Index";
+			// 
+			// panelTableOfAuthorities
+			// 
+			this.panelTableOfAuthorities.Text = "Table of Authorities";
+			// 
+			// panelCreate
+			// 
+			this.panelCreate.Text = "Create";
+			// 
+			// panelStartMailMerge
+			// 
+			this.panelStartMailMerge.Text = "Start Mail Merge";
+			// 
+			// panelWriteAndInsertFields
+			// 
+			this.panelWriteAndInsertFields.Text = "Write & Insert Fields";
+			// 
+			// panelPreviewResults
+			// 
+			this.panelPreviewResults.Text = "Preview Results";
+			// 
+			// panelFinish
+			// 
+			this.panelFinish.Text = "Finish";
+			// 
+			// panelProofing
+			// 
+			this.panelProofing.Text = "Proofing";
+			// 
+			// panelComments
+			// 
+			this.panelComments.Text = "Comments";
+			// 
+			// panelTracking
+			// 
+			this.panelTracking.Text = "Tracking";
+			// 
+			// panelChanges
+			// 
+			this.panelChanges.Text = "Changes";
+			// 
+			// panelCompare
+			// 
+			this.panelCompare.Text = "Compare";
+			// 
+			// panelProtect
+			// 
+			this.panelProtect.Text = "Protect";
+			// 
+			// panelDocumentViews
+			// 
+			this.panelDocumentViews.Text = "Document Views";
+			// 
+			// panelShowHide
+			// 
+			this.panelShowHide.Text = "Show/Hide";
+			// 
+			// panelZoom
+			// 
+			this.panelZoom.Text = "Zoom";
+			// 
+			// panelWindow
+			// 
+			this.panelWindow.Text = "Window";
+			// 
+			// panelMacros
+			// 
+			this.panelMacros.Text = "Macros";
 			// 
 			// CommandMapForm
 			// 
@@ -401,6 +527,27 @@
 				private System.Windows.Forms.RibbonPanel panelPageBackground;
 				private System.Windows.Forms.RibbonPanel panelParagraph;
 				private System.Windows.Forms.RibbonPanel panelArrange;
+				private System.Windows.Forms.RibbonPanel panelTableOfContents;
+				private System.Windows.Forms.RibbonPanel panelFootnotes;
+				private System.Windows.Forms.RibbonPanel panelCaptions;
+				private System.Windows.Forms.RibbonPanel panelIndex;
+				private System.Windows.Forms.RibbonPanel panelTableOfAuthorities;
+				private System.Windows.Forms.RibbonPanel panelCreate;
+				private System.Windows.Forms.RibbonPanel panelStartMailMerge;
+				private System.Windows.Forms.RibbonPanel panelWriteAndInsertFields;
+				private System.Windows.Forms.RibbonPanel panelPreviewResults;
+				private System.Windows.Forms.RibbonPanel panelFinish;
+				private System.Windows.Forms.RibbonPanel panelProofing;
+				private System.Windows.Forms.RibbonPanel panelComments;
+				private System.Windows.Forms.RibbonPanel panelTracking;
+				private System.Windows.Forms.RibbonPanel panelChanges;
+				private System.Windows.Forms.RibbonPanel panelCompare;
+				private System.Windows.Forms.RibbonPanel panelProtect;
+				private System.Windows.Forms.RibbonPanel panelDocumentViews;
+				private System.Windows.Forms.RibbonPanel panelShowHide;
+				private System.Windows.Forms.RibbonPanel panelZoom;
+				private System.Windows.Forms.RibbonPanel panelWindow;
+				private System.Windows.Forms.RibbonPanel panelMacros;
     }
 }
 
