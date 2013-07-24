@@ -226,6 +226,12 @@
   <data name="LineNumbersMenu" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\ribbon-icons\small\LineNumbersMenu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="LookUp" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ribbon-icons\small\LookUp.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LookUp1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ribbon-icons\large\LookUp.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Magnifier" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\ribbon-icons\small\Magnifier.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -379,6 +385,12 @@
   <data name="PicturePositionGallery1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\ribbon-icons\small\PicturePositionGallery.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="ProtectDocument" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ribbon-icons\large\ProtectDocument.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ProtectDocument1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ribbon-icons\small\ProtectDocument.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="QuickPartsInsertGallery" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\ribbon-icons\large\QuickPartsInsertGallery.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -387,6 +399,81 @@
   </data>
   <data name="Refresh" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\ribbon-icons\small\Refresh.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ReviewAcceptChange" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ribbon-icons\small\ReviewAcceptChange.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ReviewAcceptChange1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ribbon-icons\large\ReviewAcceptChange.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ReviewBalloonsMenu" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ribbon-icons\small\ReviewBalloonsMenu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ReviewBalloonsMenu1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ribbon-icons\large\ReviewBalloonsMenu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ReviewCompareMenu" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ribbon-icons\large\ReviewCompareMenu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ReviewCompareMenu1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ribbon-icons\small\ReviewCompareMenu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ReviewDeleteComment" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ribbon-icons\large\ReviewDeleteComment.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ReviewDeleteComment1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ribbon-icons\small\ReviewDeleteComment.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ReviewNewComment" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ribbon-icons\large\ReviewNewComment.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ReviewNewComment1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ribbon-icons\small\ReviewNewComment.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ReviewNextChange" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ribbon-icons\small\ReviewNextChange.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ReviewNextComment" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ribbon-icons\large\ReviewNextComment.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ReviewNextComment1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ribbon-icons\small\ReviewNextComment.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ReviewPreviousChange" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ribbon-icons\small\ReviewPreviousChange.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ReviewPreviousComment" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ribbon-icons\large\ReviewPreviousComment.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ReviewPreviousComment1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ribbon-icons\small\ReviewPreviousComment.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ReviewRejectChange" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ribbon-icons\small\ReviewRejectChange.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ReviewRejectChange1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ribbon-icons\large\ReviewRejectChange.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ReviewReviewingPaneVertical" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ribbon-icons\small\ReviewReviewingPaneVertical.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ReviewShowMarkupMenu" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ribbon-icons\small\ReviewShowMarkupMenu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ReviewTrackChanges" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ribbon-icons\small\ReviewTrackChanges.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ReviewTrackChanges1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ribbon-icons\large\ReviewTrackChanges.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ReviewViewChangesInTheSourceDocument" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ribbon-icons\large\ReviewViewChangesInTheSourceDocument.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ReviewViewChangesInTheSourceDocument1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ribbon-icons\small\ReviewViewChangesInTheSourceDocument.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SetLanguage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ribbon-icons\small\SetLanguage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ShapesMoreShapes" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\ribbon-icons\large\ShapesMoreShapes.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -399,6 +486,12 @@
   </data>
   <data name="SmartArtInsert" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\ribbon-icons\large\SmartArtInsert.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Spelling" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ribbon-icons\small\Spelling.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Spelling1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ribbon-icons\large\Spelling.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="SymbolInsert" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\ribbon-icons\small\SymbolInsert.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -442,7 +535,25 @@
   <data name="ThemesGallery" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\ribbon-icons\large\ThemesGallery.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Thesaurus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ribbon-icons\small\Thesaurus.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Thesaurus1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ribbon-icons\large\Thesaurus.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Translate" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ribbon-icons\small\Translate.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Translate1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ribbon-icons\large\Translate.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TranslationToolTip" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ribbon-icons\small\TranslationToolTip.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="WatermarkGallery" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\ribbon-icons\large\WatermarkGallery.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WordCountList" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ribbon-icons\small\WordCountList.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

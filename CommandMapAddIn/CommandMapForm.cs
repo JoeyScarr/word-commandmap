@@ -263,6 +263,44 @@ namespace CommandMapAddIn {
 			// Finish panel
 			AddButton(panelFinish.Items, RibbonButtonStyle.DropDown, "Finish & Merge", "MailMergeFinishAndMergeMenu", "MailMergeFinishAndMergeMenu");
 
+
+			/*********************************************
+			 * REVIEW TAB
+			 *********************************************/
+			// Proofing panel
+			AddButton(panelProofing.Items, RibbonButtonStyle.Normal, "Spelling & Grammar", "Spelling", "Spelling");
+			AddButton(panelProofing.Items, RibbonButtonStyle.Normal, "Research", "LookUp", "ResearchPane");
+			AddButton(panelProofing.Items, RibbonButtonStyle.Normal, "Thesaurus", "Thesaurus", "Thesaurus");
+			AddButton(panelProofing.Items, RibbonButtonStyle.Normal, "Translate", "Translate", "Translate");
+			AddButton(panelProofing.Items, RibbonButtonStyle.DropDown, "Translation ScreenTip", "TranslationToolTip", "TranslationToolTip", RibbonElementSizeMode.Medium);
+			AddButton(panelProofing.Items, RibbonButtonStyle.Normal, "Set Language", "SetLanguage", "SetLanguage", RibbonElementSizeMode.Medium);
+			AddButton(panelProofing.Items, RibbonButtonStyle.Normal, "Word Count", "WordCountList", "WordCount", RibbonElementSizeMode.Medium);
+
+			// Comments panel
+			AddButton(panelComments.Items, RibbonButtonStyle.Normal, "New Comment", "ReviewNewComment", "ReviewNewComment");
+			AddButton(panelComments.Items, RibbonButtonStyle.SplitDropDown, "Delete", "ReviewDeleteComment", "ReviewDeleteComment");
+			AddButton(panelComments.Items, RibbonButtonStyle.Normal, "Previous", "ReviewPreviousComment", "ReviewPreviousComment");
+			AddButton(panelComments.Items, RibbonButtonStyle.Normal, "Next", "ReviewNextComment", "ReviewNextComment");
+
+			// Tracking panel
+			AddButton(panelTracking.Items, RibbonButtonStyle.SplitDropDown, "Track Changes", "ReviewTrackChanges", "ReviewTrackChanges");
+			AddButton(panelTracking.Items, RibbonButtonStyle.DropDown, "Balloons", "ReviewBalloonsMenu", "ReviewBalloonsMenu");
+			// TODO: Add combo box here
+			AddButton(panelTracking.Items, RibbonButtonStyle.DropDown, "Show Markup", "ReviewShowMarkupMenu", "ReviewShowMarkupMenu", RibbonElementSizeMode.Medium);
+			AddButton(panelTracking.Items, RibbonButtonStyle.SplitDropDown, "Reviewing Pane", "ReviewReviewingPaneVertical", "ReviewReviewingPane", RibbonElementSizeMode.Medium);
+
+			// Changes panel
+			AddButton(panelChanges.Items, RibbonButtonStyle.SplitDropDown, "Accept", "ReviewAcceptChange", "ReviewAcceptChange");
+			AddButton(panelChanges.Items, RibbonButtonStyle.SplitDropDown, "Reject", "ReviewRejectChange", "ReviewRejectChange");
+			AddButton(panelChanges.Items, RibbonButtonStyle.Normal, "Previous", "ReviewPreviousChange", "ReviewPreviousChange", RibbonElementSizeMode.Medium);
+			AddButton(panelChanges.Items, RibbonButtonStyle.Normal, "Next", "ReviewNextChange", "ReviewNextChange", RibbonElementSizeMode.Medium);
+
+			// Compare panel
+			AddButton(panelCompare.Items, RibbonButtonStyle.DropDown, "Compare", "ReviewCompareMenu", "ReviewCompareMenu");
+			AddButton(panelCompare.Items, RibbonButtonStyle.DropDown, "Show Source Documents", "ReviewViewChangesInTheSourceDocument", "ReviewShowSourceDocumentsMenu"); // Wrong image, should be ReviewShowSourceDocumentsMenu
+
+			// Protect panel
+			AddButton(panelProtect.Items, RibbonButtonStyle.DropDown, "Protect Document", "ProtectDocument", "ReviewProtectDocumentMenu");
 		}
 
 		private void CommandMapForm_Leave(object sender, EventArgs e) {
