@@ -16,7 +16,9 @@ namespace CommandMapAddIn {
 
 		private WordInstance m_WordInstance;
 		private const int TITLEBAR_HEIGHT = 55;
-		private const int RIBBON_HEIGHT = 93;
+		private const int BASE_RIBBON_HEIGHT = 93;
+		private const int CM_RIBBON_HEIGHT = 118;
+		private const int NUM_CM_RIBBONS = 6;
 		private const int STATUSBAR_HEIGHT = 22;
 
 		public CommandMapForm() {
@@ -58,9 +60,9 @@ namespace CommandMapAddIn {
 		private void FollowWordPosition() {
 			Rectangle windowRect = m_WordInstance.GetWindowPosition();
 			Left = windowRect.Left;
-			Top = windowRect.Top + TITLEBAR_HEIGHT + RIBBON_HEIGHT;
+			Top = windowRect.Top + TITLEBAR_HEIGHT + BASE_RIBBON_HEIGHT;
 			Width = windowRect.Width;
-			Height = windowRect.Height - TITLEBAR_HEIGHT - STATUSBAR_HEIGHT - RIBBON_HEIGHT;
+			Height = Math.Min(CM_RIBBON_HEIGHT * NUM_CM_RIBBONS, windowRect.Height - TITLEBAR_HEIGHT - STATUSBAR_HEIGHT - BASE_RIBBON_HEIGHT);
 		}
 
 		private void AssignImage(RibbonItem item, string msoName) {
@@ -155,7 +157,7 @@ namespace CommandMapAddIn {
 			AddButton(panelText.Items, RibbonButtonStyle.DropDown, "WordArt", "QuickStylesSets", "WordArtInsertGalleryClassic"); // Wrong image
 			AddButton(panelText.Items, RibbonButtonStyle.DropDown, "Drop Cap", "DropCapOptionsDialog", "DropCapInsertGallery");
 			AddButton(panelText.Items, RibbonButtonStyle.SplitDropDown, "Signature Line", "SignatureLineInsert", "SignatureLineInsert", RibbonElementSizeMode.Medium);
-			AddButton(panelText.Items, RibbonButtonStyle.Normal, "Date & Timee", "DateAndTimeInsert", "DateAndTimeInsert", RibbonElementSizeMode.Medium);
+			AddButton(panelText.Items, RibbonButtonStyle.Normal, "Date & Time", "DateAndTimeInsert", "DateAndTimeInsert", RibbonElementSizeMode.Medium);
 			AddButton(panelText.Items, RibbonButtonStyle.SplitDropDown, "Object", "OleObjectctInsert", "OleObjectctInsert", RibbonElementSizeMode.Medium);
 
 			// Symbols panel
