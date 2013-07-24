@@ -301,6 +301,37 @@ namespace CommandMapAddIn {
 
 			// Protect panel
 			AddButton(panelProtect.Items, RibbonButtonStyle.DropDown, "Protect Document", "ProtectDocument", "ReviewProtectDocumentMenu");
+
+
+			/*********************************************
+			 * VIEW TAB
+			 *********************************************/
+			// Document Views panel
+			// TODO: Figure out how to do radio buttons
+
+			// Show/Hide panel
+			// TODO: Figure out how to do checkboxes
+
+			// Zoom panel
+			AddButton(panelZoom.Items, RibbonButtonStyle.Normal, "Zoom", "ZoomPrintPreviewExcel", "ZoomDialog");
+			AddButton(panelZoom.Items, RibbonButtonStyle.Normal, "100%", "ZoomCurrent100", "Zoom100");
+			AddButton(panelZoom.Items, RibbonButtonStyle.Normal, "One Page", "ZoomOnePage", "ZoomOnePage", RibbonElementSizeMode.Medium);
+			AddButton(panelZoom.Items, RibbonButtonStyle.Normal, "Two Pages", "ZoomOnePage", "ZoomTwoPages", RibbonElementSizeMode.Medium); // Wrong image, should be ZoomTwoPages
+			AddButton(panelZoom.Items, RibbonButtonStyle.Normal, "Page Width", "ZoomPageWidth", "ZoomPageWidth", RibbonElementSizeMode.Medium);
+
+			// Window panel
+			AddButton(panelWindow.Items, RibbonButtonStyle.Normal, "New Window", "WindowNew", "WindowNew");
+			AddButton(panelWindow.Items, RibbonButtonStyle.Normal, "Arrange All", "WindowsArrangeAll", "WindowsArrangeAll");
+			AddButton(panelWindow.Items, RibbonButtonStyle.Normal, "Split", "WindowSplit", "WindowSplit");
+			AddSeparator(panelWindow.Items);
+			AddButton(panelWindow.Items, RibbonButtonStyle.Normal, "View Side by Side", "WindowSideBySide", "WindowSideBySide", RibbonElementSizeMode.Medium);
+			AddButton(panelWindow.Items, RibbonButtonStyle.Normal, "Synchronous Scrolling", "WindowSideBySideSynchronousScrolling", "WindowSideBySideSynchronousScrolling", RibbonElementSizeMode.Medium);
+			AddButton(panelWindow.Items, RibbonButtonStyle.Normal, "Reset Window Position", "WindowResetPosition", "WindowResetPosition", RibbonElementSizeMode.Medium);
+			AddSeparator(panelWindow.Items);
+			AddButton(panelWindow.Items, RibbonButtonStyle.DropDown, "Switch Windows", "WindowSwitchWindowsMenuExcel", "WindowSwitchWindowsMenuWord");
+
+			// Macros panel
+			AddButton(panelMacros.Items, RibbonButtonStyle.SplitDropDown, "Macros", "PlayMacro", "PlayMacro");
 		}
 
 		private void CommandMapForm_Leave(object sender, EventArgs e) {
