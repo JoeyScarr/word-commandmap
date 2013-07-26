@@ -324,7 +324,7 @@ namespace System.Windows.Forms
 
           if (CheckBoxBounds.Contains(e.X, e.Y))
           {
-              Debug.WriteLine("Owner.Cursor = Cursors.Hand e.X=" +e.X + " e.Y=" + e.Y + " CheckBoxBounds (" + CheckBoxBounds.ToString() + ")");
+              //Debug.WriteLine("Owner.Cursor = Cursors.Hand e.X=" +e.X + " e.Y=" + e.Y + " CheckBoxBounds (" + CheckBoxBounds.ToString() + ")");
               Owner.Cursor = Cursors.Hand;
 
               if (!Selected)
@@ -332,7 +332,7 @@ namespace System.Windows.Forms
           }
           else
           {
-              Debug.WriteLine("Owner.Cursor = Cursors.Default e.X=" + e.X + " e.Y=" + e.Y + " CheckBoxBounds (" + CheckBoxBounds.ToString() + ")");
+              //Debug.WriteLine("Owner.Cursor = Cursors.Default e.X=" + e.X + " e.Y=" + e.Y + " CheckBoxBounds (" + CheckBoxBounds.ToString() + ")");
               Owner.Cursor = Cursors.Default;
  
               if (Selected)

@@ -108,6 +108,9 @@ namespace CommandMapAddIn {
 			});
 			item.Click += handler;
 			item.DoubleClick += handler;
+			if (item is RibbonCheckBox) {
+				((RibbonCheckBox)item).CheckBoxCheckChanged += handler;
+			}
 		}
 
 		private RibbonButton AddButton(RibbonItemCollection collection, RibbonButtonStyle style, string label, string msoImageName,
@@ -144,6 +147,14 @@ namespace CommandMapAddIn {
 			updown.TextBoxTextChanged += changed;
 			collection.Add(updown);
 			return updown;
+		}
+
+		private RibbonCheckBox AddCheckBox(RibbonItemCollection collection, string text, string msoCommandName) {
+			RibbonCheckBox checkbox = new RibbonCheckBox();
+			checkbox.Text = text;
+			collection.Add(checkbox);
+			AssignAction(checkbox, msoCommandName);
+			return checkbox;
 		}
 
 		private RibbonLabel AddLabel(RibbonItemCollection collection, string text) {
@@ -374,7 +385,11 @@ namespace CommandMapAddIn {
 			// TODO: Figure out how to do radio buttons
 
 			// Show/Hide panel
-			// TODO: Figure out how to do checkboxes
+			AddCheckBox(panelShowHide.Items, "Ruler", "ViewRulerWord");
+			AddCheckBox(panelShowHide.Items, "Gridlines", "ViewGridlines");
+			AddCheckBox(panelShowHide.Items, "Message Bar", "ViewMessageBar");
+			AddCheckBox(panelShowHide.Items, "Document Map", "ViewDocumentMap");
+			AddCheckBox(panelShowHide.Items, "Thumbnails", "ViewThumbnails");
 
 			// Zoom panel
 			AddButton(panelZoom.Items, RibbonButtonStyle.Normal, "Zoom", "ZoomPrintPreviewExcel", "ZoomDialog");
