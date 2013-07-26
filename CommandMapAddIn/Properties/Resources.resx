@@ -679,6 +679,12 @@
   <data name="QuickStylesSets1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\ribbon-icons\small\QuickStylesSets.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="ReadingMode" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ribbon-icons\small\ReadingMode.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ReadingMode1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ribbon-icons\large\ReadingMode.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="ShapesMoreShapes1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\ribbon-icons\small\ShapesMoreShapes.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -696,6 +702,30 @@
   </data>
   <data name="ThemesGallery1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\ribbon-icons\small\ThemesGallery.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ViewDraftView" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ribbon-icons\small\ViewDraftView.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ViewDraftView1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ribbon-icons\large\ViewDraftView.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ViewOutlineView" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ribbon-icons\small\ViewOutlineView.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ViewOutlineView1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ribbon-icons\large\ViewOutlineView.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ViewPrintLayoutView" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ribbon-icons\small\ViewPrintLayoutView.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ViewPrintLayoutView1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ribbon-icons\large\ViewPrintLayoutView.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ViewWebLayoutView" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ribbon-icons\small\ViewWebLayoutView.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ViewWebLayoutView1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ribbon-icons\large\ViewWebLayoutView.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="WatermarkGallery1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\ribbon-icons\small\WatermarkGallery.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

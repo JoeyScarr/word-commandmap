@@ -1223,6 +1223,26 @@ namespace CommandMapAddIn.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ReadingMode {
+            get {
+                object obj = ResourceManager.GetObject("ReadingMode", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ReadingMode1 {
+            get {
+                object obj = ResourceManager.GetObject("ReadingMode1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Refresh {
             get {
                 object obj = ResourceManager.GetObject("Refresh", resourceCulture);
@@ -1786,6 +1806,86 @@ namespace CommandMapAddIn.Properties {
         internal static System.Drawing.Bitmap TranslationToolTip {
             get {
                 object obj = ResourceManager.GetObject("TranslationToolTip", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ViewDraftView {
+            get {
+                object obj = ResourceManager.GetObject("ViewDraftView", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ViewDraftView1 {
+            get {
+                object obj = ResourceManager.GetObject("ViewDraftView1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ViewOutlineView {
+            get {
+                object obj = ResourceManager.GetObject("ViewOutlineView", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ViewOutlineView1 {
+            get {
+                object obj = ResourceManager.GetObject("ViewOutlineView1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ViewPrintLayoutView {
+            get {
+                object obj = ResourceManager.GetObject("ViewPrintLayoutView", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ViewPrintLayoutView1 {
+            get {
+                object obj = ResourceManager.GetObject("ViewPrintLayoutView1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ViewWebLayoutView {
+            get {
+                object obj = ResourceManager.GetObject("ViewWebLayoutView", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ViewWebLayoutView1 {
+            get {
+                object obj = ResourceManager.GetObject("ViewWebLayoutView1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -382,7 +382,12 @@ namespace CommandMapAddIn {
 			 * VIEW TAB
 			 *********************************************/
 			// Document Views panel
-			// TODO: Figure out how to do radio buttons
+			// TODO: Convert these to radio buttons (not that important)
+			AddButton(panelDocumentViews.Items, RibbonButtonStyle.Normal, "Print Layout", "ViewPrintLayoutView", "ViewPrintLayoutView");
+			AddButton(panelDocumentViews.Items, RibbonButtonStyle.Normal, "Full Screen Reading", "ReadingMode", "ViewFullScreenReadingView");
+			AddButton(panelDocumentViews.Items, RibbonButtonStyle.Normal, "Web Layout", "ViewWebLayoutView", "ViewWebLayoutView");
+			AddButton(panelDocumentViews.Items, RibbonButtonStyle.Normal, "Outline", "ViewOutlineView", "ViewOutlineView");
+			AddButton(panelDocumentViews.Items, RibbonButtonStyle.Normal, "Draft", "ViewDraftView", "ViewDraftView");
 
 			// Show/Hide panel
 			AddCheckBox(panelShowHide.Items, "Ruler", "ViewRulerWord");
