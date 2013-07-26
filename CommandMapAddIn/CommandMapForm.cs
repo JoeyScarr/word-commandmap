@@ -68,6 +68,7 @@ namespace CommandMapAddIn {
 		private void AssignImage(RibbonItem item, string msoName) {
 			// Get the first image
 			Image icon = (Image)Properties.Resources.ResourceManager.GetObject(msoName);
+			bool largeImageSet = false;
 			if (icon != null) {
 				if (icon.Width == 16) {
 					if (item is RibbonButton) {
@@ -75,6 +76,7 @@ namespace CommandMapAddIn {
 					}
 				} else {
 					item.Image = icon;
+					largeImageSet = true;
 				}
 			}
 			// Get the second image
@@ -87,8 +89,13 @@ namespace CommandMapAddIn {
 						}
 					} else {
 						item.Image = icon1;
+						largeImageSet = true;
 					}
 				}
+			}
+			// If there's no large image, use a small image if it exists
+			if (!largeImageSet && icon != null) {
+				item.Image = icon;
 			}
 		}
 
@@ -116,10 +123,44 @@ namespace CommandMapAddIn {
 			return button;
 		}
 
+		private RibbonUpDown AddUpDown(RibbonItemCollection collection, string label, string msoImageName,
+				decimal value, string suffix, decimal increment, decimal min = 0, decimal max = 100, EventHandler changed = null) {
+			RibbonUpDown updown = new RibbonUpDown();
+			updown.Text = label;
+			updown.LabelWidth = 50;
+			AssignImage(updown, msoImageName);
+			decimal currentValue = value;
+			updown.TextBoxText = value + suffix;
+			updown.AllowTextEdit = true;
+			updown.Enabled = true;
+			updown.UpButtonClicked += new MouseEventHandler(delegate(object sender, MouseEventArgs e) {
+				currentValue = Math.Min(currentValue + increment, max);
+				updown.TextBoxText = currentValue + suffix;
+			});
+			updown.DownButtonClicked += new MouseEventHandler(delegate(object sender, MouseEventArgs e) {
+				currentValue = Math.Max(currentValue - increment, min);
+				updown.TextBoxText = currentValue + suffix;
+			});
+			updown.TextBoxTextChanged += changed;
+			collection.Add(updown);
+			return updown;
+		}
+
+		private RibbonLabel AddLabel(RibbonItemCollection collection, string text) {
+			RibbonLabel label = new RibbonLabel();
+			label.Text = text;
+			collection.Add(label);
+			return label;
+		}
+
 		private RibbonSeparator AddSeparator(RibbonItemCollection collection) {
 			RibbonSeparator separator = new RibbonSeparator();
 			collection.Add(separator);
 			return separator;
+		}
+
+		private float GetLeadingFloat(string input) {
+			return float.Parse(new string(input.Trim().TakeWhile(c => char.IsDigit(c) || c == '.').ToArray()));
 		}
 
 		private void BuildRibbon() {
@@ -189,7 +230,30 @@ namespace CommandMapAddIn {
 			AddButton(panelPageBackground.Items, RibbonButtonStyle.Normal, "Page Borders", "BordersShadingDialogWord", "PageBorderAndShadingDialog");
 
 			// Paragraph panel
-			// TODO: Figure out how to do counter widgets
+			// TODO: Update everything in this panel when it changes
+			AddLabel(panelParagraph.Items, "Indent");
+			AddUpDown(panelParagraph.Items, "Left:", "IndentClassic",
+				(decimal)m_WordInstance.Application.ActiveDocument.Paragraphs.LeftIndent, " cm", 0.1m, -27.9m, 55.8m,
+				new EventHandler(delegate(object sender, EventArgs ea) {
+					m_WordInstance.Application.ActiveDocument.Paragraphs.LeftIndent = GetLeadingFloat(((RibbonUpDown)sender).TextBoxText) * 28.35f; // cm to pt
+				}));
+			AddUpDown(panelParagraph.Items, "Right:", "ParagraphIndentRight",
+				(decimal)m_WordInstance.Application.ActiveDocument.Paragraphs.RightIndent, " cm", 0.1m, -27.9m, 55.8m,
+				new EventHandler(delegate(object sender, EventArgs ea) {
+					m_WordInstance.Application.ActiveDocument.Paragraphs.RightIndent = GetLeadingFloat(((RibbonUpDown)sender).TextBoxText) * 28.35f; // cm to pt
+				}));
+			AddSeparator(panelParagraph.Items);
+			AddLabel(panelParagraph.Items, "Spacing");
+			AddUpDown(panelParagraph.Items, "Before:", "ParagraphSpacingIncrease",
+				(decimal)m_WordInstance.Application.ActiveDocument.Paragraphs.SpaceBefore, " pt", 6, 0, 1584,
+				new EventHandler(delegate(object sender, EventArgs ea) {
+					m_WordInstance.Application.ActiveDocument.Paragraphs.SpaceBefore = GetLeadingFloat(((RibbonUpDown)sender).TextBoxText);
+				}));
+			AddUpDown(panelParagraph.Items, "After:", "ParagraphSpacingDecrease",
+				(decimal)m_WordInstance.Application.ActiveDocument.Paragraphs.SpaceAfter, " pt", 6, 0, 1584,
+				new EventHandler(delegate(object sender, EventArgs ea) {
+					m_WordInstance.Application.ActiveDocument.Paragraphs.SpaceAfter = GetLeadingFloat(((RibbonUpDown)sender).TextBoxText);
+				}));
 
 			// Arrange panel
 			AddButton(panelArrange.Items, RibbonButtonStyle.DropDown, "Position", "PicturePositionGallery", "PicturePositionGallery");
@@ -336,6 +400,10 @@ namespace CommandMapAddIn {
 
 		private void CommandMapForm_Leave(object sender, EventArgs e) {
 			Hide();
+		}
+
+		private void CommandMapForm_Enter(object sender, EventArgs e) {
+			m_WordInstance.Application.Activate();
 		}
 	}
 }

@@ -49,34 +49,34 @@
 			this.panelArrange = new System.Windows.Forms.RibbonPanel();
 			this.ribbon4 = new System.Windows.Forms.Ribbon();
 			this.referencesTab = new System.Windows.Forms.RibbonTab();
-			this.ribbon5 = new System.Windows.Forms.Ribbon();
-			this.mailingsTab = new System.Windows.Forms.RibbonTab();
-			this.ribbon6 = new System.Windows.Forms.Ribbon();
-			this.tabReview = new System.Windows.Forms.RibbonTab();
-			this.ribbon7 = new System.Windows.Forms.Ribbon();
-			this.viewTab = new System.Windows.Forms.RibbonTab();
-			this.reviewTab = new System.Windows.Forms.RibbonTab();
 			this.panelTableOfContents = new System.Windows.Forms.RibbonPanel();
 			this.panelFootnotes = new System.Windows.Forms.RibbonPanel();
 			this.panelCaptions = new System.Windows.Forms.RibbonPanel();
 			this.panelIndex = new System.Windows.Forms.RibbonPanel();
 			this.panelTableOfAuthorities = new System.Windows.Forms.RibbonPanel();
+			this.ribbon5 = new System.Windows.Forms.Ribbon();
+			this.mailingsTab = new System.Windows.Forms.RibbonTab();
 			this.panelCreate = new System.Windows.Forms.RibbonPanel();
 			this.panelStartMailMerge = new System.Windows.Forms.RibbonPanel();
 			this.panelWriteAndInsertFields = new System.Windows.Forms.RibbonPanel();
 			this.panelPreviewResults = new System.Windows.Forms.RibbonPanel();
 			this.panelFinish = new System.Windows.Forms.RibbonPanel();
+			this.ribbon6 = new System.Windows.Forms.Ribbon();
+			this.tabReview = new System.Windows.Forms.RibbonTab();
 			this.panelProofing = new System.Windows.Forms.RibbonPanel();
 			this.panelComments = new System.Windows.Forms.RibbonPanel();
 			this.panelTracking = new System.Windows.Forms.RibbonPanel();
 			this.panelChanges = new System.Windows.Forms.RibbonPanel();
 			this.panelCompare = new System.Windows.Forms.RibbonPanel();
 			this.panelProtect = new System.Windows.Forms.RibbonPanel();
+			this.ribbon7 = new System.Windows.Forms.Ribbon();
+			this.viewTab = new System.Windows.Forms.RibbonTab();
 			this.panelDocumentViews = new System.Windows.Forms.RibbonPanel();
 			this.panelShowHide = new System.Windows.Forms.RibbonPanel();
 			this.panelZoom = new System.Windows.Forms.RibbonPanel();
 			this.panelWindow = new System.Windows.Forms.RibbonPanel();
 			this.panelMacros = new System.Windows.Forms.RibbonPanel();
+			this.reviewTab = new System.Windows.Forms.RibbonTab();
 			this.SuspendLayout();
 			// 
 			// homeTab
@@ -276,6 +276,26 @@
 			this.referencesTab.Panels.Add(this.panelTableOfAuthorities);
 			this.referencesTab.Text = "References";
 			// 
+			// panelTableOfContents
+			// 
+			this.panelTableOfContents.Text = "Table of Contents";
+			// 
+			// panelFootnotes
+			// 
+			this.panelFootnotes.Text = "Footnotes";
+			// 
+			// panelCaptions
+			// 
+			this.panelCaptions.Text = "Captions";
+			// 
+			// panelIndex
+			// 
+			this.panelIndex.Text = "Index";
+			// 
+			// panelTableOfAuthorities
+			// 
+			this.panelTableOfAuthorities.Text = "Table of Authorities";
+			// 
 			// ribbon5
 			// 
 			this.ribbon5.CaptionBarVisible = false;
@@ -310,6 +330,26 @@
 			this.mailingsTab.Panels.Add(this.panelPreviewResults);
 			this.mailingsTab.Panels.Add(this.panelFinish);
 			this.mailingsTab.Text = "Mailings";
+			// 
+			// panelCreate
+			// 
+			this.panelCreate.Text = "Create";
+			// 
+			// panelStartMailMerge
+			// 
+			this.panelStartMailMerge.Text = "Start Mail Merge";
+			// 
+			// panelWriteAndInsertFields
+			// 
+			this.panelWriteAndInsertFields.Text = "Write & Insert Fields";
+			// 
+			// panelPreviewResults
+			// 
+			this.panelPreviewResults.Text = "Preview Results";
+			// 
+			// panelFinish
+			// 
+			this.panelFinish.Text = "Finish";
 			// 
 			// ribbon6
 			// 
@@ -347,6 +387,30 @@
 			this.tabReview.Panels.Add(this.panelProtect);
 			this.tabReview.Text = "Review";
 			// 
+			// panelProofing
+			// 
+			this.panelProofing.Text = "Proofing";
+			// 
+			// panelComments
+			// 
+			this.panelComments.Text = "Comments";
+			// 
+			// panelTracking
+			// 
+			this.panelTracking.Text = "Tracking";
+			// 
+			// panelChanges
+			// 
+			this.panelChanges.Text = "Changes";
+			// 
+			// panelCompare
+			// 
+			this.panelCompare.Text = "Compare";
+			// 
+			// panelProtect
+			// 
+			this.panelProtect.Text = "Protect";
+			// 
 			// ribbon7
 			// 
 			this.ribbon7.CaptionBarVisible = false;
@@ -382,74 +446,6 @@
 			this.viewTab.Panels.Add(this.panelMacros);
 			this.viewTab.Text = "View";
 			// 
-			// reviewTab
-			// 
-			this.reviewTab.Text = "Review";
-			// 
-			// panelTableOfContents
-			// 
-			this.panelTableOfContents.Text = "Table of Contents";
-			// 
-			// panelFootnotes
-			// 
-			this.panelFootnotes.Text = "Footnotes";
-			// 
-			// panelCaptions
-			// 
-			this.panelCaptions.Text = "Captions";
-			// 
-			// panelIndex
-			// 
-			this.panelIndex.Text = "Index";
-			// 
-			// panelTableOfAuthorities
-			// 
-			this.panelTableOfAuthorities.Text = "Table of Authorities";
-			// 
-			// panelCreate
-			// 
-			this.panelCreate.Text = "Create";
-			// 
-			// panelStartMailMerge
-			// 
-			this.panelStartMailMerge.Text = "Start Mail Merge";
-			// 
-			// panelWriteAndInsertFields
-			// 
-			this.panelWriteAndInsertFields.Text = "Write & Insert Fields";
-			// 
-			// panelPreviewResults
-			// 
-			this.panelPreviewResults.Text = "Preview Results";
-			// 
-			// panelFinish
-			// 
-			this.panelFinish.Text = "Finish";
-			// 
-			// panelProofing
-			// 
-			this.panelProofing.Text = "Proofing";
-			// 
-			// panelComments
-			// 
-			this.panelComments.Text = "Comments";
-			// 
-			// panelTracking
-			// 
-			this.panelTracking.Text = "Tracking";
-			// 
-			// panelChanges
-			// 
-			this.panelChanges.Text = "Changes";
-			// 
-			// panelCompare
-			// 
-			this.panelCompare.Text = "Compare";
-			// 
-			// panelProtect
-			// 
-			this.panelProtect.Text = "Protect";
-			// 
 			// panelDocumentViews
 			// 
 			this.panelDocumentViews.Text = "Document Views";
@@ -470,6 +466,10 @@
 			// 
 			this.panelMacros.Text = "Macros";
 			// 
+			// reviewTab
+			// 
+			this.reviewTab.Text = "Review";
+			// 
 			// CommandMapForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -487,6 +487,7 @@
 			this.ShowInTaskbar = false;
 			this.Text = "Form1";
 			this.TopMost = true;
+			this.Enter += new System.EventHandler(this.CommandMapForm_Enter);
 			this.Leave += new System.EventHandler(this.CommandMapForm_Leave);
 			this.ResumeLayout(false);
 
