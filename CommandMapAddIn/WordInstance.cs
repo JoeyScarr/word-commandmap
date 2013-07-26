@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -45,7 +47,11 @@ namespace CommandMapAddIn {
 
 		public void SendCommand(string p) {
 			if (m_App.CommandBars.GetEnabledMso(p)) {
-				m_App.CommandBars.ExecuteMso(p);
+				try {
+					m_App.CommandBars.ExecuteMso(p);
+				} catch (COMException exception) {
+					Debug.WriteLine(exception);
+				}
 			}
 		}
 	}
