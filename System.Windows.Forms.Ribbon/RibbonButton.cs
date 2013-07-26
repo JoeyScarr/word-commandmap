@@ -892,7 +892,7 @@ namespace System.Windows.Forms
          {
             case RibbonButtonStyle.DropDown:
             case RibbonButtonStyle.SplitDropDown:  // drawing size calculation for DropDown and SplitDropDown is identical
-               widthSum += arrowWidth + _dropDownMargin.Horizontal;
+               widthSum += arrowWidth;// + _dropDownMargin.Horizontal;
                break;
             case RibbonButtonStyle.DropDownListItem:
                break;

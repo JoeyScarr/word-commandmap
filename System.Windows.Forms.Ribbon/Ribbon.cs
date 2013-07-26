@@ -149,7 +149,7 @@ namespace System.Windows.Forms
 			_tabsPadding = new Padding(8, 5, 8, 3);
 			_tabContentMargin = new Padding(1, 0, 1, 2);
 			_panelPadding = new Padding(3);
-			_panelMargin = new Padding(3, 2, 3, 15);
+			_panelMargin = new Padding(0, 2, 0, 15);
 			_panelSpacing = DefaultPanelSpacing;
 			_itemPadding = new Padding(1, 0, 1, 0);
 			_itemMargin = new Padding(4, 2, 4, 2);

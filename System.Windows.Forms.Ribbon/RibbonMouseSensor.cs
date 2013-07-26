@@ -442,8 +442,8 @@ namespace System.Windows.Forms
 			if (HittedPanel != null)
 			{
 				HittedPanel.SetPressed(false);
-				HittedPanel.OnMouseUp(e);
 				Control.Invalidate(HittedPanel.Bounds);
+				HittedPanel.OnMouseUp(e);
 			}
 			#endregion
 

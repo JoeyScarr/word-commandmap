@@ -148,30 +148,37 @@
 			// 
 			// panelPages
 			// 
+			this.panelPages.ButtonMoreVisible = false;
 			this.panelPages.Text = "Pages";
 			// 
 			// panelTables
 			// 
+			this.panelTables.ButtonMoreVisible = false;
 			this.panelTables.Text = "Tables";
 			// 
 			// panelIllustrations
 			// 
+			this.panelIllustrations.ButtonMoreVisible = false;
 			this.panelIllustrations.Text = "Illustrations";
 			// 
 			// panelLinks
 			// 
+			this.panelLinks.ButtonMoreVisible = false;
 			this.panelLinks.Text = "Links";
 			// 
 			// panelHeaderFooter
 			// 
+			this.panelHeaderFooter.ButtonMoreVisible = false;
 			this.panelHeaderFooter.Text = "Header & Footer";
 			// 
 			// panelText
 			// 
+			this.panelText.ButtonMoreVisible = false;
 			this.panelText.Text = "Text";
 			// 
 			// panelSymbols
 			// 
+			this.panelSymbols.ButtonMoreVisible = false;
 			this.panelSymbols.Text = "Symbols";
 			// 
 			// ribbonComboBox1
@@ -223,22 +230,27 @@
 			// 
 			// panelThemes
 			// 
+			this.panelThemes.ButtonMoreVisible = false;
 			this.panelThemes.Text = "Themes";
 			// 
 			// panelPageSetup
 			// 
 			this.panelPageSetup.Text = "Page Setup";
+			this.panelPageSetup.ButtonMoreClick += new System.EventHandler(this.panelPageSetup_ButtonMoreClick);
 			// 
 			// panelPageBackground
 			// 
+			this.panelPageBackground.ButtonMoreVisible = false;
 			this.panelPageBackground.Text = "Page Background";
 			// 
 			// panelParagraph
 			// 
 			this.panelParagraph.Text = "Paragraph";
+			this.panelParagraph.ButtonMoreClick += new System.EventHandler(this.panelParagraph_ButtonMoreClick);
 			// 
 			// panelArrange
 			// 
+			this.panelArrange.ButtonMoreVisible = false;
 			this.panelArrange.Text = "Arrange";
 			// 
 			// ribbon4
@@ -278,22 +290,27 @@
 			// 
 			// panelTableOfContents
 			// 
+			this.panelTableOfContents.ButtonMoreVisible = false;
 			this.panelTableOfContents.Text = "Table of Contents";
 			// 
 			// panelFootnotes
 			// 
 			this.panelFootnotes.Text = "Footnotes";
+			this.panelFootnotes.ButtonMoreClick += new System.EventHandler(this.panelFootnotes_ButtonMoreClick);
 			// 
 			// panelCaptions
 			// 
+			this.panelCaptions.ButtonMoreVisible = false;
 			this.panelCaptions.Text = "Captions";
 			// 
 			// panelIndex
 			// 
+			this.panelIndex.ButtonMoreVisible = false;
 			this.panelIndex.Text = "Index";
 			// 
 			// panelTableOfAuthorities
 			// 
+			this.panelTableOfAuthorities.ButtonMoreVisible = false;
 			this.panelTableOfAuthorities.Text = "Table of Authorities";
 			// 
 			// ribbon5
@@ -333,22 +350,27 @@
 			// 
 			// panelCreate
 			// 
+			this.panelCreate.ButtonMoreVisible = false;
 			this.panelCreate.Text = "Create";
 			// 
 			// panelStartMailMerge
 			// 
+			this.panelStartMailMerge.ButtonMoreVisible = false;
 			this.panelStartMailMerge.Text = "Start Mail Merge";
 			// 
 			// panelWriteAndInsertFields
 			// 
+			this.panelWriteAndInsertFields.ButtonMoreVisible = false;
 			this.panelWriteAndInsertFields.Text = "Write & Insert Fields";
 			// 
 			// panelPreviewResults
 			// 
+			this.panelPreviewResults.ButtonMoreVisible = false;
 			this.panelPreviewResults.Text = "Preview Results";
 			// 
 			// panelFinish
 			// 
+			this.panelFinish.ButtonMoreVisible = false;
 			this.panelFinish.Text = "Finish";
 			// 
 			// ribbon6
@@ -389,26 +411,32 @@
 			// 
 			// panelProofing
 			// 
+			this.panelProofing.ButtonMoreVisible = false;
 			this.panelProofing.Text = "Proofing";
 			// 
 			// panelComments
 			// 
+			this.panelComments.ButtonMoreVisible = false;
 			this.panelComments.Text = "Comments";
 			// 
 			// panelTracking
 			// 
+			this.panelTracking.ButtonMoreVisible = false;
 			this.panelTracking.Text = "Tracking";
 			// 
 			// panelChanges
 			// 
+			this.panelChanges.ButtonMoreVisible = false;
 			this.panelChanges.Text = "Changes";
 			// 
 			// panelCompare
 			// 
+			this.panelCompare.ButtonMoreVisible = false;
 			this.panelCompare.Text = "Compare";
 			// 
 			// panelProtect
 			// 
+			this.panelProtect.ButtonMoreVisible = false;
 			this.panelProtect.Text = "Protect";
 			// 
 			// ribbon7
@@ -448,22 +476,27 @@
 			// 
 			// panelDocumentViews
 			// 
+			this.panelDocumentViews.ButtonMoreVisible = false;
 			this.panelDocumentViews.Text = "Document Views";
 			// 
 			// panelShowHide
 			// 
+			this.panelShowHide.ButtonMoreVisible = false;
 			this.panelShowHide.Text = "Show/Hide";
 			// 
 			// panelZoom
 			// 
+			this.panelZoom.ButtonMoreVisible = false;
 			this.panelZoom.Text = "Zoom";
 			// 
 			// panelWindow
 			// 
+			this.panelWindow.ButtonMoreVisible = false;
 			this.panelWindow.Text = "Window";
 			// 
 			// panelMacros
 			// 
+			this.panelMacros.ButtonMoreVisible = false;
 			this.panelMacros.Text = "Macros";
 			// 
 			// reviewTab

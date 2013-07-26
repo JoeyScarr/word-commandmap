@@ -99,12 +99,16 @@ namespace CommandMapAddIn {
 			}
 		}
 
+		private void RunCommand(string msoName) {
+			Hide();
+			m_WordInstance.Application.Activate();
+			m_WordInstance.SendCommand(msoName);
+		}
+
 		private void AssignAction(RibbonItem item, string msoName) {
 			item.Enabled = m_WordInstance.Application.CommandBars.GetEnabledMso(msoName);
 			EventHandler handler = new EventHandler(delegate(object sender, EventArgs ea) {
-				Hide();
-				m_WordInstance.Application.Activate();
-				m_WordInstance.SendCommand(msoName);
+				RunCommand(msoName);
 			});
 			item.Click += handler;
 			item.DoubleClick += handler;
@@ -424,6 +428,18 @@ namespace CommandMapAddIn {
 
 		private void CommandMapForm_Enter(object sender, EventArgs e) {
 			m_WordInstance.Application.Activate();
+		}
+
+		private void panelPageSetup_ButtonMoreClick(object sender, EventArgs e) {
+			RunCommand("PageSetupDialog");
+		}
+
+		private void panelParagraph_ButtonMoreClick(object sender, EventArgs e) {
+			RunCommand("ParagraphDialog");
+		}
+
+		private void panelFootnotes_ButtonMoreClick(object sender, EventArgs e) {
+			RunCommand("FootnoteEndnoteDialog");
 		}
 	}
 }
