@@ -14,7 +14,7 @@ using Word = Microsoft.Office.Interop.Word;
 
 //  protected override Microsoft.Office.Core.IRibbonExtensibility CreateRibbonExtensibilityObject()
 //  {
-//      return new BlankRibbon();
+//      return new NormalRibbon();
 //  }
 
 // 2. Create callback methods in the "Ribbon Callbacks" region of this class to handle user
@@ -29,11 +29,11 @@ using Word = Microsoft.Office.Interop.Word;
 
 namespace CommandMapAddIn {
 	[ComVisible(true)]
-	public class BlankRibbon : Office.IRibbonExtensibility {
+	public class NormalRibbon : Office.IRibbonExtensibility {
 		private Office.IRibbonUI ribbon;
 		private Word.Application m_Word;
 
-		public BlankRibbon() {
+		public NormalRibbon() {
 		}
 
 		public Word.Application Application {
@@ -44,7 +44,7 @@ namespace CommandMapAddIn {
 		#region IRibbonExtensibility Members
 
 		public string GetCustomUI(string ribbonID) {
-			return GetResourceText("CommandMapAddIn.BlankRibbon.xml");
+			return GetResourceText("CommandMapAddIn.NormalRibbon.xml");
 		}
 
 		#endregion
@@ -56,8 +56,8 @@ namespace CommandMapAddIn {
 			this.ribbon = ribbonUI;
 		}
 
-		public void DisableClicked(Office.IRibbonControl control) {
-			GlobalSettings.SetCommandMapEnabled(false);
+		public void EnableClicked(Office.IRibbonControl control) {
+			GlobalSettings.SetCommandMapEnabled(true);
 			m_Word.Quit();
 		}
 

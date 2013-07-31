@@ -14,19 +14,30 @@ namespace CommandMapAddIn {
 
 		WordInstance m_Word;
 		CommandMapForm m_CommandMap;
+		BlankRibbon m_BlankRibbon;
+		NormalRibbon m_NormalRibbon;
 
 		bool m_CtrlPressed = false;
 
 		private void ThisAddIn_Startup(object sender, System.EventArgs e) {
+			// Inform the ribbon we're using about the current application
+			if (m_BlankRibbon != null) {
+				m_BlankRibbon.Application = Application;
+			} else if (m_NormalRibbon != null) {
+				m_NormalRibbon.Application = Application;
+			}
+
 			// Create a WordInstance
 			m_Word = new WordInstance(Application);
 
-			// Spawn the CommandMap form, and attach it to the Word window.
-			m_CommandMap = new CommandMapForm(m_Word);
+			if (GlobalSettings.GetCommandMapEnabled()) {
+				// Spawn the CommandMap form, and attach it to the Word window.
+				m_CommandMap = new CommandMapForm(m_Word);
 
-			// Add a global hook.
-			HookManager.KeyDown += HookManager_KeyDown;
-			HookManager.KeyUp += HookManager_KeyUp;
+				// Add a global hook.
+				HookManager.KeyDown += HookManager_KeyDown;
+				HookManager.KeyUp += HookManager_KeyUp;
+			}
 		}
 
 		void HookManager_KeyDown(object sender, KeyEventArgs e) {
@@ -56,7 +67,11 @@ namespace CommandMapAddIn {
 		}
 
 		protected override Microsoft.Office.Core.IRibbonExtensibility CreateRibbonExtensibilityObject() {
-			return new BlankRibbon();
+			if (GlobalSettings.GetCommandMapEnabled()) {
+				return (m_BlankRibbon = new BlankRibbon());
+			} else {
+				return (m_NormalRibbon = new NormalRibbon());
+			}
 		}
 
 		#region VSTO generated code

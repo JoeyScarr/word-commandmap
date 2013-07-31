@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<customUI xmlns="http://schemas.microsoft.com/office/2006/01/customui" onLoad="Ribbon_Load">
+  <ribbon startFromScratch="false">
+    <tabs>
+			<tab id="CMOptions" label="CommandMap Options" >
+				<group id="tab1grp1" label="Enable CommandMap" >
+					<button id="toggleCM" size="large" label="Enable CommandMap and Close Word" imageMso="PrintPreviewClose" onAction="EnableClicked" />
+				</group>
+			</tab>
+    </tabs>
+  </ribbon>
+</customUI>
+
