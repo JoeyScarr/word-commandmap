@@ -730,4 +730,67 @@
   <data name="WatermarkGallery1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\ribbon-icons\small\WatermarkGallery.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="ConvertTextToTable" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ribbon-icons\small\ConvertTextToTable.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CoverPageRemove" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ribbon-icons\small\CoverPageRemove.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FieldInsert" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ribbon-icons\small\FieldInsert.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="HeaderFooterRemoveFooterWord" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ribbon-icons\small\HeaderFooterRemoveFooterWord.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="HeaderFooterRemoveHeaderWord" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ribbon-icons\small\HeaderFooterRemoveHeaderWord.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="InsertDrawingCanvas" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ribbon-icons\small\InsertDrawingCanvas.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Organizer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ribbon-icons\small\Organizer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PageNambersInMarginsInsertGallery" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ribbon-icons\small\PageNambersInMarginsInsertGallery.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PageNumberFormat" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ribbon-icons\small\PageNumberFormat.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PageNumbersInHeaderInsertGallery" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ribbon-icons\small\PageNumbersInHeaderInsertGallery.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PageNumbersRemove" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ribbon-icons\small\PageNumbersRemove.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PropertyInsert" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ribbon-icons\small\PropertyInsert.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SaveSelectionToCoverPageGallery" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ribbon-icons\small\SaveSelectionToCoverPageGallery.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SaveSelectionToFooterGallery" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ribbon-icons\small\SaveSelectionToFooterGallery.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SaveSelectionToHeaderGallery" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ribbon-icons\small\SaveSelectionToHeaderGallery.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SaveSelectionToQuickPartGallery" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ribbon-icons\small\SaveSelectionToQuickPartGallery.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SaveSelectionToQuickTablesGallery" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ribbon-icons\small\SaveSelectionToQuickTablesGallery.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SaveSelectionToTextBoxGallery" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ribbon-icons\small\SaveSelectionToTextBoxGallery.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TableDrawTable" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ribbon-icons\small\TableDrawTable.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TableExcelSpreadsheetInsert" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ribbon-icons\small\TableExcelSpreadsheetInsert.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TextFromFileInsert" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ribbon-icons\small\TextFromFileInsert.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

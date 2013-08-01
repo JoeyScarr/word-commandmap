@@ -193,6 +193,16 @@ namespace CommandMapAddIn.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ConvertTextToTable {
+            get {
+                object obj = ResourceManager.GetObject("ConvertTextToTable", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Copy {
             get {
                 object obj = ResourceManager.GetObject("Copy", resourceCulture);
@@ -216,6 +226,16 @@ namespace CommandMapAddIn.Properties {
         internal static System.Drawing.Bitmap CoverPageInsertGallery1 {
             get {
                 object obj = ResourceManager.GetObject("CoverPageInsertGallery1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CoverPageRemove {
+            get {
+                object obj = ResourceManager.GetObject("CoverPageRemove", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -333,6 +353,16 @@ namespace CommandMapAddIn.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap FieldInsert {
+            get {
+                object obj = ResourceManager.GetObject("FieldInsert", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap FileNew {
             get {
                 object obj = ResourceManager.GetObject("FileNew", resourceCulture);
@@ -443,6 +473,26 @@ namespace CommandMapAddIn.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap HeaderFooterRemoveFooterWord {
+            get {
+                object obj = ResourceManager.GetObject("HeaderFooterRemoveFooterWord", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap HeaderFooterRemoveHeaderWord {
+            get {
+                object obj = ResourceManager.GetObject("HeaderFooterRemoveHeaderWord", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap HeaderInsertGallery {
             get {
                 object obj = ResourceManager.GetObject("HeaderInsertGallery", resourceCulture);
@@ -516,6 +566,16 @@ namespace CommandMapAddIn.Properties {
         internal static System.Drawing.Bitmap IndexMarkEntry {
             get {
                 object obj = ResourceManager.GetObject("IndexMarkEntry", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap InsertDrawingCanvas {
+            get {
+                object obj = ResourceManager.GetObject("InsertDrawingCanvas", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -913,6 +973,16 @@ namespace CommandMapAddIn.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Organizer {
+            get {
+                object obj = ResourceManager.GetObject("Organizer", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap PageBreakInsertOrRemove {
             get {
                 object obj = ResourceManager.GetObject("PageBreakInsertOrRemove", resourceCulture);
@@ -986,6 +1056,46 @@ namespace CommandMapAddIn.Properties {
         internal static System.Drawing.Bitmap PageNambersInFooterInsertGallery1 {
             get {
                 object obj = ResourceManager.GetObject("PageNambersInFooterInsertGallery1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PageNambersInMarginsInsertGallery {
+            get {
+                object obj = ResourceManager.GetObject("PageNambersInMarginsInsertGallery", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PageNumberFormat {
+            get {
+                object obj = ResourceManager.GetObject("PageNumberFormat", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PageNumbersInHeaderInsertGallery {
+            get {
+                object obj = ResourceManager.GetObject("PageNumbersInHeaderInsertGallery", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PageNumbersRemove {
+            get {
+                object obj = ResourceManager.GetObject("PageNumbersRemove", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1156,6 +1266,16 @@ namespace CommandMapAddIn.Properties {
         internal static System.Drawing.Bitmap PlayMacro1 {
             get {
                 object obj = ResourceManager.GetObject("PlayMacro1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PropertyInsert {
+            get {
+                object obj = ResourceManager.GetObject("PropertyInsert", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1493,6 +1613,66 @@ namespace CommandMapAddIn.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap SaveSelectionToCoverPageGallery {
+            get {
+                object obj = ResourceManager.GetObject("SaveSelectionToCoverPageGallery", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SaveSelectionToFooterGallery {
+            get {
+                object obj = ResourceManager.GetObject("SaveSelectionToFooterGallery", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SaveSelectionToHeaderGallery {
+            get {
+                object obj = ResourceManager.GetObject("SaveSelectionToHeaderGallery", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SaveSelectionToQuickPartGallery {
+            get {
+                object obj = ResourceManager.GetObject("SaveSelectionToQuickPartGallery", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SaveSelectionToQuickTablesGallery {
+            get {
+                object obj = ResourceManager.GetObject("SaveSelectionToQuickTablesGallery", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SaveSelectionToTextBoxGallery {
+            get {
+                object obj = ResourceManager.GetObject("SaveSelectionToTextBoxGallery", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap SetLanguage {
             get {
                 object obj = ResourceManager.GetObject("SetLanguage", resourceCulture);
@@ -1603,6 +1783,26 @@ namespace CommandMapAddIn.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap TableDrawTable {
+            get {
+                object obj = ResourceManager.GetObject("TableDrawTable", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap TableExcelSpreadsheetInsert {
+            get {
+                object obj = ResourceManager.GetObject("TableExcelSpreadsheetInsert", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap TableInsert {
             get {
                 object obj = ResourceManager.GetObject("TableInsert", resourceCulture);
@@ -1686,6 +1886,16 @@ namespace CommandMapAddIn.Properties {
         internal static System.Drawing.Bitmap TextBoxInsert1 {
             get {
                 object obj = ResourceManager.GetObject("TextBoxInsert1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap TextFromFileInsert {
+            get {
+                object obj = ResourceManager.GetObject("TextFromFileInsert", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

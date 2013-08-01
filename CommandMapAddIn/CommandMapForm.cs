@@ -183,17 +183,30 @@ namespace CommandMapAddIn {
 			 * INSERT TAB
 			 *********************************************/
 			// Pages panel
-			AddButton(panelPages.Items, RibbonButtonStyle.DropDown, "Cover Page", "CoverPageInsertGallery", "CoverPageInsertGallery");
+			var coverPage = AddButton(panelPages.Items, RibbonButtonStyle.DropDown, "Cover Page", "CoverPageInsertGallery", "CoverPageInsertGallery");
+			// MISSING: Cover Page gallery
+			AddButton(coverPage.DropDownItems, RibbonButtonStyle.Normal, "Remove Current Cover Page", "CoverPageRemove", "CoverPageRemove");
+			AddButton(coverPage.DropDownItems, RibbonButtonStyle.Normal, "Save Selection to Cover Page Gallery...", "SaveSelectionToCoverPageGallery", "SaveSelectionToCoverPageGallery");
 			AddButton(panelPages.Items, RibbonButtonStyle.Normal, "Blank Page", "FileNew", "BlankPageInsert");
 			AddButton(panelPages.Items, RibbonButtonStyle.Normal, "Page Break", "PageBreakInsertOrRemove", "PageBreakInsertWord");
 
 			// Tables panel
-			AddButton(panelTables.Items, RibbonButtonStyle.DropDown, "Table", "TableInsert", "TableInsertGallery");
+			var table = AddButton(panelTables.Items, RibbonButtonStyle.DropDown, "Table", "TableInsert", "TableInsertGallery");
+			// MISSING: Table drawing thingy
+			AddButton(table.DropDownItems, RibbonButtonStyle.Normal, "Insert Table...", "TableInsert", "TableInsertDialogWord");
+			AddButton(table.DropDownItems, RibbonButtonStyle.Normal, "Draw Table", "TableDrawTable", "TableDrawTable");
+			AddButton(table.DropDownItems, RibbonButtonStyle.Normal, "Convert Text to Table...", "ConvertTextToTable", "ConvertTextToTable");
+			AddButton(table.DropDownItems, RibbonButtonStyle.Normal, "Excel Spreadsheet", "TableExcelSpreadsheetInsert", "TableExcelSpreadsheetInsert");
+			var quickTablesGallery = AddButton(table.DropDownItems, RibbonButtonStyle.DropDown, "Quick Tables", "TableInsert", "QuickTablesInsertGallery");
+			// MISSING: Quick tables gallery
+			AddButton(quickTablesGallery.DropDownItems, RibbonButtonStyle.Normal, "Save Selection to Quick Tables Gallery...", "SaveSelectionToQuickTablesGallery", "SaveSelectionToQuickTablesGallery");
 
 			// Illustrations panel
 			AddButton(panelIllustrations.Items, RibbonButtonStyle.Normal, "Picture", "PictureInsertFromFilePowerPoint", "PictureInsertFromFile");
 			AddButton(panelIllustrations.Items, RibbonButtonStyle.Normal, "Clip Art", "ClipArtInsert", "ClipArtInsert"); // Doesn't seem to work
-			AddButton(panelIllustrations.Items, RibbonButtonStyle.DropDown, "Shapes", "ShapesMoreShapes", "GalleryAllShapesAndCanvas");
+			var shapes = AddButton(panelIllustrations.Items, RibbonButtonStyle.DropDown, "Shapes", "ShapesMoreShapes", "GalleryAllShapesAndCanvas");
+			// MISSING: Shapes gallery
+			AddButton(shapes.DropDownItems, RibbonButtonStyle.Normal, "New Drawing Canvas", "InsertDrawingCanvas", "DrawingCanvasInsert");
 			AddButton(panelIllustrations.Items, RibbonButtonStyle.Normal, "SmartArt", "SmartArtInsert", "SmartArtInsert");
 			AddButton(panelIllustrations.Items, RibbonButtonStyle.Normal, "Chart", "ChartInsert", "ChartInsert");
 
@@ -203,22 +216,63 @@ namespace CommandMapAddIn {
 			AddButton(panelLinks.Items, RibbonButtonStyle.Normal, "Cross-reference", "CrossReferenceInsert", "CrossReferenceInsert");
 
 			// Header & Footer panel
-			AddButton(panelHeaderFooter.Items, RibbonButtonStyle.DropDown, "Header", "HeaderInsertGallery", "HeaderInsertGallery");
-			AddButton(panelHeaderFooter.Items, RibbonButtonStyle.DropDown, "Footer", "FooterInsertGallery", "FooterInsertGallery");
-			AddButton(panelHeaderFooter.Items, RibbonButtonStyle.DropDown, "Page Number", "PageNambersInFooterInsertGallery", "PageNambersInFooterInsertGallery");
+			var header = AddButton(panelHeaderFooter.Items, RibbonButtonStyle.DropDown, "Header", "HeaderInsertGallery", "HeaderInsertGallery");
+			// MISSING: Header gallery
+			AddButton(header.DropDownItems, RibbonButtonStyle.Normal, "Edit Header", "HeaderInsertGallery", "HeaderFooterEditHeader");
+			AddButton(header.DropDownItems, RibbonButtonStyle.Normal, "Remove Header", "HeaderFooterRemoveHeaderWord", "HeaderFooterRemoveHeaderWord");
+			AddButton(header.DropDownItems, RibbonButtonStyle.Normal, "Save Selection to Header Gallery...", "SaveSelectionToHeaderGallery", "SaveSelectionToHeaderGallery");
+			var footer = AddButton(panelHeaderFooter.Items, RibbonButtonStyle.DropDown, "Footer", "FooterInsertGallery", "FooterInsertGallery");
+			// MISSING: Footer gallery
+			AddButton(footer.DropDownItems, RibbonButtonStyle.Normal, "Edit Footer", "FooterInsertGallery", "HeaderFooterEditFooter");
+			AddButton(footer.DropDownItems, RibbonButtonStyle.Normal, "Remove Footer", "HeaderFooterRemoveFooterWord", "HeaderFooterRemoveFooterWord");
+			AddButton(footer.DropDownItems, RibbonButtonStyle.Normal, "Save Selection to Footer Gallery...", "SaveSelectionToFooterGallery", "SaveSelectionToFooterGallery");
+			var pageNumber = AddButton(panelHeaderFooter.Items, RibbonButtonStyle.DropDown, "Page Number", "PageNambersInFooterInsertGallery", "PageNambersInFooterInsertGallery");
+			AddButton(pageNumber.DropDownItems, RibbonButtonStyle.DropDown, "Top of Page", "PageNumbersInHeaderInsertGallery", "PageNumbersInHeaderInsertGallery");
+			AddButton(pageNumber.DropDownItems, RibbonButtonStyle.DropDown, "Bottom of Page", "PageNambersInFooterInsertGallery", "PageNambersInFooterInsertGallery");
+			AddButton(pageNumber.DropDownItems, RibbonButtonStyle.DropDown, "Page Margins", "PageNambersInMarginsInsertGallery", "PageNambersInMarginsInsertGallery");
+			AddButton(pageNumber.DropDownItems, RibbonButtonStyle.DropDown, "Current Position", "PageNambersInFooterInsertGallery", "PageNambersInFooterInsertGallery");
+			// MISSING: Gallery submenus for all of the above
+			AddSeparator(pageNumber.DropDownItems);
+			AddButton(pageNumber.DropDownItems, RibbonButtonStyle.Normal, "Format Page Numbers...", "PageNumberFormat", "PageNumberFormat");
+			AddButton(pageNumber.DropDownItems, RibbonButtonStyle.Normal, "Remove Page Numbers", "PageNumbersRemove", "PageNumbersRemove");
 
 			// Text panel
-			AddButton(panelText.Items, RibbonButtonStyle.DropDown, "Text Box", "TextBoxInsert", "TextBoxInsertGallery");
-			AddButton(panelText.Items, RibbonButtonStyle.DropDown, "Quick Parts", "QuickPartsInsertGallery", "QuickPartsInsertGallery");
-			AddButton(panelText.Items, RibbonButtonStyle.DropDown, "WordArt", "QuickStylesSets", "WordArtInsertGalleryClassic"); // Wrong image
-			AddButton(panelText.Items, RibbonButtonStyle.DropDown, "Drop Cap", "DropCapOptionsDialog", "DropCapInsertGallery");
-			AddButton(panelText.Items, RibbonButtonStyle.SplitDropDown, "Signature Line", "SignatureLineInsert", "SignatureLineInsert", RibbonElementSizeMode.Medium);
+			var textBox = AddButton(panelText.Items, RibbonButtonStyle.DropDown, "Text Box", "TextBoxInsert", "TextBoxInsertGallery");
+			// MISSING: Text box gallery
+			AddButton(textBox.DropDownItems, RibbonButtonStyle.Normal, "Draw Text Box", "TextBoxInsert", "TextBoxDrawMenu");
+			AddButton(textBox.DropDownItems, RibbonButtonStyle.Normal, "Save Selection to Text Box Gallery", "SaveSelectionToTextBoxGallery", "SaveSelectionToTextBoxGallery");
+			var quickParts = AddButton(panelText.Items, RibbonButtonStyle.DropDown, "Quick Parts", "QuickPartsInsertGallery", "QuickPartsInsertGallery");
+			AddButton(quickParts.DropDownItems, RibbonButtonStyle.DropDown, "Document Property", "PropertyInsert", "PropertyInsert");
+			// MISSING: Document Properties gallery
+			AddButton(quickParts.DropDownItems, RibbonButtonStyle.Normal, "Field...", "FieldInsert", "FieldInsert");
+			AddSeparator(quickParts.DropDownItems);
+			AddButton(quickParts.DropDownItems, RibbonButtonStyle.Normal, "Building Blocks Organizer...", "Organizer", "BuildingBlocksOrganizer");
+			AddButton(quickParts.DropDownItems, RibbonButtonStyle.Normal, "Get More on Office Online...", "QuickPartsInsertFromOnline", "QuickPartsInsertFromOnline"); // Missing image
+			AddButton(quickParts.DropDownItems, RibbonButtonStyle.Normal, "Save Selection to Quick Part Gallery...", "SaveSelectionToQuickPartGallery", "SaveSelectionToQuickPartGallery");
+			var wordArt = AddButton(panelText.Items, RibbonButtonStyle.DropDown, "WordArt", "QuickStylesSets", "WordArtInsertGalleryClassic"); // Wrong image
+			// MISSING: WordArt gallery
+			var dropCap = AddButton(panelText.Items, RibbonButtonStyle.DropDown, "Drop Cap", "DropCapOptionsDialog", "DropCapInsertGallery");
+			AddSeparator(dropCap.DropDownItems);
+			AddButton(dropCap.DropDownItems, RibbonButtonStyle.Normal, "Drop Cap Options...", "DropCapOptionsDialog", "DropCapOptionsDialog");
+			var signatureLine = AddButton(panelText.Items, RibbonButtonStyle.SplitDropDown, "Signature Line", "SignatureLineInsert", "SignatureLineInsert", RibbonElementSizeMode.Medium);
+			AddButton(signatureLine.DropDownItems, RibbonButtonStyle.Normal, "Microsoft Office Signature Line...", "", "SignatureLineInsert");
+			AddSeparator(signatureLine.DropDownItems);
+			AddButton(signatureLine.DropDownItems, RibbonButtonStyle.Normal, "Add Signature Services...", "", "SignatureServicesAdd");
 			AddButton(panelText.Items, RibbonButtonStyle.Normal, "Date & Time", "DateAndTimeInsert", "DateAndTimeInsert", RibbonElementSizeMode.Medium);
-			AddButton(panelText.Items, RibbonButtonStyle.SplitDropDown, "Object", "OleObjectctInsert", "OleObjectctInsert", RibbonElementSizeMode.Medium);
+			var objectMenu = AddButton(panelText.Items, RibbonButtonStyle.SplitDropDown, "Object", "OleObjectctInsert", "OleObjectctInsert", RibbonElementSizeMode.Medium);
+			AddButton(objectMenu.DropDownItems, RibbonButtonStyle.Normal, "Object...", "OleObjectctInsert", "OleObjectctInsert");
+			AddButton(objectMenu.DropDownItems, RibbonButtonStyle.Normal, "Text from File...", "TextFromFileInsert", "TextFromFileInsert");
 
 			// Symbols panel
-			AddButton(panelSymbols.Items, RibbonButtonStyle.SplitDropDown, "Equation", "AutoSum", "EquationInsertNew"); // Wrong image
-			AddButton(panelSymbols.Items, RibbonButtonStyle.DropDown, "Symbol", "SymbolInsert", "SymbolInsertGallery");
+			var equation = AddButton(panelSymbols.Items, RibbonButtonStyle.SplitDropDown, "Equation", "AutoSum", "EquationInsertNew"); // Wrong image
+			// MISSING: Equation gallery
+			AddSeparator(equation.DropDownItems);
+			AddButton(equation.DropDownItems, RibbonButtonStyle.Normal, "Insert New Equation", "EquationOptions", "EquationInsertNew");
+			AddButton(equation.DropDownItems, RibbonButtonStyle.Normal, "Save Selection to Equation Gallery...", "AutoSum", "SaveSelectionToEquationGallery"); // Wrong image
+			var symbol = AddButton(panelSymbols.Items, RibbonButtonStyle.DropDown, "Symbol", "SymbolInsert", "SymbolInsertGallery");
+			// MISSING: Symbol gallery
+			AddSeparator(symbol.DropDownItems);
+			AddButton(symbol.DropDownItems, RibbonButtonStyle.Normal, "More Symbols...", "SymbolInsert", "SymbolsDialog");
 
 
 			/*********************************************
@@ -250,25 +304,25 @@ namespace CommandMapAddIn {
 			AddUpDown(panelParagraph.Items, "Left:", "IndentClassic",
 				(decimal)m_WordInstance.Application.ActiveDocument.Paragraphs.LeftIndent, " cm", 0.1m, -27.9m, 55.8m,
 				new EventHandler(delegate(object sender, EventArgs ea) {
-					m_WordInstance.Application.ActiveDocument.Paragraphs.LeftIndent = GetLeadingFloat(((RibbonUpDown)sender).TextBoxText) * 28.35f; // cm to pt
-				}));
+				m_WordInstance.Application.ActiveDocument.Paragraphs.LeftIndent = GetLeadingFloat(((RibbonUpDown)sender).TextBoxText) * 28.35f; // cm to pt
+			}));
 			AddUpDown(panelParagraph.Items, "Right:", "ParagraphIndentRight",
 				(decimal)m_WordInstance.Application.ActiveDocument.Paragraphs.RightIndent, " cm", 0.1m, -27.9m, 55.8m,
 				new EventHandler(delegate(object sender, EventArgs ea) {
-					m_WordInstance.Application.ActiveDocument.Paragraphs.RightIndent = GetLeadingFloat(((RibbonUpDown)sender).TextBoxText) * 28.35f; // cm to pt
-				}));
+				m_WordInstance.Application.ActiveDocument.Paragraphs.RightIndent = GetLeadingFloat(((RibbonUpDown)sender).TextBoxText) * 28.35f; // cm to pt
+			}));
 			AddSeparator(panelParagraph.Items);
 			AddLabel(panelParagraph.Items, "Spacing");
 			AddUpDown(panelParagraph.Items, "Before:", "ParagraphSpacingIncrease",
 				(decimal)m_WordInstance.Application.ActiveDocument.Paragraphs.SpaceBefore, " pt", 6, 0, 1584,
 				new EventHandler(delegate(object sender, EventArgs ea) {
-					m_WordInstance.Application.ActiveDocument.Paragraphs.SpaceBefore = GetLeadingFloat(((RibbonUpDown)sender).TextBoxText);
-				}));
+				m_WordInstance.Application.ActiveDocument.Paragraphs.SpaceBefore = GetLeadingFloat(((RibbonUpDown)sender).TextBoxText);
+			}));
 			AddUpDown(panelParagraph.Items, "After:", "ParagraphSpacingDecrease",
 				(decimal)m_WordInstance.Application.ActiveDocument.Paragraphs.SpaceAfter, " pt", 6, 0, 1584,
 				new EventHandler(delegate(object sender, EventArgs ea) {
-					m_WordInstance.Application.ActiveDocument.Paragraphs.SpaceAfter = GetLeadingFloat(((RibbonUpDown)sender).TextBoxText);
-				}));
+				m_WordInstance.Application.ActiveDocument.Paragraphs.SpaceAfter = GetLeadingFloat(((RibbonUpDown)sender).TextBoxText);
+			}));
 
 			// Arrange panel
 			AddButton(panelArrange.Items, RibbonButtonStyle.DropDown, "Position", "PicturePositionGallery", "PicturePositionGallery");
