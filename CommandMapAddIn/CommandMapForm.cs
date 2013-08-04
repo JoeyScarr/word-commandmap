@@ -15,6 +15,7 @@ namespace CommandMapAddIn {
 	public partial class CommandMapForm : Form {
 
 		private WordInstance m_WordInstance;
+		private List<RibbonItem> m_Controls;
 		private const int TITLEBAR_HEIGHT = 55;
 		private const int BASE_RIBBON_HEIGHT = 93;
 		private const int CM_RIBBON_HEIGHT = 118;
@@ -23,6 +24,8 @@ namespace CommandMapAddIn {
 
 		public CommandMapForm() {
 			InitializeComponent();
+
+			m_Controls = new List<RibbonItem>();
 		}
 
 		public CommandMapForm(WordInstance instance)
@@ -48,6 +51,9 @@ namespace CommandMapAddIn {
 		}
 
 		public new void Show() {
+			foreach (RibbonItem item in m_Controls) {
+				SetEnabled(item);
+			}
 			FollowWordPosition();
 			base.Show();
 			FollowWordPosition();
@@ -106,7 +112,8 @@ namespace CommandMapAddIn {
 		}
 
 		private void AssignAction(RibbonItem item, string msoName) {
-			item.Enabled = m_WordInstance.Application.CommandBars.GetEnabledMso(msoName);
+			item.Tag = msoName;
+			m_Controls.Add(item);
 			EventHandler handler = new EventHandler(delegate(object sender, EventArgs ea) {
 				RunCommand(msoName);
 			});
@@ -115,6 +122,11 @@ namespace CommandMapAddIn {
 			if (item is RibbonCheckBox) {
 				((RibbonCheckBox)item).CheckBoxCheckChanged += handler;
 			}
+		}
+
+		private void SetEnabled(RibbonItem item) {
+			string msoName = (string)item.Tag;
+			item.Enabled = m_WordInstance.Application.CommandBars.GetEnabledMso(msoName);
 		}
 
 		private RibbonButton AddButton(RibbonItemCollection collection, RibbonButtonStyle style, string label, string msoImageName,
