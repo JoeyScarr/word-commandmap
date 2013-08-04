@@ -1,13 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <customUI xmlns="http://schemas.microsoft.com/office/2006/01/customui" onLoad="Ribbon_Load">
-	<ribbon startFromScratch="true" >
-		<qat>
-			<sharedControls>
-				<control idMso="FileSave" />
-				<control idMso="Undo" />
-				<control idMso="RedoOrRepeat" />
-			</sharedControls>
-		</qat>
+	<ribbon startFromScratch="false" >
 		<tabs>
 			<tab id="MyHome" label="Home">
 				<group idMso="GroupClipboard" />
@@ -16,6 +9,14 @@
 				<group idMso="GroupStyles" />
 				<group idMso="GroupEditing" />
 			</tab>
+			<tab idMso="TabHome" visible="false"></tab>
+			<tab idMso="TabInsert" visible="false"></tab>
+			<tab idMso="TabPageLayoutWord" visible="false"></tab>
+			<tab idMso="TabReferences" visible="false"></tab>
+			<tab idMso="TabMailings" visible="false"></tab>
+			<tab idMso="TabReviewWord" visible="false"></tab>
+			<tab idMso="TabView" visible="false"></tab>
+			<tab idMso="TabDeveloper" visible="false"></tab>
 			<tab id="CMOptions" label="CommandMap Options" >
 				<group id="tab1grp1" label="Disable CommandMap" >
 					<button id="toggleCM" size="large" label="Disable CommandMap and Close Word" imageMso="PrintPreviewClose" onAction="DisableClicked" />
