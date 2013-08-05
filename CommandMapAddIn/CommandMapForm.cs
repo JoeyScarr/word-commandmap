@@ -16,11 +16,6 @@ namespace CommandMapAddIn {
 
 		private WordInstance m_WordInstance;
 		private List<RibbonItem> m_Controls;
-		private const int TITLEBAR_HEIGHT = 55;
-		private const int BASE_RIBBON_HEIGHT = 93;
-		private const int CM_RIBBON_HEIGHT = 118;
-		private const int NUM_CM_RIBBONS = 6;
-		private const int STATUSBAR_HEIGHT = 22;
 
 		public CommandMapForm() {
 			InitializeComponent();
@@ -32,6 +27,7 @@ namespace CommandMapAddIn {
 			: this() {
 
 			m_WordInstance = instance;
+
 			FollowWordPosition();
 			BuildRibbon();
 		}
@@ -66,9 +62,10 @@ namespace CommandMapAddIn {
 		private void FollowWordPosition() {
 			Rectangle windowRect = m_WordInstance.GetWindowPosition();
 			Left = windowRect.Left;
-			Top = windowRect.Top + TITLEBAR_HEIGHT + BASE_RIBBON_HEIGHT;
+			Top = windowRect.Top + GlobalSettings.TITLEBAR_HEIGHT + GlobalSettings.BASE_RIBBON_HEIGHT;
 			Width = windowRect.Width;
-			Height = Math.Min(CM_RIBBON_HEIGHT * NUM_CM_RIBBONS, windowRect.Height - TITLEBAR_HEIGHT - STATUSBAR_HEIGHT - BASE_RIBBON_HEIGHT);
+			Height = Math.Min(GlobalSettings.CM_RIBBON_HEIGHT * GlobalSettings.NUM_CM_RIBBONS,
+				windowRect.Height - GlobalSettings.TITLEBAR_HEIGHT - GlobalSettings.STATUSBAR_HEIGHT - GlobalSettings.BASE_RIBBON_HEIGHT);
 		}
 
 		private void AssignImage(RibbonItem item, string msoName) {

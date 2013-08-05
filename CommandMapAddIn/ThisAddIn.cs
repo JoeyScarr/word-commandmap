@@ -14,6 +14,7 @@ namespace CommandMapAddIn {
 
 		WordInstance m_Word;
 		CommandMapForm m_CommandMap;
+		ActivationButton m_ActivationButton;
 		BlankRibbon m_BlankRibbon;
 		NormalRibbon m_NormalRibbon;
 
@@ -31,6 +32,11 @@ namespace CommandMapAddIn {
 			m_Word = new WordInstance(Application);
 
 			if (GlobalSettings.GetCommandMapEnabled()) {
+				// Spawn the on-screen activation button, and attach it to the Word window.
+				m_ActivationButton = new ActivationButton(m_Word);
+				m_ActivationButton.Click += m_ActivationButton_Click;
+				m_ActivationButton.Show();
+
 				// Spawn the CommandMap form, and attach it to the Word window.
 				m_CommandMap = new CommandMapForm(m_Word);
 
@@ -38,6 +44,10 @@ namespace CommandMapAddIn {
 				HookManager.KeyDown += HookManager_KeyDown;
 				HookManager.KeyUp += HookManager_KeyUp;
 			}
+		}
+
+		void m_ActivationButton_Click(object sender, EventArgs e) {
+			m_CommandMap.Show();
 		}
 
 		void HookManager_KeyDown(object sender, KeyEventArgs e) {

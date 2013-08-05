@@ -6,6 +6,12 @@ using Microsoft.Win32;
 
 namespace CommandMapAddIn {
 	public static class GlobalSettings {
+		public const int TITLEBAR_HEIGHT = 55;
+		public const int BASE_RIBBON_HEIGHT = 93;
+		public const int CM_RIBBON_HEIGHT = 118;
+		public const int NUM_CM_RIBBONS = 6;
+		public const int STATUSBAR_HEIGHT = 22;
+
 		public static bool GetCommandMapEnabled() {
 			RegistryKey key = Registry.CurrentUser.CreateSubKey("WordCommandMap");
 			var val = (Int32)key.GetValue("CMEnabled", 1);
