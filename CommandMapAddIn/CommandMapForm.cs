@@ -303,18 +303,41 @@ namespace CommandMapAddIn {
 			 *********************************************/
 			// Themes panel
 			AddButton(panelThemes.Items, RibbonButtonStyle.DropDown, "Themes", "ThemesGallery", "ThemesGallery");
+			// MISSING: Themes gallery
 			AddButton(panelThemes.Items, RibbonButtonStyle.DropDown, "Colors", "ThemeColorsGallery", "ThemeColorsGallery", RibbonElementSizeMode.Medium);
+			// MISSING: Colors gallery
 			AddButton(panelThemes.Items, RibbonButtonStyle.DropDown, "Fonts", "ThemeFontsGallery", "ThemeFontsGallery", RibbonElementSizeMode.Medium);
+			// MISSING: Fonts gallery
 			AddButton(panelThemes.Items, RibbonButtonStyle.DropDown, "Effects", "ThemeEffectsGallery", "ThemeEffectsGallery", RibbonElementSizeMode.Medium);
+			// MISSING: Effects gallery
 
 			// Page Setup panel
 			AddButton(panelPageSetup.Items, RibbonButtonStyle.DropDown, "Margins", "PageMarginsGallery", "PageMarginsGallery");
-			AddButton(panelPageSetup.Items, RibbonButtonStyle.DropDown, "Orientation", "PageOrientationGallery", "PageOrientationGallery");
-			AddButton(panelPageSetup.Items, RibbonButtonStyle.DropDown, "Size", "PageSizeGallery", "PageSizeGallery");
-			AddButton(panelPageSetup.Items, RibbonButtonStyle.DropDown, "Columns", "ColumnsDialog", "TableColumnsGallery");
+			var orientation = AddButton(panelPageSetup.Items, RibbonButtonStyle.DropDown, "Orientation", "PageOrientationGallery", "PageOrientationGallery");
+			AddButton(orientation.DropDownItems, RibbonButtonStyle.Normal, "Portrait", "PageOrientationPortraitLandscape", "PageOrientationPortraitLandscape");
+			AddButton(orientation.DropDownItems, RibbonButtonStyle.Normal, "Landscape", "PageOrientationPortraitLandscape", "PageOrientationPortraitLandscape");
+			var size = AddButton(panelPageSetup.Items, RibbonButtonStyle.DropDown, "Size", "PageSizeGallery", "PageSizeGallery");
+			// MISSING: Size gallery
+			AddSeparator(size.DropDownItems);
+			AddButton(size.DropDownItems, RibbonButtonStyle.Normal, "More Paper Sizes...", "", "PageSizeMorePaperSizesDialog");
+			var columns = AddButton(panelPageSetup.Items, RibbonButtonStyle.DropDown, "Columns", "ColumnsDialog", "TableColumnsGallery");
+			// MISSING: Columns gallery
+			AddButton(columns.DropDownItems, RibbonButtonStyle.Normal, "More Columns...", "ColumnsDialog", "ColumnsDialog");
 			AddButton(panelPageSetup.Items, RibbonButtonStyle.DropDown, "Breaks", "PageBreakInsertOrRemove", "BreaksGallery", RibbonElementSizeMode.Medium);
-			AddButton(panelPageSetup.Items, RibbonButtonStyle.DropDown, "Line Numbers", "LineNumbersMenu", "LineNumbersMenu", RibbonElementSizeMode.Medium);
-			AddButton(panelPageSetup.Items, RibbonButtonStyle.DropDown, "Hyphenation", "HyphenationOptions", "HyphenationMenu", RibbonElementSizeMode.Medium);
+			var lineNumbers = AddButton(panelPageSetup.Items, RibbonButtonStyle.DropDown, "Line Numbers", "LineNumbersMenu", "LineNumbersMenu", RibbonElementSizeMode.Medium);
+			AddButton(lineNumbers.DropDownItems, RibbonButtonStyle.Normal, "None", "LineNumbersOff", "LineNumbersOff");
+			AddButton(lineNumbers.DropDownItems, RibbonButtonStyle.Normal, "Continuous", "LineNumbersContinuous", "LineNumbersContinuous");
+			AddButton(lineNumbers.DropDownItems, RibbonButtonStyle.Normal, "Restart Each Page", "LineNumbersResetPage", "LineNumbersResetPage");
+			AddButton(lineNumbers.DropDownItems, RibbonButtonStyle.Normal, "Restart Each Section", "LineNumbersResetSection", "LineNumbersResetSection");
+			AddButton(lineNumbers.DropDownItems, RibbonButtonStyle.Normal, "Suppress for Current Paragraph", "LineNumbersSuppress", "LineNumbersSuppress");
+			AddSeparator(lineNumbers.DropDownItems);
+			AddButton(lineNumbers.DropDownItems, RibbonButtonStyle.Normal, "Line Numbering Options...", "LineNumbersOptionsDialog", "LineNumbersOptionsDialog");
+			var hyphenation = AddButton(panelPageSetup.Items, RibbonButtonStyle.DropDown, "Hyphenation", "HyphenationOptions", "HyphenationMenu", RibbonElementSizeMode.Medium);
+			AddButton(hyphenation.DropDownItems, RibbonButtonStyle.Normal, "None", "HyphenationNone", "HyphenationNone");
+			AddButton(hyphenation.DropDownItems, RibbonButtonStyle.Normal, "Automatic", "HyphenationAutomatic", "HyphenationAutomatic");
+			AddButton(hyphenation.DropDownItems, RibbonButtonStyle.Normal, "Manual", "HyphenationManual", "HyphenationManual");
+			AddSeparator(hyphenation.DropDownItems);
+			AddButton(hyphenation.DropDownItems, RibbonButtonStyle.Normal, "Hyphenation Options...", "HyphenationOptions", "HyphenationOptions");
 
 			// Page Background panel
 			AddButton(panelPageBackground.Items, RibbonButtonStyle.DropDown, "Watermark", "WatermarkGallery", "WatermarkGallery");
@@ -348,9 +371,18 @@ namespace CommandMapAddIn {
 			}));
 
 			// Arrange panel
-			AddButton(panelArrange.Items, RibbonButtonStyle.DropDown, "Position", "PicturePositionGallery", "PicturePositionGallery");
-			AddButton(panelArrange.Items, RibbonButtonStyle.SplitDropDown, "Bring to Front", "ObjectBringToFront", "ObjectBringToFront");
-			AddButton(panelArrange.Items, RibbonButtonStyle.SplitDropDown, "Send to Back", "ObjectSendToBack", "ObjectSendToBack");
+			var position = AddButton(panelArrange.Items, RibbonButtonStyle.DropDown, "Position", "PicturePositionGallery", "PicturePositionGallery");
+			// MISSING: Position gallery
+			AddSeparator(position.DropDownItems);
+			AddButton(position.DropDownItems, RibbonButtonStyle.Normal, "More Layout Options...", "LayoutOptionsDialog", "LayoutOptionsDialog");
+			var bringToFront = AddButton(panelArrange.Items, RibbonButtonStyle.SplitDropDown, "Bring to Front", "ObjectBringToFront", "ObjectBringToFront");
+			AddButton(bringToFront.DropDownItems, RibbonButtonStyle.Normal, "Bring to Front", "ObjectBringToFront", "ObjectBringToFront");
+			AddButton(bringToFront.DropDownItems, RibbonButtonStyle.Normal, "Bring Forward", "ObjectBringForward", "ObjectBringForward");
+			AddButton(bringToFront.DropDownItems, RibbonButtonStyle.Normal, "Bring in Front of Text", "ObjectBringInFrontOfText", "ObjectBringInFrontOfText"); // Missing icon
+			var sendToBack = AddButton(panelArrange.Items, RibbonButtonStyle.SplitDropDown, "Send to Back", "ObjectSendToBack", "ObjectSendToBack");
+			AddButton(sendToBack.DropDownItems, RibbonButtonStyle.Normal, "Send to Back", "ObjectSendToBack", "ObjectSendToBack");
+			AddButton(sendToBack.DropDownItems, RibbonButtonStyle.Normal, "Send Backward", "ObjectSendBackward", "ObjectSendBackward");
+			AddButton(sendToBack.DropDownItems, RibbonButtonStyle.Normal, "Send Behind Text", "ObjectSendBehindText", "ObjectSendBehindText"); // Missing icon
 			AddButton(panelArrange.Items, RibbonButtonStyle.DropDown, "Text Wrapping", "TextWrappingMenu", "TextWrappingMenu");
 			AddButton(panelArrange.Items, RibbonButtonStyle.DropDown, "Align", "ObjectAlignMenu", "ObjectAlignMenu");
 			AddButton(panelArrange.Items, RibbonButtonStyle.SplitDropDown, "Group", "ObjectsGroup", "ObjectsGroup");

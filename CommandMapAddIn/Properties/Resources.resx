@@ -796,4 +796,25 @@
   <data name="ActivationTab" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\activate_tab.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="LayoutOptionsDialog" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ribbon-icons\small\LayoutOptionsDialog.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ObjectBringForward" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ribbon-icons\small\ObjectBringForward.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ObjectSendBackward" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ribbon-icons\small\ObjectSendBackward.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PageOrientationLandscape" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ribbon-icons\small\PageOrientationLandscape.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PageOrientationLandscape1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ribbon-icons\large\PageOrientationLandscape.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PageOrientationPortrait" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ribbon-icons\small\PageOrientationPortrait.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PageOrientationPortrait1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ribbon-icons\large\PageOrientationPortrait.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

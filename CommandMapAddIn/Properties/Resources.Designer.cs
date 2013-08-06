@@ -613,6 +613,16 @@ namespace CommandMapAddIn.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap LayoutOptionsDialog {
+            get {
+                object obj = ResourceManager.GetObject("LayoutOptionsDialog", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap LineNumbersMenu {
             get {
                 object obj = ResourceManager.GetObject("LineNumbersMenu", resourceCulture);
@@ -883,6 +893,16 @@ namespace CommandMapAddIn.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ObjectBringForward {
+            get {
+                object obj = ResourceManager.GetObject("ObjectBringForward", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ObjectBringToFront {
             get {
                 object obj = ResourceManager.GetObject("ObjectBringToFront", resourceCulture);
@@ -916,6 +936,16 @@ namespace CommandMapAddIn.Properties {
         internal static System.Drawing.Bitmap ObjectRotateGallery1 {
             get {
                 object obj = ResourceManager.GetObject("ObjectRotateGallery1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ObjectSendBackward {
+            get {
+                object obj = ResourceManager.GetObject("ObjectSendBackward", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1126,6 +1156,46 @@ namespace CommandMapAddIn.Properties {
         internal static System.Drawing.Bitmap PageOrientationGallery1 {
             get {
                 object obj = ResourceManager.GetObject("PageOrientationGallery1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PageOrientationLandscape {
+            get {
+                object obj = ResourceManager.GetObject("PageOrientationLandscape", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PageOrientationLandscape1 {
+            get {
+                object obj = ResourceManager.GetObject("PageOrientationLandscape1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PageOrientationPortrait {
+            get {
+                object obj = ResourceManager.GetObject("PageOrientationPortrait", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PageOrientationPortrait1 {
+            get {
+                object obj = ResourceManager.GetObject("PageOrientationPortrait1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
