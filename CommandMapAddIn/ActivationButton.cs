@@ -45,7 +45,7 @@ namespace CommandMapAddIn {
 		}
 
 		private void FocusWord() {
-			m_WordInstance.Application.Activate();
+			m_WordInstance.Focus();
 		}
 
 		void ActivationButton_Click(object sender, EventArgs e) {

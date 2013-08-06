@@ -7,6 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Gma.UserActivityMonitor;
@@ -114,8 +115,11 @@ namespace CommandMapAddIn {
 
 		private void RunCommand(string msoName) {
 			Hide();
-			m_WordInstance.Application.Activate();
-			m_WordInstance.SendCommand(msoName);
+			Thread t = new Thread(new ThreadStart(delegate() {
+				m_WordInstance.SendCommand(msoName);
+			}));
+			t.Start();
+			m_WordInstance.Focus();
 		}
 
 		private void AssignAction(RibbonItem item, string msoName) {
@@ -500,7 +504,7 @@ namespace CommandMapAddIn {
 		}
 
 		private void CommandMapForm_Enter(object sender, EventArgs e) {
-			m_WordInstance.Application.Activate();
+			m_WordInstance.Focus();
 		}
 
 		private void panelPageSetup_ButtonMoreClick(object sender, EventArgs e) {

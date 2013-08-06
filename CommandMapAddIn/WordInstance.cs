@@ -15,6 +15,7 @@ namespace CommandMapAddIn {
 	public class WordInstance {
 		Word.Application m_App;
 		IntPtr m_WindowHandle;
+		private HashSet<IntPtr> m_KnownChildren = new HashSet<IntPtr>();
 
 		public WordInstance(Word.Application app) {
 			m_App = app;
@@ -43,6 +44,23 @@ namespace CommandMapAddIn {
 
 		public Rectangle GetWindowPosition() {
 			return WindowsApi.GetWindowPosition(m_WindowHandle);
+		}
+
+		public void RegisterChild(IntPtr handle) {
+			m_KnownChildren.Add(handle);
+		}
+
+		public void Focus() {
+			// Check if there's a child window (e.g. a dialog box) that should be focused instead
+			List<IntPtr> childWindows = WindowsApi.GetChildWindows(m_WindowHandle);
+			foreach (IntPtr handle in childWindows) {
+				if (!m_KnownChildren.Contains(handle)) {
+					WindowsApi.SetForegroundWindow(handle);
+					return;
+				}
+			}
+			// If there isn't, just focus the main window
+			m_App.Activate();
 		}
 
 		public void SendCommand(string p) {
