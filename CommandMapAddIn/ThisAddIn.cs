@@ -53,10 +53,15 @@ namespace CommandMapAddIn {
 		void HookManager_KeyDown(object sender, KeyEventArgs e) {
 			var key = e.KeyCode;
 			if (key == Keys.ControlKey || key == Keys.LControlKey || key == Keys.RControlKey || key == Keys.Control) {
-				if (!m_CommandMap.Visible && !m_CtrlPressed && WindowsApi.GetForegroundWindow() == m_Word.WindowHandle) {
-					m_CtrlPressed = true;
-					m_CommandMap.Show();
-					Application.Activate();
+				if (!m_CommandMap.Visible && !m_CtrlPressed) {
+					IntPtr foregroundWindow = WindowsApi.GetForegroundWindow();
+					if (foregroundWindow == m_Word.WindowHandle
+						|| foregroundWindow == m_CommandMap.Handle
+						|| foregroundWindow == m_ActivationButton.Handle) {
+						m_CtrlPressed = true;
+						m_CommandMap.Show();
+						Application.Activate();
+					}
 				}
 			} else {
 				m_CommandMap.Hide();

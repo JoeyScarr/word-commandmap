@@ -9,6 +9,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Gma.UserActivityMonitor;
 using Word = Microsoft.Office.Interop.Word;
 
 namespace CommandMapAddIn {
@@ -21,6 +22,8 @@ namespace CommandMapAddIn {
 			InitializeComponent();
 
 			m_Controls = new List<RibbonItem>();
+
+			HookManager.MouseClick += HookManager_MouseClick;
 		}
 
 		public CommandMapForm(WordInstance instance)
@@ -30,6 +33,13 @@ namespace CommandMapAddIn {
 
 			FollowWordPosition();
 			BuildRibbon();
+		}
+
+		private void HookManager_MouseClick(object sender, MouseEventArgs e) {
+			// Hide the CM if a click was detected outside the window.
+			if (!Bounds.Contains(e.Location)) {
+				Hide();
+			}
 		}
 
 		protected override bool ShowWithoutActivation {

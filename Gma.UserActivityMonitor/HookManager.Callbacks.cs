@@ -218,12 +218,13 @@ namespace Gma.UserActivityMonitor
             {
                 //See comment of this field. To avoid GC to clean it up.
                 s_MouseDelegate = MouseHookProc;
-                //install hook
+								//install hook
                 s_MouseHookHandle = SetWindowsHookEx(
                     WH_MOUSE_LL,
                     s_MouseDelegate,
-                    Marshal.GetHINSTANCE(
-                        Assembly.GetExecutingAssembly().GetModules()[0]),
+										IntPtr.Zero,
+                    //Marshal.GetHINSTANCE(
+                        //Assembly.GetExecutingAssembly().GetModules()[0]),
                     0);
                 //If SetWindowsHookEx fails.
                 if (s_MouseHookHandle == 0)
