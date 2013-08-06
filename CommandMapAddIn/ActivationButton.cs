@@ -8,13 +8,21 @@ using System.Windows.Forms;
 namespace CommandMapAddIn {
 	public class ActivationButton : PerPixelAlphaForm {
 		private WordInstance m_WordInstance;
+		private Timer m_UpdateTimer;
 
 		public ActivationButton()
 			: base() {
-			TopMost = true;
 			ShowInTaskbar = false;
 			FormBorderStyle = FormBorderStyle.None;
 			Cursor = Cursors.Hand;
+
+			Enter += ActivationButton_Enter;
+			Click += ActivationButton_Click;
+
+			m_UpdateTimer = new Timer();
+			m_UpdateTimer.Interval = 500; // Move every 500 ms
+			m_UpdateTimer.Tick += m_UpdateTimer_Tick;
+			m_UpdateTimer.Start();
 
 			// Add text to the bitmap
 			Bitmap b = Properties.Resources.ActivationButton;
@@ -26,9 +34,26 @@ namespace CommandMapAddIn {
 			SetBitmap(b);
 		}
 
+		void m_UpdateTimer_Tick(object sender, EventArgs e) {
+			FollowWordPosition();
+		}
+
 		public ActivationButton(WordInstance word)
 			: this() {
 			m_WordInstance = word;
+			WindowsApi.SetWindowParent(Handle, word.WindowHandle);
+		}
+
+		private void FocusWord() {
+			m_WordInstance.Application.Activate();
+		}
+
+		void ActivationButton_Click(object sender, EventArgs e) {
+			FocusWord();
+		}
+
+		void ActivationButton_Enter(object sender, EventArgs e) {
+			FocusWord();
 		}
 
 		public new void Show() {
