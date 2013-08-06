@@ -2844,10 +2844,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="images\activate.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="images\activate3.png" />
+    <None Include="images\activate_tab.png" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

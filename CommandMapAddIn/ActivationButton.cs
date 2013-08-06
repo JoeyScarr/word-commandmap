@@ -25,7 +25,7 @@ namespace CommandMapAddIn {
 			m_UpdateTimer.Start();
 
 			// Add text to the bitmap
-			Bitmap b = Properties.Resources.ActivationButton;
+			Bitmap b = Properties.Resources.ActivationTab;
 			Graphics g = Graphics.FromImage(b);
 			StringFormat format = new StringFormat();
 			format.Alignment = StringAlignment.Center;
