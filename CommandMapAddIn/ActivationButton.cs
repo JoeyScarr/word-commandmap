@@ -19,8 +19,10 @@ namespace CommandMapAddIn {
 			// Add text to the bitmap
 			Bitmap b = Properties.Resources.ActivationButton;
 			Graphics g = Graphics.FromImage(b);
+			StringFormat format = new StringFormat();
+			format.Alignment = StringAlignment.Center;
 			g.DrawString("More commands... <Ctrl>", new Font("Segoe UI", 9F),
-				new SolidBrush(Color.FromArgb(21, 66, 139)), new PointF(5, 1));
+				new SolidBrush(Color.FromArgb(21, 66, 139)), new PointF(b.Width / 2, 1), format);
 			SetBitmap(b);
 		}
 
@@ -50,8 +52,8 @@ namespace CommandMapAddIn {
 
 		private void FollowWordPosition() {
 			Rectangle windowRect = m_WordInstance.GetWindowPosition();
-			Left = windowRect.Left + 200;
-			Top = windowRect.Top + GlobalSettings.TITLEBAR_HEIGHT + GlobalSettings.BASE_RIBBON_HEIGHT;
+			Left = windowRect.Left + 25;
+			Top = windowRect.Top + GlobalSettings.TITLEBAR_HEIGHT + GlobalSettings.BASE_RIBBON_HEIGHT + 1;
 		}
 	}
 }
