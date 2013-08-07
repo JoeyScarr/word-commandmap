@@ -73,6 +73,26 @@ namespace CommandMapAddIn.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap AlignDistributeHorizontallyClassic {
+            get {
+                object obj = ResourceManager.GetObject("AlignDistributeHorizontallyClassic", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap AlignDistributeVerticallyClassic {
+            get {
+                object obj = ResourceManager.GetObject("AlignDistributeVerticallyClassic", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap AutoSum {
             get {
                 object obj = ResourceManager.GetObject("AutoSum", resourceCulture);
@@ -476,6 +496,16 @@ namespace CommandMapAddIn.Properties {
         internal static System.Drawing.Bitmap FrontPageToggleBookmark1 {
             get {
                 object obj = ResourceManager.GetObject("FrontPageToggleBookmark1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap GridSettings {
+            get {
+                object obj = ResourceManager.GetObject("GridSettings", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -923,6 +953,26 @@ namespace CommandMapAddIn.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ObjectFlipHorizontal {
+            get {
+                object obj = ResourceManager.GetObject("ObjectFlipHorizontal", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ObjectFlipVertical {
+            get {
+                object obj = ResourceManager.GetObject("ObjectFlipVertical", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ObjectRotateGallery {
             get {
                 object obj = ResourceManager.GetObject("ObjectRotateGallery", resourceCulture);
@@ -936,6 +986,86 @@ namespace CommandMapAddIn.Properties {
         internal static System.Drawing.Bitmap ObjectRotateGallery1 {
             get {
                 object obj = ResourceManager.GetObject("ObjectRotateGallery1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ObjectRotateLeft90 {
+            get {
+                object obj = ResourceManager.GetObject("ObjectRotateLeft90", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ObjectRotateRight90 {
+            get {
+                object obj = ResourceManager.GetObject("ObjectRotateRight90", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ObjectsAlignBottom {
+            get {
+                object obj = ResourceManager.GetObject("ObjectsAlignBottom", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ObjectsAlignCenterHorizontal {
+            get {
+                object obj = ResourceManager.GetObject("ObjectsAlignCenterHorizontal", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ObjectsAlignLeft {
+            get {
+                object obj = ResourceManager.GetObject("ObjectsAlignLeft", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ObjectsAlignMiddleVertical {
+            get {
+                object obj = ResourceManager.GetObject("ObjectsAlignMiddleVertical", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ObjectsAlignRight {
+            get {
+                object obj = ResourceManager.GetObject("ObjectsAlignRight", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ObjectsAlignTop {
+            get {
+                object obj = ResourceManager.GetObject("ObjectsAlignTop", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -986,6 +1116,36 @@ namespace CommandMapAddIn.Properties {
         internal static System.Drawing.Bitmap ObjectsGroup1 {
             get {
                 object obj = ResourceManager.GetObject("ObjectsGroup1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ObjectsGroup2 {
+            get {
+                object obj = ResourceManager.GetObject("ObjectsGroup2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ObjectsRegroup {
+            get {
+                object obj = ResourceManager.GetObject("ObjectsRegroup", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ObjectsUngroup {
+            get {
+                object obj = ResourceManager.GetObject("ObjectsUngroup", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1983,6 +2143,46 @@ namespace CommandMapAddIn.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap TextWrappingBehindText {
+            get {
+                object obj = ResourceManager.GetObject("TextWrappingBehindText", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap TextWrappingEditWrapPoints {
+            get {
+                object obj = ResourceManager.GetObject("TextWrappingEditWrapPoints", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap TextWrappingInFrontOfText {
+            get {
+                object obj = ResourceManager.GetObject("TextWrappingInFrontOfText", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap TextWrappingInLineWithText {
+            get {
+                object obj = ResourceManager.GetObject("TextWrappingInLineWithText", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap TextWrappingMenu {
             get {
                 object obj = ResourceManager.GetObject("TextWrappingMenu", resourceCulture);
@@ -1996,6 +2196,46 @@ namespace CommandMapAddIn.Properties {
         internal static System.Drawing.Bitmap TextWrappingMenu1 {
             get {
                 object obj = ResourceManager.GetObject("TextWrappingMenu1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap TextWrappingMenuClassic {
+            get {
+                object obj = ResourceManager.GetObject("TextWrappingMenuClassic", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap TextWrappingSquare {
+            get {
+                object obj = ResourceManager.GetObject("TextWrappingSquare", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap TextWrappingTight {
+            get {
+                object obj = ResourceManager.GetObject("TextWrappingTight", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap TextWrappingTopAndBottom {
+            get {
+                object obj = ResourceManager.GetObject("TextWrappingTopAndBottom", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -796,14 +796,62 @@
   <data name="ActivationTab" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\activate_tab.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="AlignDistributeHorizontallyClassic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ribbon-icons\small\AlignDistributeHorizontallyClassic.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AlignDistributeVerticallyClassic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ribbon-icons\small\AlignDistributeVerticallyClassic.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="GridSettings" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ribbon-icons\small\GridSettings.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="LayoutOptionsDialog" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\ribbon-icons\small\LayoutOptionsDialog.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ObjectBringForward" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\ribbon-icons\small\ObjectBringForward.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="ObjectFlipHorizontal" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ribbon-icons\small\ObjectFlipHorizontal.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ObjectFlipVertical" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ribbon-icons\small\ObjectFlipVertical.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ObjectRotateLeft90" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ribbon-icons\small\ObjectRotateLeft90.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ObjectRotateRight90" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ribbon-icons\small\ObjectRotateRight90.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ObjectsAlignBottom" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ribbon-icons\small\ObjectsAlignBottom.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ObjectsAlignCenterHorizontal" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ribbon-icons\small\ObjectsAlignCenterHorizontal.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ObjectsAlignLeft" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ribbon-icons\small\ObjectsAlignLeft.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ObjectsAlignMiddleVertical" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ribbon-icons\small\ObjectsAlignMiddleVertical.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ObjectsAlignRight" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ribbon-icons\small\ObjectsAlignRight.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ObjectsAlignTop" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ribbon-icons\small\ObjectsAlignTop.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="ObjectSendBackward" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\ribbon-icons\small\ObjectSendBackward.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ObjectsGroup2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ribbon-icons\small\ObjectsGroup.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ObjectsRegroup" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ribbon-icons\small\ObjectsRegroup.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ObjectsUngroup" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ribbon-icons\small\ObjectsUngroup.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PageOrientationLandscape" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\ribbon-icons\small\PageOrientationLandscape.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -816,5 +864,29 @@
   </data>
   <data name="PageOrientationPortrait1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\ribbon-icons\large\PageOrientationPortrait.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TextWrappingBehindText" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ribbon-icons\small\TextWrappingBehindText.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TextWrappingEditWrapPoints" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ribbon-icons\small\TextWrappingEditWrapPoints.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TextWrappingInFrontOfText" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ribbon-icons\small\TextWrappingInFrontOfText.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TextWrappingInLineWithText" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ribbon-icons\small\TextWrappingInLineWithText.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TextWrappingMenuClassic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ribbon-icons\small\TextWrappingMenuClassic.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TextWrappingSquare" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ribbon-icons\small\TextWrappingSquare.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TextWrappingTight" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ribbon-icons\small\TextWrappingTight.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TextWrappingTopAndBottom" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ribbon-icons\small\TextWrappingTopAndBottom.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

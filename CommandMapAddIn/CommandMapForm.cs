@@ -113,13 +113,17 @@ namespace CommandMapAddIn {
 			}
 		}
 
-		private void RunCommand(string msoName) {
+		private void RunCommand(Action action) {
 			Hide();
-			Thread t = new Thread(new ThreadStart(delegate() {
-				m_WordInstance.SendCommand(msoName);
-			}));
+			Thread t = new Thread(new ThreadStart(action));
 			t.Start();
 			m_WordInstance.Focus();
+		}
+
+		private void RunCommand(string msoName) {
+			RunCommand(delegate() {
+				m_WordInstance.SendCommand(msoName);
+			});
 		}
 
 		private void AssignAction(RibbonItem item, string msoName) {
@@ -141,14 +145,22 @@ namespace CommandMapAddIn {
 		}
 
 		private RibbonButton AddButton(RibbonItemCollection collection, RibbonButtonStyle style, string label, string msoImageName,
-			string msoCommandName, RibbonElementSizeMode maxSizeMode = RibbonElementSizeMode.None) {
+			string msoCommandName, RibbonElementSizeMode maxSizeMode = RibbonElementSizeMode.None, Action customAction = null) {
 
 			RibbonButton button = new RibbonButton();
 			button.Style = style;
 			button.MaxSizeMode = maxSizeMode;
 			button.Text = label;
 			AssignImage(button, msoImageName);
-			AssignAction(button, msoCommandName);
+			if (customAction == null) {
+				AssignAction(button, msoCommandName);
+			} else {
+				EventHandler handler = new EventHandler(delegate(object sender, EventArgs ea) {
+					RunCommand(customAction);
+				});
+				button.Click += handler;
+				button.DoubleClick += handler;
+			}
 			collection.Add(button);
 			return button;
 		}
@@ -383,10 +395,58 @@ namespace CommandMapAddIn {
 			AddButton(sendToBack.DropDownItems, RibbonButtonStyle.Normal, "Send to Back", "ObjectSendToBack", "ObjectSendToBack");
 			AddButton(sendToBack.DropDownItems, RibbonButtonStyle.Normal, "Send Backward", "ObjectSendBackward", "ObjectSendBackward");
 			AddButton(sendToBack.DropDownItems, RibbonButtonStyle.Normal, "Send Behind Text", "ObjectSendBehindText", "ObjectSendBehindText"); // Missing icon
-			AddButton(panelArrange.Items, RibbonButtonStyle.DropDown, "Text Wrapping", "TextWrappingMenu", "TextWrappingMenu");
-			AddButton(panelArrange.Items, RibbonButtonStyle.DropDown, "Align", "ObjectAlignMenu", "ObjectAlignMenu");
-			AddButton(panelArrange.Items, RibbonButtonStyle.SplitDropDown, "Group", "ObjectsGroup", "ObjectsGroup");
-			AddButton(panelArrange.Items, RibbonButtonStyle.DropDown, "Rotate", "ObjectRotateGallery", "ObjectRotateGallery");
+			var textWrapping = AddButton(panelArrange.Items, RibbonButtonStyle.DropDown, "Text Wrapping", "TextWrappingMenu", "TextWrappingMenu");
+			AddButton(textWrapping.DropDownItems, RibbonButtonStyle.Normal, "In Line with Text", "TextWrappingInLineWithText", "TextWrappingInLineWithText");
+			AddSeparator(textWrapping.DropDownItems);
+			AddButton(textWrapping.DropDownItems, RibbonButtonStyle.Normal, "Square", "TextWrappingSquare", "TextWrappingSquare");
+			AddButton(textWrapping.DropDownItems, RibbonButtonStyle.Normal, "Tight", "TextWrappingTight", "TextWrappingTight");
+			AddButton(textWrapping.DropDownItems, RibbonButtonStyle.Normal, "Behind Text", "TextWrappingBehindText", "TextWrappingBehindText");
+			AddButton(textWrapping.DropDownItems, RibbonButtonStyle.Normal, "In Front of Text", "TextWrappingInFrontOfText", "TextWrappingInFrontOfText");
+			AddSeparator(textWrapping.DropDownItems);
+			AddButton(textWrapping.DropDownItems, RibbonButtonStyle.Normal, "Top and Bottom", "TextWrappingTopAndBottom", "TextWrappingTopAndBottom");
+			AddButton(textWrapping.DropDownItems, RibbonButtonStyle.Normal, "Through", "TextWrappingMenuClassic", "TextWrappingThrough");
+			AddSeparator(textWrapping.DropDownItems);
+			AddButton(textWrapping.DropDownItems, RibbonButtonStyle.Normal, "Edit Wrap Points", "TextWrappingEditWrapPoints", "TextWrappingEditWrapPoints");
+			AddButton(textWrapping.DropDownItems, RibbonButtonStyle.Normal, "More Layout Options...", "LayoutOptionsDialog", "LayoutOptionsDialog");
+			var align = AddButton(panelArrange.Items, RibbonButtonStyle.DropDown, "Align", "ObjectAlignMenu", "ObjectAlignMenu");
+			AddButton(align.DropDownItems, RibbonButtonStyle.Normal, "Align Left", "ObjectsAlignLeft", "ObjectsAlignLeftSmart");
+			AddButton(align.DropDownItems, RibbonButtonStyle.Normal, "Align Center", "ObjectsAlignCenterHorizontal", "ObjectsAlignCenterHorizontalSmart");
+			AddButton(align.DropDownItems, RibbonButtonStyle.Normal, "Align Right", "ObjectsAlignRight", "ObjectsAlignRightSmart");
+			AddSeparator(align.DropDownItems);
+			AddButton(align.DropDownItems, RibbonButtonStyle.Normal, "Align Top", "ObjectsAlignTop", "ObjectsAlignTopSmart");
+			AddButton(align.DropDownItems, RibbonButtonStyle.Normal, "Align Middle", "ObjectsAlignMiddleVertical", "ObjectsAlignMiddleVerticalSmart");
+			AddButton(align.DropDownItems, RibbonButtonStyle.Normal, "Align Bottom", "ObjectsAlignBottom", "ObjectsAlignBottomSmart");
+			AddSeparator(align.DropDownItems);
+			AddButton(align.DropDownItems, RibbonButtonStyle.Normal, "Distribute Horizontally", "AlignDistributeHorizontallyClassic", "AlignDistributeHorizontally");
+			AddButton(align.DropDownItems, RibbonButtonStyle.Normal, "Distribute Vertically", "AlignDistributeVerticallyClassic", "AlignDistributeVertically");
+			AddSeparator(align.DropDownItems);
+			AddButton(align.DropDownItems, RibbonButtonStyle.Normal, "Align to Page", "", "ObjectsAlignRelativeToContainerSmart");
+			AddButton(align.DropDownItems, RibbonButtonStyle.Normal, "Align to Margin", "", "ObjectsAlignRelativeToMargin");
+			AddButton(align.DropDownItems, RibbonButtonStyle.Normal, "Align Selected Objects", "", "ObjectsAlignSelectedSmart");
+			AddSeparator(align.DropDownItems);
+			AddButton(align.DropDownItems, RibbonButtonStyle.Normal, "View Gridlines", "", "ViewGridlines");
+			AddButton(align.DropDownItems, RibbonButtonStyle.Normal, "Grid Settings...", "GridSettings", "GridSettings");
+			var group = AddButton(panelArrange.Items, RibbonButtonStyle.SplitDropDown, "Group", "ObjectsGroup", "ObjectsGroup");
+			AddButton(group.DropDownItems, RibbonButtonStyle.Normal, "Group", "ObjectsGroup", "ObjectsGroup");
+			AddButton(group.DropDownItems, RibbonButtonStyle.Normal, "Group", "ObjectsRegroup", "ObjectsRegroup");
+			AddSeparator(group.DropDownItems);
+			AddButton(group.DropDownItems, RibbonButtonStyle.Normal, "Group", "ObjectsUngroup", "ObjectsUngroup");
+			var rotate = AddButton(panelArrange.Items, RibbonButtonStyle.DropDown, "Rotate", "ObjectRotateGallery", "ObjectRotateGallery");
+			AddButton(rotate.DropDownItems, RibbonButtonStyle.Normal, "Rotate Right 90°", "ObjectRotateRight90", "", customAction: delegate() {
+				m_WordInstance.Application.ActiveWindow.Selection.ShapeRange.IncrementRotation(90);
+			});
+			AddButton(rotate.DropDownItems, RibbonButtonStyle.Normal, "Rotate Left 90°", "ObjectRotateLeft90", "", customAction: delegate() {
+				m_WordInstance.Application.ActiveWindow.Selection.ShapeRange.IncrementRotation(-90);
+			});
+			AddButton(rotate.DropDownItems, RibbonButtonStyle.Normal, "Flip Vertical", "ObjectFlipVertical", "", customAction: delegate() {
+				m_WordInstance.Application.ActiveWindow.Selection.ShapeRange.Flip(Microsoft.Office.Core.MsoFlipCmd.msoFlipVertical);
+			});
+			AddButton(rotate.DropDownItems, RibbonButtonStyle.Normal, "Flip Horizontal", "ObjectFlipHorizontal", "", customAction: delegate() {
+				m_WordInstance.Application.ActiveWindow.Selection.ShapeRange.Flip(Microsoft.Office.Core.MsoFlipCmd.msoFlipHorizontal);
+			});
+			// Note: None of the above seem to work.
+			AddSeparator(rotate.DropDownItems);
+			AddButton(rotate.DropDownItems, RibbonButtonStyle.Normal, "More Rotation Options...", "", "ObjectRotationOptionsDialog");
 
 
 			/*********************************************
