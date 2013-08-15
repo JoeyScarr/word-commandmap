@@ -548,35 +548,57 @@ namespace CommandMapAddIn {
 			AddButton(panelProofing.Items, RibbonButtonStyle.Normal, "Research", "LookUp", "ResearchPane");
 			AddButton(panelProofing.Items, RibbonButtonStyle.Normal, "Thesaurus", "Thesaurus", "Thesaurus");
 			AddButton(panelProofing.Items, RibbonButtonStyle.Normal, "Translate", "Translate", "Translate");
-			AddButton(panelProofing.Items, RibbonButtonStyle.DropDown, "Translation ScreenTip", "TranslationToolTip", "TranslationToolTip", RibbonElementSizeMode.Medium);
+			AddButton(panelProofing.Items, RibbonButtonStyle.DropDown, "Translation ScreenTip", "TranslationToolTip", "", RibbonElementSizeMode.Medium);
 			AddButton(panelProofing.Items, RibbonButtonStyle.Normal, "Set Language", "SetLanguage", "SetLanguage", RibbonElementSizeMode.Medium);
 			AddButton(panelProofing.Items, RibbonButtonStyle.Normal, "Word Count", "WordCountList", "WordCount", RibbonElementSizeMode.Medium);
 
 			// Comments panel
 			AddButton(panelComments.Items, RibbonButtonStyle.Normal, "New Comment", "ReviewNewComment", "ReviewNewComment");
-			AddButton(panelComments.Items, RibbonButtonStyle.SplitDropDown, "Delete", "ReviewDeleteComment", "ReviewDeleteComment");
+			var deleteComment = AddButton(panelComments.Items, RibbonButtonStyle.SplitDropDown, "Delete", "ReviewDeleteComment", "ReviewDeleteComment");
+			AddButton(deleteComment.DropDownItems, RibbonButtonStyle.Normal, "Delete", "ReviewDeleteComment", "ReviewDeleteComment");
+			AddButton(deleteComment.DropDownItems, RibbonButtonStyle.Normal, "Delete All Comments Shown", "ReviewDeleteAllCommentsShown", "ReviewDeleteAllCommentsShown");
+			AddButton(deleteComment.DropDownItems, RibbonButtonStyle.Normal, "Delete All Comments in Document", "ReviewDeleteAllCommentsInDocument", "ReviewDeleteAllCommentsInDocument");
 			AddButton(panelComments.Items, RibbonButtonStyle.Normal, "Previous", "ReviewPreviousComment", "ReviewPreviousComment");
 			AddButton(panelComments.Items, RibbonButtonStyle.Normal, "Next", "ReviewNextComment", "ReviewNextComment");
 
 			// Tracking panel
-			AddButton(panelTracking.Items, RibbonButtonStyle.SplitDropDown, "Track Changes", "ReviewTrackChanges", "ReviewTrackChanges");
-			AddButton(panelTracking.Items, RibbonButtonStyle.DropDown, "Balloons", "ReviewBalloonsMenu", "ReviewBalloonsMenu");
+			var trackChanges = AddButton(panelTracking.Items, RibbonButtonStyle.SplitDropDown, "Track Changes", "ReviewTrackChanges", "ReviewTrackChanges");
+			AddButton(trackChanges.DropDownItems, RibbonButtonStyle.Normal, "Track Changes", "ReviewTrackChanges", "ReviewTrackChanges");
+			AddButton(trackChanges.DropDownItems, RibbonButtonStyle.Normal, "Change Tracking Options...", "ReviewChangeTrackingOptions", "ReviewChangeTrackingOptions");
+			AddButton(trackChanges.DropDownItems, RibbonButtonStyle.Normal, "Change User Name...", "ReviewChangeUserName", "ReviewChangeUserName");
+			var balloons = AddButton(panelTracking.Items, RibbonButtonStyle.DropDown, "Balloons", "ReviewBalloonsMenu", "ReviewBalloonsMenu");
+			AddButton(balloons.DropDownItems, RibbonButtonStyle.Normal, "Show Revisions in Balloons", "ReviewShowRevisionsInBalloons", "ReviewShowRevisionsInBalloons");
+			AddButton(balloons.DropDownItems, RibbonButtonStyle.Normal, "Show All Revisions Inline", "ReviewShowRevisionsInline", "ReviewShowRevisionsInline");
+			AddButton(balloons.DropDownItems, RibbonButtonStyle.Normal, "Show Only Comments and Formatting in Balloons", "ReviewShowOnlyCommentsAndFormattingInBaloons", "ReviewShowOnlyCommentsAndFormattingInBaloons");
 			// TODO: Add combo box here
-			AddButton(panelTracking.Items, RibbonButtonStyle.DropDown, "Show Markup", "ReviewShowMarkupMenu", "ReviewShowMarkupMenu", RibbonElementSizeMode.Medium);
-			AddButton(panelTracking.Items, RibbonButtonStyle.SplitDropDown, "Reviewing Pane", "ReviewReviewingPaneVertical", "ReviewReviewingPane", RibbonElementSizeMode.Medium);
+			var showMarkup = AddButton(panelTracking.Items, RibbonButtonStyle.DropDown, "Show Markup", "ReviewShowMarkupMenu", "ReviewShowMarkupMenu", RibbonElementSizeMode.Medium);
+			AddButton(showMarkup.DropDownItems, RibbonButtonStyle.Normal, "Comments", "ReviewShowComments", "ReviewShowComments");
+			AddButton(showMarkup.DropDownItems, RibbonButtonStyle.Normal, "Ink", "ReviewShowInkMarkup", "ReviewShowInkMarkup");
+			AddButton(showMarkup.DropDownItems, RibbonButtonStyle.Normal, "Insertions and Deletions", "ReviewShowInsertionsAndDeletions", "ReviewShowInsertionsAndDeletions");
+			AddButton(showMarkup.DropDownItems, RibbonButtonStyle.Normal, "Formatting", "ReviewShowFormatting", "ReviewShowFormatting");
+			AddButton(showMarkup.DropDownItems, RibbonButtonStyle.Normal, "Markup Area Highlight", "ReviewShowMarkupAreaHighlight", "ReviewShowMarkupAreaHighlight");
+			AddButton(panelTracking.Items, RibbonButtonStyle.Normal, "Reviewing Pane", "ReviewReviewingPaneVertical", "ReviewReviewingPane", RibbonElementSizeMode.Medium);
 
 			// Changes panel
-			AddButton(panelChanges.Items, RibbonButtonStyle.SplitDropDown, "Accept", "ReviewAcceptChange", "ReviewAcceptChange");
-			AddButton(panelChanges.Items, RibbonButtonStyle.SplitDropDown, "Reject", "ReviewRejectChange", "ReviewRejectChange");
+			var accept = AddButton(panelChanges.Items, RibbonButtonStyle.SplitDropDown, "Accept", "ReviewAcceptChange", "ReviewAcceptChangeAndMoveToNext");
+			AddButton(accept.DropDownItems, RibbonButtonStyle.Normal, "Accept and Move to Next", "ReviewAcceptChange", "ReviewAcceptChangeAndMoveToNext");
+			AddButton(accept.DropDownItems, RibbonButtonStyle.Normal, "Accept Change", "ReviewAcceptChange", "ReviewAcceptChange");
+			AddButton(accept.DropDownItems, RibbonButtonStyle.Normal, "Accept All Changes Shown", "", "ReviewAcceptAllChangesShown");
+			AddButton(accept.DropDownItems, RibbonButtonStyle.Normal, "Accept All Changes in Document", "", "ReviewAcceptAllChangesInDocument");
+			var reject = AddButton(panelChanges.Items, RibbonButtonStyle.SplitDropDown, "Reject", "ReviewRejectChange", "ReviewRejectChangeAndMoveToNext");
+			AddButton(reject.DropDownItems, RibbonButtonStyle.Normal, "Reject and Move to Next", "ReviewRejectChange", "ReviewRejectChangeAndMoveToNext");
+			AddButton(reject.DropDownItems, RibbonButtonStyle.Normal, "Reject Change", "ReviewRejectChange", "ReviewRejectChange");
+			AddButton(reject.DropDownItems, RibbonButtonStyle.Normal, "Reject All Changes Shown", "", "ReviewRejectAllChangesShown");
+			AddButton(reject.DropDownItems, RibbonButtonStyle.Normal, "Reject All Changes in Document", "", "ReviewRejectAllChangesInDocument");
 			AddButton(panelChanges.Items, RibbonButtonStyle.Normal, "Previous", "ReviewPreviousChange", "ReviewPreviousChange", RibbonElementSizeMode.Medium);
 			AddButton(panelChanges.Items, RibbonButtonStyle.Normal, "Next", "ReviewNextChange", "ReviewNextChange", RibbonElementSizeMode.Medium);
 
 			// Compare panel
-			AddButton(panelCompare.Items, RibbonButtonStyle.DropDown, "Compare", "ReviewCompareMenu", "ReviewCompareMenu");
-			AddButton(panelCompare.Items, RibbonButtonStyle.DropDown, "Show Source Documents", "ReviewViewChangesInTheSourceDocument", "ReviewShowSourceDocumentsMenu"); // Wrong image, should be ReviewShowSourceDocumentsMenu
+			AddButton(panelCompare.Items, RibbonButtonStyle.DropDown, "Compare", "ReviewCompareMenu", "");
+			AddButton(panelCompare.Items, RibbonButtonStyle.DropDown, "Show Source Documents", "ReviewViewChangesInTheSourceDocument", ""); // Wrong image, should be ReviewShowSourceDocumentsMenu
 
 			// Protect panel
-			AddButton(panelProtect.Items, RibbonButtonStyle.DropDown, "Protect Document", "ProtectDocument", "ReviewProtectDocumentMenu");
+			AddButton(panelProtect.Items, RibbonButtonStyle.DropDown, "Protect Document", "ProtectDocument", "");
 
 
 			/*********************************************
