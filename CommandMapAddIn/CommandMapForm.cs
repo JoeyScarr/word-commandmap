@@ -146,7 +146,7 @@ namespace CommandMapAddIn {
 
 		private void SetEnabled(RibbonItem item) {
 			string msoName = (string)item.Tag;
-			item.Enabled = m_WordInstance.Application.CommandBars.GetEnabledMso(msoName);
+			item.Enabled = msoName == "" ? false : m_WordInstance.Application.CommandBars.GetEnabledMso(msoName);
 		}
 
 		private RibbonButton AddButton(RibbonItemCollection collection, RibbonButtonStyle style, string label, string msoImageName,
@@ -458,14 +458,25 @@ namespace CommandMapAddIn {
 			 * REFERENCES TAB
 			 *********************************************/
 			// Table of Contents panel
-			AddButton(panelTableOfContents.Items, RibbonButtonStyle.DropDown, "Table of Contents", "TableOfContentsGallery", "TableOfContentsGallery");
-			AddButton(panelTableOfContents.Items, RibbonButtonStyle.DropDown, "Add Text", "TableOfContentsUpdate", "TableOfContentsAddTextGallery", RibbonElementSizeMode.Medium); // Wrong image, should be TableOfContentsAddTextGallery
+			var tableOfContents = AddButton(panelTableOfContents.Items, RibbonButtonStyle.DropDown, "Table of Contents", "TableOfContentsGallery", "TableOfContentsGallery");
+			AddButton(tableOfContents.DropDownItems, RibbonButtonStyle.Normal, "Insert Table of Contents...", "TableOfContentsDialog", "TableOfContentsDialog");
+			AddButton(tableOfContents.DropDownItems, RibbonButtonStyle.Normal, "Remove Table of Contents", "TableOfContentsRemove", "TableOfContentsRemove");
+			AddButton(tableOfContents.DropDownItems, RibbonButtonStyle.Normal, "Save Selection to Table of Contents Gallery...", "SaveSelectionToTableOfContentsGallery", "SaveSelectionToTableOfContentsGallery");
+			var addText = AddButton(panelTableOfContents.Items, RibbonButtonStyle.DropDown, "Add Text", "TableOfContentsUpdate", "TableOfContentsAddTextGallery", RibbonElementSizeMode.Medium); // Wrong image, should be TableOfContentsAddTextGallery
+			AddButton(addText.DropDownItems, RibbonButtonStyle.Normal, "Do Not Show in Table of Contents", "", "");
+			AddButton(addText.DropDownItems, RibbonButtonStyle.Normal, "Level 1", "", "");
+			AddButton(addText.DropDownItems, RibbonButtonStyle.Normal, "Level 2", "", "");
+			AddButton(addText.DropDownItems, RibbonButtonStyle.Normal, "Level 3", "", "");
 			AddButton(panelTableOfContents.Items, RibbonButtonStyle.Normal, "Update Table", "TableOfContentsUpdate", "TableOfContentsUpdate", RibbonElementSizeMode.Medium);
 
 			// Footnotes panel
 			AddButton(panelFootnotes.Items, RibbonButtonStyle.Normal, "Insert Footnote", "FootnoteInsert", "FootnoteInsert");
 			AddButton(panelFootnotes.Items, RibbonButtonStyle.Normal, "Insert Endnote", "EndnoteInsertWord", "EndnoteInsertWord", RibbonElementSizeMode.Medium);
-			AddButton(panelFootnotes.Items, RibbonButtonStyle.SplitDropDown, "Next Footnote", "FootnoteNextWord", "FootnoteNextWord", RibbonElementSizeMode.Medium);
+			var nextFootnote = AddButton(panelFootnotes.Items, RibbonButtonStyle.SplitDropDown, "Next Footnote", "FootnoteNextWord", "FootnoteNextWord", RibbonElementSizeMode.Medium);
+			AddButton(nextFootnote.DropDownItems, RibbonButtonStyle.Normal, "Next Footnote", "FootnoteNextWord", "FootnoteNextWord");
+			AddButton(nextFootnote.DropDownItems, RibbonButtonStyle.Normal, "Previous Footnote", "", "FootnotePreviousWord");
+			AddButton(nextFootnote.DropDownItems, RibbonButtonStyle.Normal, "Next Endnote", "", "EndnoteNextWord");
+			AddButton(nextFootnote.DropDownItems, RibbonButtonStyle.Normal, "Previous Endnote", "", "EndnotePreviousWord");
 			AddButton(panelFootnotes.Items, RibbonButtonStyle.Normal, "Show Notes", "FootnotesEndnotesShow", "FootnotesEndnotesShow", RibbonElementSizeMode.Medium);
 
 			// Captions panel
