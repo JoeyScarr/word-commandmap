@@ -504,8 +504,20 @@ namespace CommandMapAddIn {
 			AddButton(panelCreate.Items, RibbonButtonStyle.Normal, "Labels", "LabelsDialog", "LabelsDialog");
 
 			// Start Mail Merge panel
-			AddButton(panelStartMailMerge.Items, RibbonButtonStyle.DropDown, "Start Mail Merge", "MailMergeStartMailMergeMenu", "MailMergeStartMailMergeMenu");
-			AddButton(panelStartMailMerge.Items, RibbonButtonStyle.DropDown, "Select Recipients", "MailMergeSelectRecipients", "MailMergeSelectRecipients");
+			var startMailMerge = AddButton(panelStartMailMerge.Items, RibbonButtonStyle.DropDown, "Start Mail Merge", "MailMergeStartMailMergeMenu", "MailMergeStartMailMergeMenu");
+			AddButton(startMailMerge.DropDownItems, RibbonButtonStyle.Normal, "Letters", "MailMergeStartLetters", "MailMergeStartLetters");
+			AddButton(startMailMerge.DropDownItems, RibbonButtonStyle.Normal, "E-Mail Messages", "MailMergeStartEmail", "MailMergeStartEmail");
+			AddButton(startMailMerge.DropDownItems, RibbonButtonStyle.Normal, "Envelopes...", "MailMergeStartEnvelopes", "MailMergeStartEnvelopes");
+			AddButton(startMailMerge.DropDownItems, RibbonButtonStyle.Normal, "Labels...", "MailMergeStartLabels", "MailMergeStartLabels");
+			AddButton(startMailMerge.DropDownItems, RibbonButtonStyle.Normal, "Directory", "MailMergeStartDirectory", "MailMergeStartDirectory");
+			AddSeparator(startMailMerge.DropDownItems);
+			AddButton(startMailMerge.DropDownItems, RibbonButtonStyle.Normal, "Normal Word Document", "MailMergeClearMergeType", "MailMergeClearMergeType");
+			AddSeparator(startMailMerge.DropDownItems);
+			AddButton(startMailMerge.DropDownItems, RibbonButtonStyle.Normal, "Step by Step Mail Merge Wizard...", "MailMergeWizard", "MailMergeWizard");
+			var selectRecipients = AddButton(panelStartMailMerge.Items, RibbonButtonStyle.DropDown, "Select Recipients", "MailMergeSelectRecipients", "MailMergeSelectRecipients");
+			AddButton(selectRecipients.DropDownItems, RibbonButtonStyle.Normal, "Type New List...", "MailMergeCreateList", "MailMergeCreateList");
+			AddButton(selectRecipients.DropDownItems, RibbonButtonStyle.Normal, "Use Existing List...", "MailMergeRecepientsUseExistingList", "MailMergeRecepientsUseExistingList");
+			AddButton(selectRecipients.DropDownItems, RibbonButtonStyle.Normal, "Select from Outlook Contacts...", "MailMergeRecepientsUseOutlookContacts", "MailMergeRecepientsUseOutlookContacts");
 			AddButton(panelStartMailMerge.Items, RibbonButtonStyle.Normal, "Edit Recipient List", "MailMergeRecipientsEditList", "MailMergeRecipientsEditList");
 
 			// Write & Insert Fields panel
