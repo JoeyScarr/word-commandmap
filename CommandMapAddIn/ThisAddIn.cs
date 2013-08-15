@@ -70,7 +70,9 @@ namespace CommandMapAddIn {
 						}));
 					}
 				} else {
-					m_CommandMap.Hide();
+					m_CommandMap.Invoke(new System.Action(delegate() {
+						m_CommandMap.Hide();
+					}));
 				}
 			}));
 			t.Start();
