@@ -635,10 +635,13 @@ namespace CommandMapAddIn {
 			AddButton(panelWindow.Items, RibbonButtonStyle.Normal, "Synchronous Scrolling", "WindowSideBySideSynchronousScrolling", "WindowSideBySideSynchronousScrolling", RibbonElementSizeMode.Medium);
 			AddButton(panelWindow.Items, RibbonButtonStyle.Normal, "Reset Window Position", "WindowResetPosition", "WindowResetPosition", RibbonElementSizeMode.Medium);
 			AddSeparator(panelWindow.Items);
-			AddButton(panelWindow.Items, RibbonButtonStyle.DropDown, "Switch Windows", "WindowSwitchWindowsMenuExcel", "WindowSwitchWindowsMenuWord");
+			AddButton(panelWindow.Items, RibbonButtonStyle.DropDown, "Switch Windows", "WindowSwitchWindowsMenuExcel", "");
 
 			// Macros panel
-			AddButton(panelMacros.Items, RibbonButtonStyle.SplitDropDown, "Macros", "PlayMacro", "PlayMacro");
+			var macros = AddButton(panelMacros.Items, RibbonButtonStyle.SplitDropDown, "Macros", "PlayMacro", "PlayMacro");
+			AddButton(macros.DropDownItems, RibbonButtonStyle.Normal, "View Macros", "PlayMacro", "PlayMacro");
+			AddButton(macros.DropDownItems, RibbonButtonStyle.Normal, "Record Macro...", "MacroRecord", "MacroRecord");
+			AddButton(macros.DropDownItems, RibbonButtonStyle.Normal, "Pause Recording", "MacroRecorderPause", "MacroRecorderPause");
 		}
 
 		private void CommandMapForm_Leave(object sender, EventArgs e) {
