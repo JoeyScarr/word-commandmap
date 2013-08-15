@@ -37,10 +37,15 @@ namespace CommandMapAddIn {
 		}
 
 		private void HookManager_MouseClick(object sender, MouseEventArgs e) {
-			// Hide the CM if a click was detected outside the window.
-			if (!Bounds.Contains(e.Location)) {
-				Hide();
-			}
+			Thread t = new Thread(new ThreadStart(delegate() {
+				// Hide the CM if a click was detected outside the window.
+				if (!Bounds.Contains(e.Location)) {
+					Invoke(new System.Action(delegate() {
+						Hide();
+					}));
+				}
+			}));
+			t.Start();
 		}
 
 		protected override bool ShowWithoutActivation {

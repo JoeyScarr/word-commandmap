@@ -8,6 +8,7 @@ using Office = Microsoft.Office.Core;
 using Microsoft.Office.Tools.Word;
 using System.Windows.Forms;
 using Gma.UserActivityMonitor;
+using System.Threading;
 
 namespace CommandMapAddIn {
 	public partial class ThisAddIn {
@@ -39,6 +40,8 @@ namespace CommandMapAddIn {
 
 				// Spawn the CommandMap form, and attach it to the Word window.
 				m_CommandMap = new CommandMapForm(m_Word);
+				m_CommandMap.Show();
+				m_CommandMap.Hide();
 
 				// Add a global hook.
 				HookManager.KeyDown += HookManager_KeyDown;
@@ -51,29 +54,39 @@ namespace CommandMapAddIn {
 		}
 
 		void HookManager_KeyDown(object sender, KeyEventArgs e) {
-			var key = e.KeyCode;
-			if (key == Keys.ControlKey || key == Keys.LControlKey || key == Keys.RControlKey || key == Keys.Control) {
-				if (!m_CommandMap.Visible && !m_CtrlPressed) {
-					IntPtr foregroundWindow = WindowsApi.GetForegroundWindow();
-					if (foregroundWindow == m_Word.WindowHandle
-						|| foregroundWindow == m_CommandMap.Handle
-						|| foregroundWindow == m_ActivationButton.Handle) {
-						m_CtrlPressed = true;
-						m_CommandMap.Show();
-						Application.Activate();
+			Thread t = new Thread(new ThreadStart(delegate() {
+				var key = e.KeyCode;
+				if (key == Keys.ControlKey || key == Keys.LControlKey || key == Keys.RControlKey || key == Keys.Control) {
+					if (!m_CommandMap.Visible && !m_CtrlPressed) {
+						IntPtr foregroundWindow = WindowsApi.GetForegroundWindow();
+						m_CommandMap.Invoke(new System.Action(delegate() {
+							if (foregroundWindow == m_Word.WindowHandle
+								|| foregroundWindow == m_CommandMap.Handle
+								|| foregroundWindow == m_ActivationButton.Handle) {
+								m_CtrlPressed = true;
+								m_CommandMap.Show();
+								Application.Activate();
+							}
+						}));
 					}
+				} else {
+					m_CommandMap.Hide();
 				}
-			} else {
-				m_CommandMap.Hide();
-			}
+			}));
+			t.Start();
 		}
 
 		void HookManager_KeyUp(object sender, KeyEventArgs e) {
-			var key = e.KeyCode;
-			if (key == Keys.ControlKey || key == Keys.LControlKey || key == Keys.RControlKey || key == Keys.Control) {
-				m_CtrlPressed = false;
-				m_CommandMap.Hide();
-			}
+			Thread t = new Thread(new ThreadStart(delegate() {
+				var key = e.KeyCode;
+				if (key == Keys.ControlKey || key == Keys.LControlKey || key == Keys.RControlKey || key == Keys.Control) {
+					m_CtrlPressed = false;
+					m_CommandMap.Invoke(new System.Action(delegate() {
+						m_CommandMap.Hide();
+					}));
+				}
+			}));
+			t.Start();
 		}
 
 		private void ThisAddIn_Shutdown(object sender, System.EventArgs e) {
