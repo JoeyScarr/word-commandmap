@@ -58,12 +58,18 @@ namespace CMStudy {
 			StartPinta(CM: false);
 		}
 
+		private void OpenStatusForm(string app, bool CM) {
+			StatusForm sf = new StatusForm((int)numParticipant.Value, (int)numDay.Value, app, CM);
+			sf.Show();
+		}
+
 		private void StartPinta(bool CM) {
 			// Look for Pinta in the application folder + "/Pinta"
 			string dir = Path.GetDirectoryName(Application.ExecutablePath);
 			string path = Path.Combine(dir, CM ? "PintaCM" : "PintaNormal", "Pinta.exe");
 			if (File.Exists(path)) {
 				Process.Start(path);
+				OpenStatusForm("Pinta", CM);
 			} else {
 				MessageBox.Show(string.Format("Error: Couldn't find Pinta in location {0}", path),
 					"Application missing", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -98,6 +104,7 @@ namespace CMStudy {
 			var installstate = MsiLocateComponent("{0638C49D-BB8B-4CD1-B191-051E8F325736}", sb, ref size);
 			if (installstate == INSTALLSTATE.INSTALLSTATE_LOCAL) {
 				Process.Start(sb.ToString());
+				OpenStatusForm("Word", CM);
 			} else {
 				MessageBox.Show("Error: Word 2007 not installed!", "Application missing", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}

@@ -34,7 +34,7 @@
 			this.lStatus.Name = "lStatus";
 			this.lStatus.Size = new System.Drawing.Size(62, 13);
 			this.lStatus.TabIndex = 0;
-			this.lStatus.Text = "Status label";
+			this.lStatus.Text = "Not running";
 			// 
 			// bStartStop
 			// 
@@ -44,8 +44,9 @@
 			this.bStartStop.TabIndex = 1;
 			this.bStartStop.Text = "Start";
 			this.bStartStop.UseVisualStyleBackColor = true;
+			this.bStartStop.Click += new System.EventHandler(this.bStartStop_Click);
 			// 
-			// Form1
+			// StatusForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -53,8 +54,10 @@
 			this.Controls.Add(this.bStartStop);
 			this.Controls.Add(this.lStatus);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-			this.Name = "Form1";
-			this.Text = "Form1";
+			this.Name = "StatusForm";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
+			this.Text = "Stopped";
+			this.TopMost = true;
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
