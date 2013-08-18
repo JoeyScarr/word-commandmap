@@ -170,14 +170,16 @@ namespace CommandMapAddIn {
 			return button;
 		}
 
+		private delegate decimal DocumentEventHandler(Word.Document doc);
+
 		private RibbonUpDown AddUpDown(RibbonItemCollection collection, string label, string msoImageName,
-				decimal value, string suffix, decimal increment, decimal min = 0, decimal max = 100, EventHandler changed = null) {
+				DocumentEventHandler getValue, string suffix, decimal increment, decimal min = 0, decimal max = 100, EventHandler changed = null) {
 			RibbonUpDown updown = new RibbonUpDown();
 			updown.Text = label;
 			updown.LabelWidth = 50;
 			AssignImage(updown, msoImageName);
-			decimal currentValue = value;
-			updown.TextBoxText = value + suffix;
+			decimal currentValue = 0;
+			updown.TextBoxText = currentValue + suffix;
 			updown.AllowTextEdit = true;
 			updown.Enabled = true;
 			updown.UpButtonClicked += new MouseEventHandler(delegate(object sender, MouseEventArgs e) {
@@ -188,7 +190,12 @@ namespace CommandMapAddIn {
 				currentValue = Math.Max(currentValue - increment, min);
 				updown.TextBoxText = currentValue + suffix;
 			});
-			updown.TextBoxTextChanged += changed;
+			m_WordInstance.Application.WindowActivate += new Word.ApplicationEvents4_WindowActivateEventHandler(delegate(Word.Document doc, Word.Window win) {
+				currentValue = Math.Min(max, Math.Max(min, getValue(doc)));
+				updown.TextBoxText = currentValue + suffix;
+			});
+			// TODO: Uncommenting this causes serious issues. Figure out later if necessary.
+			//updown.TextBoxTextChanged += changed;
 			collection.Add(updown);
 			return updown;
 		}
@@ -365,27 +372,39 @@ namespace CommandMapAddIn {
 			// TODO: Update everything in this panel when it changes
 			AddLabel(panelParagraph.Items, "Indent");
 			AddUpDown(panelParagraph.Items, "Left:", "IndentClassic",
-				(decimal)m_WordInstance.Application.ActiveDocument.Paragraphs.LeftIndent, " cm", 0.1m, -27.9m, 55.8m,
+				delegate(Word.Document doc){
+					return (decimal)doc.Paragraphs.LeftIndent;
+				},
+				" cm", 0.1m, -27.9m, 55.8m,
 				new EventHandler(delegate(object sender, EventArgs ea) {
-				m_WordInstance.Application.ActiveDocument.Paragraphs.LeftIndent = GetLeadingFloat(((RibbonUpDown)sender).TextBoxText) * 28.35f; // cm to pt
-			}));
+					m_WordInstance.Application.ActiveDocument.Paragraphs.LeftIndent = GetLeadingFloat(((RibbonUpDown)sender).TextBoxText) * 28.35f; // cm to pt
+				}));
 			AddUpDown(panelParagraph.Items, "Right:", "ParagraphIndentRight",
-				(decimal)m_WordInstance.Application.ActiveDocument.Paragraphs.RightIndent, " cm", 0.1m, -27.9m, 55.8m,
+				delegate(Word.Document doc) {
+					return (decimal)doc.Paragraphs.RightIndent;
+				},
+				" cm", 0.1m, -27.9m, 55.8m,
 				new EventHandler(delegate(object sender, EventArgs ea) {
-				m_WordInstance.Application.ActiveDocument.Paragraphs.RightIndent = GetLeadingFloat(((RibbonUpDown)sender).TextBoxText) * 28.35f; // cm to pt
-			}));
+					m_WordInstance.Application.ActiveDocument.Paragraphs.RightIndent = GetLeadingFloat(((RibbonUpDown)sender).TextBoxText) * 28.35f; // cm to pt
+				}));
 			AddSeparator(panelParagraph.Items);
 			AddLabel(panelParagraph.Items, "Spacing");
 			AddUpDown(panelParagraph.Items, "Before:", "ParagraphSpacingIncrease",
-				(decimal)m_WordInstance.Application.ActiveDocument.Paragraphs.SpaceBefore, " pt", 6, 0, 1584,
+				delegate(Word.Document doc) {
+					return (decimal)doc.Paragraphs.SpaceBefore;
+				},
+				" pt", 6, 0, 1584,
 				new EventHandler(delegate(object sender, EventArgs ea) {
-				m_WordInstance.Application.ActiveDocument.Paragraphs.SpaceBefore = GetLeadingFloat(((RibbonUpDown)sender).TextBoxText);
-			}));
+					m_WordInstance.Application.ActiveDocument.Paragraphs.SpaceBefore = GetLeadingFloat(((RibbonUpDown)sender).TextBoxText);
+				}));
 			AddUpDown(panelParagraph.Items, "After:", "ParagraphSpacingDecrease",
-				(decimal)m_WordInstance.Application.ActiveDocument.Paragraphs.SpaceAfter, " pt", 6, 0, 1584,
+				delegate(Word.Document doc) {
+					return (decimal)doc.Paragraphs.SpaceAfter;
+				},
+				" pt", 6, 0, 1584,
 				new EventHandler(delegate(object sender, EventArgs ea) {
-				m_WordInstance.Application.ActiveDocument.Paragraphs.SpaceAfter = GetLeadingFloat(((RibbonUpDown)sender).TextBoxText);
-			}));
+					m_WordInstance.Application.ActiveDocument.Paragraphs.SpaceAfter = GetLeadingFloat(((RibbonUpDown)sender).TextBoxText);
+				}));
 
 			// Arrange panel
 			var position = AddButton(panelArrange.Items, RibbonButtonStyle.DropDown, "Position", "PicturePositionGallery", "PicturePositionGallery");
