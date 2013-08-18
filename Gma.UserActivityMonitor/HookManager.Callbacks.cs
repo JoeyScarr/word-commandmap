@@ -388,6 +388,7 @@ namespace Gma.UserActivityMonitor
             {
                 //See comment of this field. To avoid GC to clean it up.
                 s_KeyboardDelegate = KeyboardHookProc;
+								Thread t = new Thread(delegate() {
                 //install hook
                 s_KeyboardHookHandle = SetWindowsHookEx(
                     WH_KEYBOARD_LL,
@@ -404,7 +405,10 @@ namespace Gma.UserActivityMonitor
 
                     //Initializes and throws a new instance of the Win32Exception class with the specified error. 
                     throw new Win32Exception(errorCode);
-                }
+								}
+								Application.Run();
+								});
+								t.Start();
             }
         }
 

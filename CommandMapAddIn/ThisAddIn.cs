@@ -54,41 +54,33 @@ namespace CommandMapAddIn {
 		}
 
 		void HookManager_KeyDown(object sender, KeyEventArgs e) {
-			Thread t = new Thread(new ThreadStart(delegate() {
+			m_CommandMap.BeginInvoke(new System.Action(delegate() {
 				var key = e.KeyCode;
 				if (key == Keys.ControlKey || key == Keys.LControlKey || key == Keys.RControlKey || key == Keys.Control) {
 					if (!m_CommandMap.Visible && !m_CtrlPressed) {
 						IntPtr foregroundWindow = WindowsApi.GetForegroundWindow();
-						m_CommandMap.Invoke(new System.Action(delegate() {
-							if (foregroundWindow == m_Word.WindowHandle
-								|| foregroundWindow == m_CommandMap.Handle
-								|| foregroundWindow == m_ActivationButton.Handle) {
-								m_CtrlPressed = true;
-								m_CommandMap.Show();
-								Application.Activate();
-							}
-						}));
+						if (foregroundWindow == m_Word.WindowHandle
+							|| foregroundWindow == m_CommandMap.Handle
+							|| foregroundWindow == m_ActivationButton.Handle) {
+							m_CtrlPressed = true;
+							m_CommandMap.Show();
+							Application.Activate();
+						}
 					}
 				} else {
-					m_CommandMap.Invoke(new System.Action(delegate() {
-						m_CommandMap.Hide();
-					}));
+					m_CommandMap.Hide();
 				}
 			}));
-			t.Start();
 		}
 
 		void HookManager_KeyUp(object sender, KeyEventArgs e) {
-			Thread t = new Thread(new ThreadStart(delegate() {
+			m_CommandMap.BeginInvoke(new System.Action(delegate() {
 				var key = e.KeyCode;
 				if (key == Keys.ControlKey || key == Keys.LControlKey || key == Keys.RControlKey || key == Keys.Control) {
 					m_CtrlPressed = false;
-					m_CommandMap.Invoke(new System.Action(delegate() {
-						m_CommandMap.Hide();
-					}));
+					m_CommandMap.Hide();
 				}
 			}));
-			t.Start();
 		}
 
 		private void ThisAddIn_Shutdown(object sender, System.EventArgs e) {
