@@ -78,6 +78,10 @@ namespace CMStudy1 {
 			LogString(string.Format("TASKEND {0}", DateTime.Now.Ticks));
 		}
 
+		public static void LogAppClosed() {
+			LogString(string.Format("APPCLOSED {0}", DateTime.Now.Ticks));
+		}
+
     public static void LogString(string str) {
       lock (lines) {
         lines.Add(str);

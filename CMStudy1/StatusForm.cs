@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace CMStudy1 {
@@ -33,6 +34,15 @@ namespace CMStudy1 {
 			Log.StartLogging(string.Format("logs\\P{0}_{1}_{2}.txt", m_Participant, m_App, m_Interface));
 			Text = string.Format("P:{0} A:{1} I:{2}", m_Participant, m_App, m_Interface);
 			UpdateStatus();
+
+			// Set up a thread that will close this form when the app closes
+			Thread t = new Thread(delegate() {
+				m_Process.WaitForExit();
+				this.Invoke(new Action(delegate() {
+					Close();
+				}));
+			});
+			t.Start();
 		}
 
 		private void bStartStop_Click(object sender, EventArgs e) {
@@ -41,7 +51,6 @@ namespace CMStudy1 {
 			} else {
 				Log.LogTaskEnd();
 				Log.Flush();
-				m_Process.Kill();
 			}
 			m_Running = !m_Running;
 			UpdateStatus();

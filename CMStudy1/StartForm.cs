@@ -39,14 +39,16 @@ namespace CMStudy1 {
 
 		private void bStartWordCM_Click(object sender, EventArgs e) {
 			StartWord2007(CM: true);
+			bStartWordCM.Enabled = false;
 		}
 
 		private void bStartWordNormal_Click(object sender, EventArgs e) {
 			StartWord2007(CM: false);
+			bStartWordNormal.Enabled = false;
 		}
 
-		private void OpenStatusForm(string app, bool CM) {
-			StatusForm sf = new StatusForm((int)numParticipant.Value, app, CM);
+		private void OpenStatusForm(string app, bool CM, Process process) {
+			StatusForm sf = new StatusForm((int)numParticipant.Value, app, CM, process);
 			sf.Show();
 		}
 
@@ -77,8 +79,8 @@ namespace CMStudy1 {
 			StringBuilder sb = new StringBuilder((int)size);
 			var installstate = MsiLocateComponent("{0638C49D-BB8B-4CD1-B191-051E8F325736}", sb, ref size);
 			if (installstate == INSTALLSTATE.INSTALLSTATE_LOCAL) {
-				Process.Start(sb.ToString());
-				OpenStatusForm("Word", CM);
+				Process p = Process.Start(sb.ToString());
+				OpenStatusForm("Word", CM, p);
 			} else {
 				MessageBox.Show("Error: Word 2007 not installed!", "Application missing", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
