@@ -62,6 +62,14 @@ namespace CommandMapAddIn {
 			LogString(string.Format("CMOPEN {0} {1}", string.Concat("'", key, "'"), DateTime.Now.Ticks));
 		}
 
+		public static void LogMouseDown(Point location) {
+			LogString(string.Format("MOUSEDOWN {0} {1} {2}", location.X, location.Y, DateTime.Now.Ticks));
+		}
+
+		public static void LogMouseUp(Point location) {
+			LogString(string.Format("MOUSEUP {0} {1} {2}", location.X, location.Y, DateTime.Now.Ticks));
+		}
+
 		public static void LogString(string str) {
 			lock (lines) {
 				lines.Add(str);

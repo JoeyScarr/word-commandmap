@@ -20,6 +20,7 @@ namespace CommandMapAddIn {
 		NormalRibbon m_NormalRibbon;
 
 		bool m_CtrlPressed = false;
+		bool m_ShuttingDown = false;
 
 		private void ThisAddIn_Startup(object sender, System.EventArgs e) {
 			// Inform the ribbon we're using about the current application
@@ -37,6 +38,10 @@ namespace CommandMapAddIn {
 				Log.StartLogging(logPath);
 			}
 
+			// Hook mouse events for logging
+			HookManager.MouseDown += HookManager_MouseDown;
+			HookManager.MouseUp += HookManager_MouseUp;
+
 			if (GlobalSettings.GetCommandMapEnabled()) {
 				// Spawn the on-screen activation button, and attach it to the Word window.
 				m_ActivationButton = new ActivationButton(m_Word);
@@ -52,6 +57,22 @@ namespace CommandMapAddIn {
 				HookManager.KeyDown += HookManager_KeyDown;
 				HookManager.KeyUp += HookManager_KeyUp;
 			}
+		}
+
+		void HookManager_MouseUp(object sender, MouseEventArgs e) {
+			Thread t = new Thread(delegate() {
+				Log.LogMouseUp(e.Location);
+			});
+			t.Start();
+		}
+
+		void HookManager_MouseDown(object sender, MouseEventArgs e) {
+			Thread t = new Thread(delegate() {
+				if (!m_ShuttingDown) {
+					Log.LogMouseDown(e.Location);
+				}
+			});
+			t.Start();
 		}
 
 		void m_ActivationButton_Click(object sender, EventArgs e) {
@@ -90,6 +111,8 @@ namespace CommandMapAddIn {
 		}
 
 		private void ThisAddIn_Shutdown(object sender, System.EventArgs e) {
+			m_ShuttingDown = true;
+			Log.Flush();
 			// Remove hooks.
 			HookManager.ForceUnsubscribeFromGlobalKeyboardEvents();
 		}
