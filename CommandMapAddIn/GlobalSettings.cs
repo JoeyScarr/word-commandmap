@@ -23,5 +23,11 @@ namespace CommandMapAddIn {
 			key.SetValue("CMEnabled", value ? 1 : 0, RegistryValueKind.DWord);
 			key.Close();
 		}
+
+		public static string GetLogPath() {
+			RegistryKey key = Registry.CurrentUser.CreateSubKey("WordCommandMap");
+			string val = (string)key.GetValue("LogPath", null);
+			return val;
+		}
 	}
 }

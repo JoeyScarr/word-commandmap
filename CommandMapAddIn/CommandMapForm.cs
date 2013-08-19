@@ -63,6 +63,7 @@ namespace CommandMapAddIn {
 		}
 
 		public new void Show() {
+			Log.LogCommandMapOpen();
 			foreach (RibbonItem item in m_Controls) {
 				SetEnabled(item);
 			}
@@ -72,6 +73,7 @@ namespace CommandMapAddIn {
 		}
 
 		public new void Hide() {
+			Log.LogCommandMapClose();
 			base.Hide();
 		}
 
@@ -119,6 +121,7 @@ namespace CommandMapAddIn {
 		}
 
 		private void RunCommand(Action action) {
+			Log.LogCommand("CUSTOM");
 			Hide();
 			Thread t = new Thread(new ThreadStart(action));
 			t.Start();
@@ -126,6 +129,7 @@ namespace CommandMapAddIn {
 		}
 
 		private void RunCommand(string msoName) {
+			Log.LogCommand(msoName);
 			RunCommand(delegate() {
 				m_WordInstance.SendCommand(msoName);
 			});

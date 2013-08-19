@@ -32,6 +32,11 @@ namespace CommandMapAddIn {
 			// Create a WordInstance
 			m_Word = new WordInstance(Application);
 
+			string logPath = GlobalSettings.GetLogPath();
+			if (!string.IsNullOrEmpty(logPath)) {
+				Log.StartLogging(logPath);
+			}
+
 			if (GlobalSettings.GetCommandMapEnabled()) {
 				// Spawn the on-screen activation button, and attach it to the Word window.
 				m_ActivationButton = new ActivationButton(m_Word);
@@ -55,6 +60,7 @@ namespace CommandMapAddIn {
 
 		void HookManager_KeyDown(object sender, KeyEventArgs e) {
 			m_CommandMap.BeginInvoke(new System.Action(delegate() {
+				Log.LogKeyDown(e.KeyCode);
 				var key = e.KeyCode;
 				if (key == Keys.ControlKey || key == Keys.LControlKey || key == Keys.RControlKey || key == Keys.Control) {
 					if (!m_CommandMap.Visible && !m_CtrlPressed) {

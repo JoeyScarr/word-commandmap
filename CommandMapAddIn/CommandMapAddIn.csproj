@@ -194,6 +194,7 @@
       <DependentUpon>CommandMapForm.cs</DependentUpon>
     </Compile>
     <Compile Include="GlobalSettings.cs" />
+    <Compile Include="Log.cs" />
     <Compile Include="NormalRibbon.cs" />
     <Compile Include="PerPixelAlphaForm.cs">
       <SubType>Form</SubType>
