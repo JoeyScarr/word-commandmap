@@ -6,7 +6,7 @@ using System.IO;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace CMStudy {
+namespace CMStudy2 {
   public static class Log {
     private static bool loggingEnabled = true;
     private static string filename = null;

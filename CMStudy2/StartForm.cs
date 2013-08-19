@@ -11,7 +11,7 @@ using System.Text;
 using System.Windows.Forms;
 using Microsoft.Win32;
 
-namespace CMStudy {
+namespace CMStudy2 {
 	public partial class StartForm : Form {
 		public StartForm() {
 			InitializeComponent();

@@ -1,4 +1,4 @@
-﻿namespace CMStudy {
+﻿namespace CMStudy2 {
 	partial class StartForm {
 		/// <summary>
 		/// Required designer variable.

@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace CMStudy {
+namespace CMStudy2 {
 	public partial class StatusForm : Form {
 		private int m_Participant = 0;
 		private int m_Block = 0;

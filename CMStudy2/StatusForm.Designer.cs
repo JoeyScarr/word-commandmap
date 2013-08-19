@@ -1,4 +1,4 @@
-﻿namespace CMStudy {
+﻿namespace CMStudy2 {
 	partial class StatusForm {
 		/// <summary>
 		/// Required designer variable.

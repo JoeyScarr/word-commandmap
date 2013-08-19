@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CMStudy", "CMStudy.csproj", "{CC0A26DA-0482-49A1-8263-F07962B8EE5E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CMStudy2", "CMStudy2.csproj", "{CC0A26DA-0482-49A1-8263-F07962B8EE5E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
