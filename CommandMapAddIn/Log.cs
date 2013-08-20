@@ -33,8 +33,8 @@ namespace CommandMapAddIn {
 		public static void Flush() {
 			if (loggingEnabled && filename != null) {
 				Directory.CreateDirectory(Path.GetDirectoryName(filename));
-				using (StreamWriter sw = new StreamWriter(filename, true)) {
-					lock (lines) {
+				lock (lines) {
+					using (StreamWriter sw = new StreamWriter(filename, true)) {
 						foreach (string line in lines) {
 							sw.WriteLine(line);
 						}
