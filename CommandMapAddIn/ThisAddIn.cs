@@ -21,8 +21,10 @@ namespace CommandMapAddIn {
 
 		bool m_CtrlPressed = false;
 		bool m_ShuttingDown = false;
+		bool m_CommandMapEnabled = false;
 
 		private void ThisAddIn_Startup(object sender, System.EventArgs e) {
+			m_CommandMapEnabled = GlobalSettings.GetCommandMapEnabled();
 			// Inform the ribbon we're using about the current application
 			if (m_BlankRibbon != null) {
 				m_BlankRibbon.Application = Application;
@@ -42,7 +44,11 @@ namespace CommandMapAddIn {
 			HookManager.MouseDown += HookManager_MouseDown;
 			HookManager.MouseUp += HookManager_MouseUp;
 
-			if (GlobalSettings.GetCommandMapEnabled()) {
+			// Hook keyboard events
+			HookManager.KeyDown += HookManager_KeyDown;
+			HookManager.KeyUp += HookManager_KeyUp;
+
+			if (m_CommandMapEnabled) {
 				// Spawn the on-screen activation button, and attach it to the Word window.
 				m_ActivationButton = new ActivationButton(m_Word);
 				m_ActivationButton.Click += m_ActivationButton_Click;
@@ -52,10 +58,6 @@ namespace CommandMapAddIn {
 				m_CommandMap = new CommandMapForm(m_Word);
 				m_CommandMap.Show();
 				m_CommandMap.Hide();
-
-				// Add a global hook.
-				HookManager.KeyDown += HookManager_KeyDown;
-				HookManager.KeyUp += HookManager_KeyUp;
 			}
 		}
 
@@ -80,34 +82,50 @@ namespace CommandMapAddIn {
 		}
 
 		void HookManager_KeyDown(object sender, KeyEventArgs e) {
-			m_CommandMap.BeginInvoke(new System.Action(delegate() {
+			System.Action a = new System.Action(delegate() {
 				Log.LogKeyDown(e.KeyCode);
-				var key = e.KeyCode;
-				if (key == Keys.ControlKey || key == Keys.LControlKey || key == Keys.RControlKey || key == Keys.Control) {
-					if (!m_CommandMap.Visible && !m_CtrlPressed) {
-						IntPtr foregroundWindow = WindowsApi.GetForegroundWindow();
-						if (foregroundWindow == m_Word.WindowHandle
-							|| foregroundWindow == m_CommandMap.Handle
-							|| foregroundWindow == m_ActivationButton.Handle) {
-							m_CtrlPressed = true;
-							m_CommandMap.Show();
-							Application.Activate();
+				if (m_CommandMapEnabled) {
+					var key = e.KeyCode;
+					if (key == Keys.ControlKey || key == Keys.LControlKey || key == Keys.RControlKey || key == Keys.Control) {
+						if (!m_CommandMap.Visible && !m_CtrlPressed) {
+							IntPtr foregroundWindow = WindowsApi.GetForegroundWindow();
+							if (foregroundWindow == m_Word.WindowHandle
+								|| foregroundWindow == m_CommandMap.Handle
+								|| foregroundWindow == m_ActivationButton.Handle) {
+								m_CtrlPressed = true;
+								m_CommandMap.Show();
+								Application.Activate();
+							}
 						}
+					} else {
+						m_CommandMap.Hide();
 					}
-				} else {
-					m_CommandMap.Hide();
 				}
-			}));
+			});
+			if (m_CommandMap != null) {
+				m_CommandMap.BeginInvoke(a);
+			} else {
+				Thread t = new Thread(new ThreadStart(a));
+				t.Start();
+			}
 		}
 
 		void HookManager_KeyUp(object sender, KeyEventArgs e) {
-			m_CommandMap.BeginInvoke(new System.Action(delegate() {
-				var key = e.KeyCode;
-				if (key == Keys.ControlKey || key == Keys.LControlKey || key == Keys.RControlKey || key == Keys.Control) {
-					m_CtrlPressed = false;
-					m_CommandMap.Hide();
+			System.Action a = new System.Action(delegate() {
+				if (m_CommandMapEnabled) {
+					var key = e.KeyCode;
+					if (key == Keys.ControlKey || key == Keys.LControlKey || key == Keys.RControlKey || key == Keys.Control) {
+						m_CtrlPressed = false;
+						m_CommandMap.Hide();
+					}
 				}
-			}));
+			});
+			if (m_CommandMap != null) {
+				m_CommandMap.BeginInvoke(a);
+			} else {
+				Thread t = new Thread(new ThreadStart(a));
+				t.Start();
+			}
 		}
 
 		private void ThisAddIn_Shutdown(object sender, System.EventArgs e) {

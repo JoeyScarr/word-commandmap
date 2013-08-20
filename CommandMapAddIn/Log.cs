@@ -59,7 +59,7 @@ namespace CommandMapAddIn {
 		}
 
 		public static void LogKeyDown(Keys key) {
-			LogString(string.Format("CMOPEN {0} {1}", string.Concat("'", key, "'"), DateTime.Now.Ticks));
+			LogString(string.Format("KEYDOWN {0} {1}", string.Concat("'", key, "'"), DateTime.Now.Ticks));
 		}
 
 		public static void LogMouseDown(Point location) {

@@ -74,6 +74,7 @@ namespace CMStudy1 {
 
 		private void StartWord2007(bool CM) {
 			SetCommandMapEnabled(CM);
+			SetLogPath((int)numParticipant.Value, CM);
 
 			uint size = 300;
 			StringBuilder sb = new StringBuilder((int)size);
@@ -89,6 +90,13 @@ namespace CMStudy1 {
 		public static void SetCommandMapEnabled(bool value) {
 			RegistryKey key = Registry.CurrentUser.CreateSubKey("WordCommandMap");
 			key.SetValue("CMEnabled", value ? 1 : 0, RegistryValueKind.DWord);
+			key.Close();
+		}
+
+		public static void SetLogPath(int participant, bool CM) {
+			RegistryKey key = Registry.CurrentUser.CreateSubKey("WordCommandMap");
+			key.SetValue("LogPath", Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "wordlogs",
+				string.Format("P{0}_{1}.txt", participant, CM ? "CM" : "Normal")), RegistryValueKind.String);
 			key.Close();
 		}
 	}
