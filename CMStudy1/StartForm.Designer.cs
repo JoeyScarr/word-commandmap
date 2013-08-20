@@ -27,6 +27,8 @@
 			this.numParticipant = new System.Windows.Forms.NumericUpDown();
 			this.bStartWordCM = new System.Windows.Forms.Button();
 			this.bStartWordNormal = new System.Windows.Forms.Button();
+			this.bStartPracticeNormal = new System.Windows.Forms.Button();
+			this.bStartPracticeCM = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.numParticipant)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -70,7 +72,7 @@
 			this.bStartWordCM.Name = "bStartWordCM";
 			this.bStartWordCM.Size = new System.Drawing.Size(166, 37);
 			this.bStartWordCM.TabIndex = 4;
-			this.bStartWordCM.Text = "Start Word (CM)";
+			this.bStartWordCM.Text = "CommandMap";
 			this.bStartWordCM.UseVisualStyleBackColor = true;
 			this.bStartWordCM.Click += new System.EventHandler(this.bStartWordCM_Click);
 			// 
@@ -80,15 +82,37 @@
 			this.bStartWordNormal.Name = "bStartWordNormal";
 			this.bStartWordNormal.Size = new System.Drawing.Size(166, 37);
 			this.bStartWordNormal.TabIndex = 5;
-			this.bStartWordNormal.Text = "Start Word (Normal)";
+			this.bStartWordNormal.Text = "Normal";
 			this.bStartWordNormal.UseVisualStyleBackColor = true;
 			this.bStartWordNormal.Click += new System.EventHandler(this.bStartWordNormal_Click);
+			// 
+			// bStartPracticeNormal
+			// 
+			this.bStartPracticeNormal.Location = new System.Drawing.Point(15, 163);
+			this.bStartPracticeNormal.Name = "bStartPracticeNormal";
+			this.bStartPracticeNormal.Size = new System.Drawing.Size(166, 37);
+			this.bStartPracticeNormal.TabIndex = 7;
+			this.bStartPracticeNormal.Text = "Normal (PRACTICE)";
+			this.bStartPracticeNormal.UseVisualStyleBackColor = true;
+			this.bStartPracticeNormal.Click += new System.EventHandler(this.bStartPracticeNormal_Click);
+			// 
+			// bStartPracticeCM
+			// 
+			this.bStartPracticeCM.Location = new System.Drawing.Point(15, 120);
+			this.bStartPracticeCM.Name = "bStartPracticeCM";
+			this.bStartPracticeCM.Size = new System.Drawing.Size(166, 37);
+			this.bStartPracticeCM.TabIndex = 6;
+			this.bStartPracticeCM.Text = "CommandMap (PRACTICE)";
+			this.bStartPracticeCM.UseVisualStyleBackColor = true;
+			this.bStartPracticeCM.Click += new System.EventHandler(this.bStartPracticeCM_Click);
 			// 
 			// StartForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(190, 126);
+			this.ClientSize = new System.Drawing.Size(190, 215);
+			this.Controls.Add(this.bStartPracticeNormal);
+			this.Controls.Add(this.bStartPracticeCM);
 			this.Controls.Add(this.bStartWordNormal);
 			this.Controls.Add(this.bStartWordCM);
 			this.Controls.Add(this.numParticipant);
@@ -108,5 +132,7 @@
 		private System.Windows.Forms.NumericUpDown numParticipant;
 		private System.Windows.Forms.Button bStartWordCM;
 		private System.Windows.Forms.Button bStartWordNormal;
+		private System.Windows.Forms.Button bStartPracticeNormal;
+		private System.Windows.Forms.Button bStartPracticeCM;
 	}
 }

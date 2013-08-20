@@ -33,8 +33,15 @@ namespace CMStudy1 {
 			int idxCMW = (participant + 1) % 2;
 			int idxNW = participant % 2;
 
-			bStartWordCM.Top = 33 + idxCMW * 43;
-			bStartWordNormal.Top = 33 + idxNW * 43;
+			bStartPracticeCM.Top = 33 + idxCMW * 86;
+			bStartWordCM.Top = 76 + idxCMW * 86;
+			bStartPracticeNormal.Top = 33 + idxNW * 86;
+			bStartWordNormal.Top = 76 + idxNW * 86;
+
+			bStartPracticeCM.Enabled = true;
+			bStartWordCM.Enabled = true;
+			bStartPracticeNormal.Enabled = true;
+			bStartWordNormal.Enabled = true;
 		}
 
 		private void bStartWordCM_Click(object sender, EventArgs e) {
@@ -45,6 +52,16 @@ namespace CMStudy1 {
 		private void bStartWordNormal_Click(object sender, EventArgs e) {
 			StartWord2007(CM: false);
 			bStartWordNormal.Enabled = false;
+		}
+
+		private void bStartPracticeCM_Click(object sender, EventArgs e) {
+			StartWord2007(CM: true, practice: true);
+			bStartPracticeCM.Enabled = false;
+		}
+
+		private void bStartPracticeNormal_Click(object sender, EventArgs e) {
+			StartWord2007(CM: false, practice: true);
+			bStartPracticeNormal.Enabled = false;
 		}
 
 		private void OpenStatusForm(string app, bool CM, Process process) {
@@ -72,16 +89,25 @@ namespace CMStudy1 {
 		[DllImport("msi.dll", CharSet = CharSet.Auto, SetLastError = true)]
 		private extern static INSTALLSTATE MsiLocateComponent(string component, StringBuilder path, ref uint pathSize);
 
-		private void StartWord2007(bool CM) {
+		private void StartWord2007(bool CM, bool practice = false) {
+			int participant = (int)numParticipant.Value;
 			SetCommandMapEnabled(CM);
-			SetLogPath((int)numParticipant.Value, CM);
+			SetLogPath(participant, CM);
 
 			uint size = 300;
 			StringBuilder sb = new StringBuilder((int)size);
 			var installstate = MsiLocateComponent("{0638C49D-BB8B-4CD1-B191-051E8F325736}", sb, ref size);
 			if (installstate == INSTALLSTATE.INSTALLSTATE_LOCAL) {
-				Process p = Process.Start(sb.ToString());
-				OpenStatusForm("Word", CM, p);
+				string docPath;
+				if (practice) {
+					docPath = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "documents", "practice_document.docx");
+				} else {
+					docPath = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "documents", string.Format("P{0}_{1}.docx", participant, CM ? "CM" : "Normal"));
+				}
+				Process p = Process.Start(sb.ToString(), docPath);
+				if (!practice) {
+					OpenStatusForm("Word", CM, p);
+				}
 			} else {
 				MessageBox.Show("Error: Word 2007 not installed!", "Application missing", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
