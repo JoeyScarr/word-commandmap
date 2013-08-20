@@ -20,9 +20,6 @@ namespace CMStudy1 {
 
 		public StatusForm() {
 			InitializeComponent();
-
-			Top = Screen.PrimaryScreen.WorkingArea.Height - Height - 30;
-			Left = Screen.PrimaryScreen.WorkingArea.Width - Width - 30;
 		}
 
 		public StatusForm(int participant, string app, bool CM, Process process)
@@ -64,6 +61,11 @@ namespace CMStudy1 {
 				lStatus.Text = "Practice mode (not recording)";
 				bStartStop.Text = "Click to Begin!";
 			}
+		}
+
+		private void StatusForm_Load(object sender, EventArgs e) {
+			Top = Screen.PrimaryScreen.WorkingArea.Height - Height - 30;
+			Left = Screen.PrimaryScreen.WorkingArea.Width - Width - 30;
 		}
 	}
 }

@@ -59,6 +59,7 @@
 			this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
 			this.Text = "Stopped";
 			this.TopMost = true;
+			this.Load += new System.EventHandler(this.StatusForm_Load);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
