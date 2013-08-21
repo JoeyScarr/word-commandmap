@@ -290,7 +290,7 @@ namespace CommandMapAddIn {
 			// Text panel
 			var textBox = AddButton(panelText.Items, RibbonButtonStyle.DropDown, "Text Box", "TextBoxInsert", "TextBoxInsertGallery");
 			// MISSING: Text box gallery
-			AddButton(textBox.DropDownItems, RibbonButtonStyle.Normal, "Draw Text Box", "TextBoxInsert", "TextBoxDrawMenu");
+			AddButton(textBox.DropDownItems, RibbonButtonStyle.Normal, "Draw Text Box", "TextBoxInsert", "TextBoxWordClassic");
 			AddButton(textBox.DropDownItems, RibbonButtonStyle.Normal, "Save Selection to Text Box Gallery", "SaveSelectionToTextBoxGallery", "SaveSelectionToTextBoxGallery");
 			var quickParts = AddButton(panelText.Items, RibbonButtonStyle.DropDown, "Quick Parts", "QuickPartsInsertGallery", "QuickPartsInsertGallery");
 			AddButton(quickParts.DropDownItems, RibbonButtonStyle.DropDown, "Document Property", "PropertyInsert", "PropertyInsert");
