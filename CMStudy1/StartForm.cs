@@ -109,9 +109,7 @@ namespace CMStudy1 {
 					docPath = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "documents", string.Format("P{0}_Task{1}.docx", participant, task));
 				}
 				Process p = Process.Start(sb.ToString(), docPath);
-				if (!practice) {
-					OpenStatusForm("Word", CM, p);
-				}
+				OpenStatusForm(practice ? "Practice" : "Word", CM, p);
 			} else {
 				MessageBox.Show("Error: Word 2007 not installed!", "Application missing", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
