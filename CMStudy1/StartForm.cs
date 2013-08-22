@@ -45,22 +45,26 @@ namespace CMStudy1 {
 		}
 
 		private void bStartWordCM_Click(object sender, EventArgs e) {
-			StartWord2007(CM: true);
+			int participant = (int)numParticipant.Value;
+			StartWord2007(CM: true, task: participant % 2 + 1);
 			bStartWordCM.Enabled = false;
 		}
 
 		private void bStartWordNormal_Click(object sender, EventArgs e) {
-			StartWord2007(CM: false);
+			int participant = (int)numParticipant.Value;
+			StartWord2007(CM: false, task: (participant + 1) % 2 + 1);
 			bStartWordNormal.Enabled = false;
 		}
 
 		private void bStartPracticeCM_Click(object sender, EventArgs e) {
-			StartWord2007(CM: true, practice: true);
+			int participant = (int)numParticipant.Value;
+			StartWord2007(CM: true, task: participant % 2 + 1, practice: true);
 			bStartPracticeCM.Enabled = false;
 		}
 
 		private void bStartPracticeNormal_Click(object sender, EventArgs e) {
-			StartWord2007(CM: false, practice: true);
+			int participant = (int)numParticipant.Value;
+			StartWord2007(CM: false, task: (participant + 1) % 2 + 1, practice: true);
 			bStartPracticeNormal.Enabled = false;
 		}
 
@@ -89,7 +93,7 @@ namespace CMStudy1 {
 		[DllImport("msi.dll", CharSet = CharSet.Auto, SetLastError = true)]
 		private extern static INSTALLSTATE MsiLocateComponent(string component, StringBuilder path, ref uint pathSize);
 
-		private void StartWord2007(bool CM, bool practice = false) {
+		private void StartWord2007(bool CM, int task, bool practice = false) {
 			int participant = (int)numParticipant.Value;
 			SetCommandMapEnabled(CM);
 			SetLogPath(participant, CM);
@@ -100,9 +104,9 @@ namespace CMStudy1 {
 			if (installstate == INSTALLSTATE.INSTALLSTATE_LOCAL) {
 				string docPath;
 				if (practice) {
-					docPath = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "documents", "practice_document.docx");
+					docPath = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "documents", string.Format("P{0}_Practice{1}.docx", participant, task));
 				} else {
-					docPath = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "documents", string.Format("P{0}_{1}.docx", participant, CM ? "CM" : "Normal"));
+					docPath = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "documents", string.Format("P{0}_Task{1}.docx", participant, task));
 				}
 				Process p = Process.Start(sb.ToString(), docPath);
 				if (!practice) {
