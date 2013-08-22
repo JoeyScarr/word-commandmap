@@ -131,8 +131,6 @@ namespace CommandMapAddIn {
 		private void ThisAddIn_Shutdown(object sender, System.EventArgs e) {
 			m_ShuttingDown = true;
 			Log.Flush();
-			// Remove hooks.
-			HookManager.ForceUnsubscribeFromGlobalKeyboardEvents();
 		}
 
 		protected override Microsoft.Office.Core.IRibbonExtensibility CreateRibbonExtensibilityObject() {
