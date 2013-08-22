@@ -520,6 +520,7 @@
 			this.ShowInTaskbar = false;
 			this.Text = "Form1";
 			this.TopMost = true;
+			this.Load += new System.EventHandler(this.CommandMapForm_Load);
 			this.Enter += new System.EventHandler(this.CommandMapForm_Enter);
 			this.Leave += new System.EventHandler(this.CommandMapForm_Leave);
 			this.ResumeLayout(false);

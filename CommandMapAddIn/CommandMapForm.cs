@@ -23,8 +23,6 @@ namespace CommandMapAddIn {
 			InitializeComponent();
 
 			m_Controls = new List<RibbonItem>();
-
-			HookManager.MouseClick += HookManager_MouseClick;
 		}
 
 		public CommandMapForm(WordInstance instance)
@@ -36,10 +34,14 @@ namespace CommandMapAddIn {
 			BuildRibbon();
 		}
 
+		private void CommandMapForm_Load(object sender, EventArgs e) {
+			HookManager.MouseClick += HookManager_MouseClick;
+		}
+
 		private void HookManager_MouseClick(object sender, MouseEventArgs e) {
 			Thread t = new Thread(new ThreadStart(delegate() {
 				// Hide the CM if a click was detected outside the window.
-				if (!Bounds.Contains(e.Location)) {
+				if (Visible && !Bounds.Contains(e.Location)) {
 					Invoke(new System.Action(delegate() {
 						Hide();
 					}));
@@ -73,7 +75,9 @@ namespace CommandMapAddIn {
 		}
 
 		public new void Hide() {
-			Log.LogCommandMapClose();
+			if (Visible) {
+				Log.LogCommandMapClose();
+			}
 			base.Hide();
 		}
 

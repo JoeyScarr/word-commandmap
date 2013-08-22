@@ -23,7 +23,6 @@ namespace CommandMapAddIn {
 			
 			// Get the window handle.
 			m_WindowHandle = WindowsApi.GetForegroundWindow();
-			Console.WriteLine("{0}: {1}",WindowsApi.GetWindowTitle(m_WindowHandle),WindowsApi.GetAppPath(m_WindowHandle));
 		}
 
 		private void MinimizeRibbon() {
