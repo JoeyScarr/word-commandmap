@@ -200,12 +200,13 @@ namespace Gma.UserActivityMonitor {
 		}
 
 		private static void EnsureSubscribedToGlobalMouseEvents() {
-			lock (padlock) {
-				// install Mouse hook only if it is not installed and must be installed
-				if (s_MouseHookHandle == 0) {
-					//See comment of this field. To avoid GC to clean it up.
-					s_MouseDelegate = MouseHookProc;
-					Thread t = new Thread(delegate() {
+			Thread t = new Thread(delegate() {
+				bool keepRunning = false;
+				lock (padlock) {
+					// install Mouse hook only if it is not installed and must be installed
+					if (s_MouseHookHandle == 0) {
+						//See comment of this field. To avoid GC to clean it up.
+						s_MouseDelegate = MouseHookProc;
 						//install hook
 						s_MouseHookHandle = SetWindowsHookEx(
 								WH_MOUSE_LL,
@@ -223,11 +224,14 @@ namespace Gma.UserActivityMonitor {
 							//Initializes and throws a new instance of the Win32Exception class with the specified error. 
 							throw new Win32Exception(errorCode);
 						}
-						Application.Run();
-					});
-					t.Start();
+						keepRunning = true;
+					}
 				}
-			}
+				if (keepRunning) {
+					Application.Run();
+				}
+			});
+			t.Start();
 		}
 
 		private static void TryUnsubscribeFromGlobalMouseEvents() {
@@ -360,12 +364,13 @@ namespace Gma.UserActivityMonitor {
 		}
 
 		private static void EnsureSubscribedToGlobalKeyboardEvents() {
-			lock (padlock) {
-				// install Keyboard hook only if it is not installed and must be installed
-				if (s_KeyboardHookHandle == 0) {
-					//See comment of this field. To avoid GC to clean it up.
-					s_KeyboardDelegate = KeyboardHookProc;
-					Thread t = new Thread(delegate() {
+			Thread t = new Thread(delegate() {
+				bool keepRunning = false;
+				lock (padlock) {
+					// install Keyboard hook only if it is not installed and must be installed
+					if (s_KeyboardHookHandle == 0) {
+						//See comment of this field. To avoid GC to clean it up.
+						s_KeyboardDelegate = KeyboardHookProc;
 						//install hook
 						s_KeyboardHookHandle = SetWindowsHookEx(
 								WH_KEYBOARD_LL,
@@ -382,11 +387,14 @@ namespace Gma.UserActivityMonitor {
 							//Initializes and throws a new instance of the Win32Exception class with the specified error. 
 							throw new Win32Exception(errorCode);
 						}
-						Application.Run();
-					});
-					t.Start();
+						keepRunning = true;
+					}
 				}
-			}
+				if (keepRunning) {
+					Application.Run();
+				}
+			});
+			t.Start();
 		}
 
 		private static void TryUnsubscribeFromGlobalKeyboardEvents() {

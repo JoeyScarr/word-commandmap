@@ -31,18 +31,18 @@ namespace CommandMapAddIn {
 		}
 
 		public static void Flush() {
-			if (loggingEnabled && filename != null) {
-				Directory.CreateDirectory(Path.GetDirectoryName(filename));
-				lock (lines) {
+			lock (lines) {
+				if (loggingEnabled && filename != null) {
+					Directory.CreateDirectory(Path.GetDirectoryName(filename));
 					using (StreamWriter sw = new StreamWriter(filename, true)) {
 						foreach (string line in lines) {
 							sw.WriteLine(line);
 						}
 						lines.Clear();
 					}
+				} else {
+					lines.Clear();
 				}
-			} else {
-				lines.Clear();
 			}
 		}
 
