@@ -29,7 +29,6 @@ namespace CMStudy2 {
 
 		private void UpdateOrdering() {
 			int participant = (int)numParticipant.Value - 1;
-			int day = (int)numDay.Value;
 
 			int idxCMP = participant % 2 * 2 + (participant / 2) % 2;
 			int idxCMW = participant % 2 * 2 + (participant / 2 + 1) % 2;
@@ -40,36 +39,45 @@ namespace CMStudy2 {
 			bStartWordCM.Top = 59 + idxCMW * 43;
 			bStartPintaNormal.Top = 59 + idxNP * 43;
 			bStartWordNormal.Top = 59 + idxNW * 43;
+
+			bStartPintaCM.Enabled = true;
+			bStartWordCM.Enabled = true;
+			bStartPintaNormal.Enabled = true;
+			bStartWordNormal.Enabled = true;
 		}
 
 		private void bStartWordCM_Click(object sender, EventArgs e) {
 			StartWord2007(CM: true);
+			bStartWordCM.Enabled = false;
 		}
 
 		private void bStartWordNormal_Click(object sender, EventArgs e) {
 			StartWord2007(CM: false);
+			bStartWordNormal.Enabled = false;
 		}
 
 		private void bStartPintaCM_Click(object sender, EventArgs e) {
 			StartPinta(CM: true);
+			bStartPintaCM.Enabled = false;
 		}
 
 		private void bStartPintaNormal_Click(object sender, EventArgs e) {
 			StartPinta(CM: false);
+			bStartPintaNormal.Enabled = false;
 		}
 
-		private void OpenStatusForm(string app, bool CM) {
-			StatusForm sf = new StatusForm((int)numParticipant.Value, (int)numDay.Value, app, CM);
+		private void OpenStatusForm(string app, bool CM, Process process) {
+			StatusForm sf = new StatusForm((int)numParticipant.Value, (int)numDay.Value, app, CM, process);
 			sf.Show();
 		}
 
 		private void StartPinta(bool CM) {
 			// Look for Pinta in the application folder + "/Pinta"
 			string dir = Path.GetDirectoryName(Application.ExecutablePath);
-			string path = Path.Combine(dir, CM ? "PintaCM" : "PintaNormal", "Pinta.exe");
+			string path = Path.Combine(dir, CM ? "Pinta-CM" : "Pinta-Normal", "Pinta.exe");
 			if (File.Exists(path)) {
-				Process.Start(path);
-				OpenStatusForm("Pinta", CM);
+				Process p = Process.Start(path);
+				OpenStatusForm("Pinta", CM, p);
 			} else {
 				MessageBox.Show(string.Format("Error: Couldn't find Pinta in location {0}", path),
 					"Application missing", MessageBoxButtons.OK, MessageBoxIcon.Error);

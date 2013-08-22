@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace CMStudy2 {
@@ -13,6 +15,7 @@ namespace CMStudy2 {
 		private int m_Block = 0;
 		private string m_App = "Pinta";
 		private string m_Interface = "CM";
+		private Process m_Process;
 
 		private bool m_Running = false;
 
@@ -20,14 +23,25 @@ namespace CMStudy2 {
 			InitializeComponent();
 		}
 
-		public StatusForm(int participant, int block, string app, bool CM)
+		public StatusForm(int participant, int block, string app, bool CM, Process process)
 			: this() {
 			m_Participant = participant;
 			m_Block = block;
 			m_App = app;
+			m_Process = process;
 			m_Interface = CM ? "CM" : "Normal";
 			Log.StartLogging(string.Format("logs\\P{0}_D{1}_{2}_{3}.txt", m_Participant, m_Block, m_App, m_Interface));
 			Text = string.Format("P:{0} D:{1} A:{2} I:{3}", m_Participant, m_Block, m_App, m_Interface);
+			UpdateStatus();
+
+			// Set up a thread that will close this form when the app closes
+			Thread t = new Thread(delegate() {
+				m_Process.WaitForExit();
+				this.Invoke(new Action(delegate() {
+					Close();
+				}));
+			});
+			t.Start();
 		}
 
 		private void bStartStop_Click(object sender, EventArgs e) {
@@ -46,9 +60,14 @@ namespace CMStudy2 {
 				lStatus.Text = "Recording started at " + DateTime.Now.ToShortTimeString();
 				bStartStop.Text = "Click when Finished";
 			} else {
-				lStatus.Text = "Not recording";
+				lStatus.Text = "Practice mode (not recording)";
 				bStartStop.Text = "Click to Begin!";
 			}
+		}
+
+		private void StatusForm_Load(object sender, EventArgs e) {
+			Top = Screen.PrimaryScreen.WorkingArea.Height - Height - 30;
+			Left = Screen.PrimaryScreen.WorkingArea.Width - Width - 30;
 		}
 	}
 }
