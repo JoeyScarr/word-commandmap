@@ -40,14 +40,6 @@ namespace CommandMapAddIn {
 				Log.StartLogging(logPath);
 			}
 
-			// Hook mouse events for logging
-			HookManager.MouseDown += HookManager_MouseDown;
-			HookManager.MouseUp += HookManager_MouseUp;
-
-			// Hook keyboard events
-			HookManager.KeyDown += HookManager_KeyDown;
-			HookManager.KeyUp += HookManager_KeyUp;
-
 			if (m_CommandMapEnabled) {
 				// Spawn the on-screen activation button, and attach it to the Word window.
 				m_ActivationButton = new ActivationButton(m_Word);
@@ -59,6 +51,14 @@ namespace CommandMapAddIn {
 				m_CommandMap.Show();
 				m_CommandMap.Hide();
 			}
+
+			// Hook mouse events for logging
+			HookManager.MouseDown += HookManager_MouseDown;
+			HookManager.MouseUp += HookManager_MouseUp;
+
+			// Hook keyboard events
+			HookManager.KeyDown += HookManager_KeyDown;
+			HookManager.KeyUp += HookManager_KeyUp;
 		}
 
 		void HookManager_MouseUp(object sender, MouseEventArgs e) {
