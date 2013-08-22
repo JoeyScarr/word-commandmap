@@ -54,7 +54,7 @@ namespace CMStudy1 {
 
 		public static void LogTaskEnd() {
 			DateTime taskEnd = DateTime.Now;
-			LogString(string.Format("TASKEND {0} {1}", taskEnd.Ticks, (m_LastTaskStart - taskEnd).TotalSeconds));
+			LogString(string.Format("TASKEND {0} {1}", taskEnd.Ticks, (taskEnd - m_LastTaskStart).TotalSeconds));
 		}
 
 		public static void LogAppClosed() {
