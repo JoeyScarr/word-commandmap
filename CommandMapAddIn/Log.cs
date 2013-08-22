@@ -62,12 +62,12 @@ namespace CommandMapAddIn {
 			LogString(string.Format("KEYDOWN {0} {1}", string.Concat("'", key, "'"), DateTime.Now.Ticks));
 		}
 
-		public static void LogMouseDown(Point location) {
-			LogString(string.Format("MOUSEDOWN {0} {1} {2}", location.X, location.Y, DateTime.Now.Ticks));
+		public static void LogMouseDown(MouseEventArgs args) {
+			LogString(string.Format("MOUSEDOWN {0} {1} {2} {3}", args.X, args.Y, args.Button, DateTime.Now.Ticks));
 		}
 
-		public static void LogMouseUp(Point location) {
-			LogString(string.Format("MOUSEUP {0} {1} {2}", location.X, location.Y, DateTime.Now.Ticks));
+		public static void LogMouseUp(MouseEventArgs args) {
+			LogString(string.Format("MOUSEUP {0} {1} {2} {3}", args.X, args.Y, args.Button, DateTime.Now.Ticks));
 		}
 
 		public static void LogString(string str) {

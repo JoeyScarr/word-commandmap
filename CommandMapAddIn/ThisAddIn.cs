@@ -22,6 +22,7 @@ namespace CommandMapAddIn {
 		bool m_CtrlPressed = false;
 		bool m_ShuttingDown = false;
 		bool m_CommandMapEnabled = false;
+		Keys m_CurrentKeyDown = Keys.None;
 
 		private void ThisAddIn_Startup(object sender, System.EventArgs e) {
 			m_CommandMapEnabled = GlobalSettings.GetCommandMapEnabled();
@@ -63,7 +64,7 @@ namespace CommandMapAddIn {
 
 		void HookManager_MouseUp(object sender, MouseEventArgs e) {
 			Thread t = new Thread(delegate() {
-				Log.LogMouseUp(e.Location);
+				Log.LogMouseUp(e);
 			});
 			t.Start();
 		}
@@ -71,7 +72,7 @@ namespace CommandMapAddIn {
 		void HookManager_MouseDown(object sender, MouseEventArgs e) {
 			Thread t = new Thread(delegate() {
 				if (!m_ShuttingDown) {
-					Log.LogMouseDown(e.Location);
+					Log.LogMouseDown(e);
 				}
 			});
 			t.Start();
@@ -83,7 +84,10 @@ namespace CommandMapAddIn {
 
 		void HookManager_KeyDown(object sender, KeyEventArgs e) {
 			System.Action a = new System.Action(delegate() {
-				Log.LogKeyDown(e.KeyCode);
+				if (m_CurrentKeyDown != e.KeyData) {
+					Log.LogKeyDown(e.KeyData);
+					m_CurrentKeyDown = e.KeyData;
+				}
 				if (m_CommandMapEnabled) {
 					var key = e.KeyCode;
 					if (key == Keys.ControlKey || key == Keys.LControlKey || key == Keys.RControlKey || key == Keys.Control) {
@@ -112,6 +116,7 @@ namespace CommandMapAddIn {
 
 		void HookManager_KeyUp(object sender, KeyEventArgs e) {
 			System.Action a = new System.Action(delegate() {
+				m_CurrentKeyDown = Keys.None;
 				if (m_CommandMapEnabled) {
 					var key = e.KeyCode;
 					if (key == Keys.ControlKey || key == Keys.LControlKey || key == Keys.RControlKey || key == Keys.Control) {
