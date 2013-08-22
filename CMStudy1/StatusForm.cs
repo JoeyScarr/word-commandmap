@@ -35,6 +35,8 @@ namespace CMStudy1 {
 			// Set up a thread that will close this form when the app closes
 			Thread t = new Thread(delegate() {
 				m_Process.WaitForExit();
+				Log.LogAppClosed();
+				Log.Flush();
 				this.Invoke(new Action(delegate() {
 					Close();
 				}));
