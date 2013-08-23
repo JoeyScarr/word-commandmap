@@ -78,14 +78,14 @@ namespace CMStudy2 {
 		private void StartPinta(bool CM, int task) {
 			int participant = (int)numParticipant.Value;
 			int block = (int)numDay.Value;
-			
+
 			// Look for Pinta in the application folder + "/Pinta"
 			string dir = Path.GetDirectoryName(Application.ExecutablePath);
 			string path = Path.Combine(dir, CM ? "Pinta-CM" : "Pinta-Normal", "Pinta.exe");
 			if (File.Exists(path)) {
 				string docPath = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "documents", string.Format("P{0}_Task{1}_Day{2}.png", participant, task, block));
 				Console.WriteLine(docPath);
-				Process p = Process.Start(path);
+				Process p = Process.Start(path, string.Format("-sid {0} -blk {1} {2}", participant, block, docPath));
 				OpenStatusForm("Pinta", CM, p);
 			} else {
 				MessageBox.Show(string.Format("Error: Couldn't find Pinta in location {0}", path),
