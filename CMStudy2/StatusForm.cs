@@ -31,6 +31,7 @@ namespace CMStudy2 {
 			m_Process = process;
 			m_Interface = CM ? "CM" : "Normal";
 			Log.StartLogging(string.Format("logs\\P{0}_D{1}_{2}_{3}.txt", m_Participant, m_Block, m_App, m_Interface));
+			Log.LogAppOpened();
 			Text = string.Format("P:{0} D:{1} A:{2} I:{3}", m_Participant, m_Block, m_App, m_Interface);
 			UpdateStatus();
 
@@ -38,6 +39,8 @@ namespace CMStudy2 {
 			Thread t = new Thread(delegate() {
 				m_Process.WaitForExit();
 				this.Invoke(new Action(delegate() {
+					Log.LogAppClosed();
+					Log.Flush();
 					Close();
 				}));
 			});

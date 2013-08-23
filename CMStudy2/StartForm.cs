@@ -30,10 +30,10 @@ namespace CMStudy2 {
 		private void UpdateOrdering() {
 			int participant = (int)numParticipant.Value - 1;
 
-			int idxCMP = participant % 2 * 2 + (participant / 2) % 2;
-			int idxCMW = participant % 2 * 2 + (participant / 2 + 1) % 2;
-			int idxNP = (participant + 1) % 2 * 2 + (participant / 2) % 2;
-			int idxNW = (participant + 1) % 2 * 2 + (participant / 2 + 1) % 2;
+			int idxNP = participant % 2 * 2 + (participant / 2) % 2;
+			int idxNW = participant % 2 * 2 + (participant / 2 + 1) % 2;
+			int idxCMP = (participant + 1) % 2 * 2 + (participant / 2) % 2;
+			int idxCMW = (participant + 1) % 2 * 2 + (participant / 2 + 1) % 2;
 
 			bStartPintaCM.Top = 59 + idxCMP * 43;
 			bStartWordCM.Top = 59 + idxCMW * 43;
@@ -46,24 +46,28 @@ namespace CMStudy2 {
 			bStartWordNormal.Enabled = true;
 		}
 
-		private void bStartWordCM_Click(object sender, EventArgs e) {
-			StartWord2007(CM: true);
-			bStartWordCM.Enabled = false;
-		}
-
 		private void bStartWordNormal_Click(object sender, EventArgs e) {
-			StartWord2007(CM: false);
+			int participant = (int)numParticipant.Value;
+			StartWord2007(CM: false, task: (participant + 1) % 2 + 1);
 			bStartWordNormal.Enabled = false;
 		}
 
-		private void bStartPintaCM_Click(object sender, EventArgs e) {
-			StartPinta(CM: true);
-			bStartPintaCM.Enabled = false;
+		private void bStartWordCM_Click(object sender, EventArgs e) {
+			int participant = (int)numParticipant.Value;
+			StartWord2007(CM: true, task: participant % 2 + 1);
+			bStartWordCM.Enabled = false;
 		}
 
 		private void bStartPintaNormal_Click(object sender, EventArgs e) {
-			StartPinta(CM: false);
+			int participant = (int)numParticipant.Value;
+			StartPinta(CM: false, task: (participant + 1) % 2 + 1);
 			bStartPintaNormal.Enabled = false;
+		}
+
+		private void bStartPintaCM_Click(object sender, EventArgs e) {
+			int participant = (int)numParticipant.Value;
+			StartPinta(CM: true, task: participant % 2 + 1);
+			bStartPintaCM.Enabled = false;
 		}
 
 		private void OpenStatusForm(string app, bool CM, Process process) {
@@ -71,11 +75,16 @@ namespace CMStudy2 {
 			sf.Show();
 		}
 
-		private void StartPinta(bool CM) {
+		private void StartPinta(bool CM, int task) {
+			int participant = (int)numParticipant.Value;
+			int block = (int)numDay.Value;
+			
 			// Look for Pinta in the application folder + "/Pinta"
 			string dir = Path.GetDirectoryName(Application.ExecutablePath);
 			string path = Path.Combine(dir, CM ? "Pinta-CM" : "Pinta-Normal", "Pinta.exe");
 			if (File.Exists(path)) {
+				string docPath = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "documents", string.Format("P{0}_Task{1}_Day{2}.png", participant, task, block));
+				Console.WriteLine(docPath);
 				Process p = Process.Start(path);
 				OpenStatusForm("Pinta", CM, p);
 			} else {
@@ -104,15 +113,19 @@ namespace CMStudy2 {
 		[DllImport("msi.dll", CharSet = CharSet.Auto, SetLastError = true)]
 		private extern static INSTALLSTATE MsiLocateComponent(string component, StringBuilder path, ref uint pathSize);
 
-		private void StartWord2007(bool CM) {
+		private void StartWord2007(bool CM, int task) {
+			int participant = (int)numParticipant.Value;
+			int block = (int)numDay.Value;
 			SetCommandMapEnabled(CM);
+			SetLogPath(participant, CM);
 
 			uint size = 300;
 			StringBuilder sb = new StringBuilder((int)size);
 			var installstate = MsiLocateComponent("{0638C49D-BB8B-4CD1-B191-051E8F325736}", sb, ref size);
 			if (installstate == INSTALLSTATE.INSTALLSTATE_LOCAL) {
-				Process.Start(sb.ToString());
-				OpenStatusForm("Word", CM);
+				string docPath = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "documents", string.Format("P{0}_Task{1}_Day{2}.docx", participant, task, block));
+				Process p = Process.Start(sb.ToString(), docPath);
+				OpenStatusForm("Word", CM, p);
 			} else {
 				MessageBox.Show("Error: Word 2007 not installed!", "Application missing", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
@@ -121,6 +134,13 @@ namespace CMStudy2 {
 		public static void SetCommandMapEnabled(bool value) {
 			RegistryKey key = Registry.CurrentUser.CreateSubKey("WordCommandMap");
 			key.SetValue("CMEnabled", value ? 1 : 0, RegistryValueKind.DWord);
+			key.Close();
+		}
+
+		public static void SetLogPath(int participant, bool CM) {
+			RegistryKey key = Registry.CurrentUser.CreateSubKey("WordCommandMap");
+			key.SetValue("LogPath", Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "wordlogs",
+				string.Format("P{0}_{1}.txt", participant, CM ? "CM" : "Normal")), RegistryValueKind.String);
 			key.Close();
 		}
 	}
