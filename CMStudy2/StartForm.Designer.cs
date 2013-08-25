@@ -31,6 +31,7 @@
 			this.bStartWordNormal = new System.Windows.Forms.Button();
 			this.bStartPintaCM = new System.Windows.Forms.Button();
 			this.bStartPintaNormal = new System.Windows.Forms.Button();
+			this.bCMDemonstration = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.numParticipant)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.numDay)).BeginInit();
 			this.SuspendLayout();
@@ -91,6 +92,7 @@
             0,
             0,
             0});
+			this.numDay.ValueChanged += new System.EventHandler(this.numDay_ValueChanged);
 			// 
 			// label2
 			// 
@@ -141,11 +143,22 @@
 			this.bStartPintaNormal.UseVisualStyleBackColor = true;
 			this.bStartPintaNormal.Click += new System.EventHandler(this.bStartPintaNormal_Click);
 			// 
+			// bCMDemonstration
+			// 
+			this.bCMDemonstration.Location = new System.Drawing.Point(12, 231);
+			this.bCMDemonstration.Name = "bCMDemonstration";
+			this.bCMDemonstration.Size = new System.Drawing.Size(166, 37);
+			this.bCMDemonstration.TabIndex = 6;
+			this.bCMDemonstration.Text = "CM Demonstration";
+			this.bCMDemonstration.UseVisualStyleBackColor = true;
+			this.bCMDemonstration.Click += new System.EventHandler(this.bCMDemonstration_Click);
+			// 
 			// StartForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(190, 238);
+			this.ClientSize = new System.Drawing.Size(190, 281);
+			this.Controls.Add(this.bCMDemonstration);
 			this.Controls.Add(this.bStartPintaNormal);
 			this.Controls.Add(this.bStartPintaCM);
 			this.Controls.Add(this.bStartWordNormal);
@@ -174,5 +187,6 @@
 		private System.Windows.Forms.Button bStartWordNormal;
 		private System.Windows.Forms.Button bStartPintaCM;
 		private System.Windows.Forms.Button bStartPintaNormal;
+		private System.Windows.Forms.Button bCMDemonstration;
 	}
 }

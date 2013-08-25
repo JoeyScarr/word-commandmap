@@ -23,27 +23,39 @@ namespace CMStudy2 {
 			UpdateOrdering();
 		}
 
+		private void numDay_ValueChanged(object sender, EventArgs e) {
+			UpdateOrdering();
+		}
+
 		private void numParticipant_KeyDown(object sender, KeyEventArgs e) {
 			UpdateOrdering();
 		}
 
 		private void UpdateOrdering() {
 			int participant = (int)numParticipant.Value - 1;
+			int day = (int)numDay.Value;
 
 			int idxNP = participant % 2 * 2 + (participant / 2) % 2;
 			int idxNW = participant % 2 * 2 + (participant / 2 + 1) % 2;
 			int idxCMP = (participant + 1) % 2 * 2 + (participant / 2) % 2;
 			int idxCMW = (participant + 1) % 2 * 2 + (participant / 2 + 1) % 2;
 
-			bStartPintaCM.Top = 59 + idxCMP * 43;
-			bStartWordCM.Top = 59 + idxCMW * 43;
-			bStartPintaNormal.Top = 59 + idxNP * 43;
-			bStartWordNormal.Top = 59 + idxNW * 43;
+			bCMDemonstration.Top = 59;
+			bStartPintaCM.Top = 102 + idxCMP * 43;
+			bStartWordCM.Top = 102 + idxCMW * 43;
+			bStartPintaNormal.Top = 102 + idxNP * 43;
+			bStartWordNormal.Top = 102 + idxNW * 43;
 
+			bCMDemonstration.Enabled = (day == 1);
 			bStartPintaCM.Enabled = true;
 			bStartWordCM.Enabled = true;
 			bStartPintaNormal.Enabled = true;
 			bStartWordNormal.Enabled = true;
+		}
+
+		private void bCMDemonstration_Click(object sender, EventArgs e) {
+			StartWord2007(CM: true, task: 0, practice: true);
+			StartPinta(CM: true, task: 0, practice: true);
 		}
 
 		private void bStartWordNormal_Click(object sender, EventArgs e) {
@@ -75,7 +87,7 @@ namespace CMStudy2 {
 			sf.Show();
 		}
 
-		private void StartPinta(bool CM, int task) {
+		private void StartPinta(bool CM, int task, bool practice = false) {
 			int participant = (int)numParticipant.Value;
 			int block = (int)numDay.Value;
 
@@ -83,10 +95,14 @@ namespace CMStudy2 {
 			string dir = Path.GetDirectoryName(Application.ExecutablePath);
 			string path = Path.Combine(dir, CM ? "Pinta-CM" : "Pinta-Normal", "Pinta.exe");
 			if (File.Exists(path)) {
-				string docPath = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "documents", string.Format("P{0}_Task{1}_Day{2}.png", participant, task, block));
-				Console.WriteLine(docPath);
-				Process p = Process.Start(path, string.Format("-sid {0} -blk {1} {2}", participant, block, docPath));
-				OpenStatusForm("Pinta", CM, p);
+				if (practice) {
+					Process.Start(path, string.Format("-sid {0} -blk {1}", participant, block));
+				} else {
+					string docPath = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "documents", string.Format("P{0}_Task{1}_Day{2}.png", participant, task, block));
+					Console.WriteLine(docPath);
+					Process p = Process.Start(path, string.Format("-sid {0} -blk {1} {2}", participant, block, docPath));
+					OpenStatusForm("Pinta", CM, p);
+				}
 			} else {
 				MessageBox.Show(string.Format("Error: Couldn't find Pinta in location {0}", path),
 					"Application missing", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -113,7 +129,7 @@ namespace CMStudy2 {
 		[DllImport("msi.dll", CharSet = CharSet.Auto, SetLastError = true)]
 		private extern static INSTALLSTATE MsiLocateComponent(string component, StringBuilder path, ref uint pathSize);
 
-		private void StartWord2007(bool CM, int task) {
+		private void StartWord2007(bool CM, int task, bool practice = false) {
 			int participant = (int)numParticipant.Value;
 			int block = (int)numDay.Value;
 			SetCommandMapEnabled(CM);
@@ -123,9 +139,13 @@ namespace CMStudy2 {
 			StringBuilder sb = new StringBuilder((int)size);
 			var installstate = MsiLocateComponent("{0638C49D-BB8B-4CD1-B191-051E8F325736}", sb, ref size);
 			if (installstate == INSTALLSTATE.INSTALLSTATE_LOCAL) {
-				string docPath = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "documents", string.Format("P{0}_Task{1}_Day{2}.docx", participant, task, block));
-				Process p = Process.Start(sb.ToString(), docPath);
-				OpenStatusForm("Word", CM, p);
+				if (practice) {
+					Process.Start(sb.ToString());
+				} else {
+					string docPath = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "documents", string.Format("P{0}_Task{1}_Day{2}.docx", participant, task, block));
+					Process p = Process.Start(sb.ToString(), docPath);
+					OpenStatusForm("Word", CM, p);
+				}
 			} else {
 				MessageBox.Show("Error: Word 2007 not installed!", "Application missing", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
