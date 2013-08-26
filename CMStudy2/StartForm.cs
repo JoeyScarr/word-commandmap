@@ -40,17 +40,24 @@ namespace CMStudy2 {
 			int idxCMP = (participant + 1) % 2 * 2 + (participant / 2) % 2;
 			int idxCMW = (participant + 1) % 2 * 2 + (participant / 2 + 1) % 2;
 
-			bCMDemonstration.Top = 59;
-			bStartPintaCM.Top = 102 + idxCMP * 43;
-			bStartWordCM.Top = 102 + idxCMW * 43;
-			bStartPintaNormal.Top = 102 + idxNP * 43;
-			bStartWordNormal.Top = 102 + idxNW * 43;
+			bNormalDemonstration.Top = 59;
+			bCMDemonstration.Top = 102;
+			bStartPintaCM.Top = 145 + idxCMP * 43;
+			bStartWordCM.Top = 145 + idxCMW * 43;
+			bStartPintaNormal.Top = 145 + idxNP * 43;
+			bStartWordNormal.Top = 145 + idxNW * 43;
 
+			bNormalDemonstration.Enabled = (day == 1);
 			bCMDemonstration.Enabled = (day == 1);
 			bStartPintaCM.Enabled = true;
 			bStartWordCM.Enabled = true;
 			bStartPintaNormal.Enabled = true;
 			bStartWordNormal.Enabled = true;
+		}
+
+		private void bNormalDemonstration_Click(object sender, EventArgs e) {
+			StartWord2007(CM: false, task: 0, practice: true);
+			StartPinta(CM: false, task: 0, practice: true);
 		}
 
 		private void bCMDemonstration_Click(object sender, EventArgs e) {
