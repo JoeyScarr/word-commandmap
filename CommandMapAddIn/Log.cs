@@ -13,6 +13,7 @@ namespace CommandMapAddIn {
 		private static List<string> lines = new List<string>();
 		private static int BUFFER_SIZE = 20;
 
+#if LOGGING
 		public static void DisableLogging() {
 			loggingEnabled = false;
 		}
@@ -29,8 +30,10 @@ namespace CommandMapAddIn {
 				Flush();
 			}
 		}
+#endif
 
 		public static void Flush() {
+#if LOGGING
 			lock (lines) {
 				if (loggingEnabled && filename != null) {
 					Directory.CreateDirectory(Path.GetDirectoryName(filename));
@@ -44,6 +47,7 @@ namespace CommandMapAddIn {
 					lines.Clear();
 				}
 			}
+#endif
 		}
 
 		public static void LogCommand(string msoName) {
@@ -71,10 +75,12 @@ namespace CommandMapAddIn {
 		}
 
 		public static void LogString(string str) {
+#if LOGGING
 			lock (lines) {
 				lines.Add(str);
 			}
 			FlushIfNecessary();
+#endif
 		}
 	}
 }

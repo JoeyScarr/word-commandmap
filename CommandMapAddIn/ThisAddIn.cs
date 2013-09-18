@@ -36,10 +36,12 @@ namespace CommandMapAddIn {
 			// Create a WordInstance
 			m_Word = new WordInstance(Application);
 
+#if LOGGING
 			string logPath = GlobalSettings.GetLogPath();
 			if (!string.IsNullOrEmpty(logPath)) {
 				Log.StartLogging(logPath);
 			}
+#endif
 
 			if (m_CommandMapEnabled) {
 				// Spawn the on-screen activation button, and attach it to the Word window.
