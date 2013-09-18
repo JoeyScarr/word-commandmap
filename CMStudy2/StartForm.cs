@@ -8,6 +8,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Threading;
 using System.Windows.Forms;
 using Microsoft.Win32;
 
@@ -56,13 +57,14 @@ namespace CMStudy2 {
 		}
 
 		private void bNormalDemonstration_Click(object sender, EventArgs e) {
-			StartWord2007(CM: false, task: 0, practice: true);
 			StartPinta(CM: false, task: 0, practice: true);
+			StartWord2007(CM: false, task: 0, practice: true);
 		}
 
 		private void bCMDemonstration_Click(object sender, EventArgs e) {
-			StartWord2007(CM: true, task: 0, practice: true);
 			StartPinta(CM: true, task: 0, practice: true);
+			Thread.Sleep(2000);
+			StartWord2007(CM: true, task: 0, practice: true);
 		}
 
 		private void bStartWordNormal_Click(object sender, EventArgs e) {
